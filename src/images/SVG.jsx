@@ -3,9 +3,9 @@ import React from 'react'
 export function SvgObservatory(props) {
     return (
         <svg
+            width="1em"
             height="1em"
             viewBox="0 0 512 512"
-            width="1em"
             xmlns="http://www.w3.org/2000/svg"
             {...props}
         >
