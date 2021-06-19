@@ -1,0 +1,41 @@
+.cards {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.cards .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.cards .item {
+    width: 210px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border: 1px solid #fff;
+    border-radius: 16px;
+    font-size: 60px;
+    color: #C5C5C5;
+    font-family: 'Rajdhani';
+
+}
+
+@media screen and (max-width:800px) {
+    .cards .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width:480px) {
+    .cards .grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
