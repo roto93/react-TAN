@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import '../css/Banner.css'
 import * as SVG from '../images/SVG'
+import { Link } from 'react-router-dom';
 
 export default function Banner() {
     const [showNav, setShowNav] = useState(false);
@@ -18,21 +19,29 @@ export default function Banner() {
             </header>
             <div className={showNav ? "menu active" : "menu"}>
                 <ul>
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Links</li>
-                    <li>Archive</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/about">About</Link>
+                    </li>
+                    <li>
+                        <Link to="/links">Links</Link>
+                    </li>
+                    <li>
+                        <Link to="/Archive">Archive</Link>
+                    </li>
                 </ul>
             </div>
             <div className="title-box">
                 <ul className="nav">
-                    <li>Home</li>
-                    <li>About</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
                     <div className="observatory">
                         <SVG.SvgObservatory />
                     </div>
-                    <li>Links</li>
-                    <li>Archive</li>
+                    <li><Link to="/links">Links</Link></li>
+                    <li><Link to="/Archive">Archive</Link></li>
                 </ul>
                 <div className="txt">
 

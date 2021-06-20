@@ -1,27 +1,37 @@
-import './reset.css'
-import './App.css';
-import React, { useState } from 'react'
-import * as SVG from './images/SVG'
+import './css/reset.css'
+import './css/App.css';
+import React from 'react'
 import Banner from './components/Banner';
 import LatestNews from './components/LatestNews'
 import Cards from './components/Cards'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App() {
-  const [showNav, setShowNav] = useState(false);
 
 
   return (
-    <div className="App">
-      <Banner />
-      {/* <div className="gradient">
-        <SVG.SvgGradientBox />
-      </div> */}
-      <article>
-        <LatestNews />
-        <Cards />
-      </article>
-
-    </div >
+    <Router>
+      <div className="App">
+        <Banner />
+        <article>
+          <Switch>
+            <Route exact path="/">
+              <LatestNews />
+              <Cards />
+            </Route>
+            <Route>
+              {/* <About /> */}
+            </Route>
+            <Route>
+              {/* <Links /> */}
+            </Route>
+            <Route>
+              {/* <Archive /> */}
+            </Route>
+          </Switch>
+        </article>
+      </div >
+    </Router>
   );
 }
 

@@ -13,6 +13,7 @@
     justify-content: center
     align-items: center
     
+    
 .banner header 
     position: absolute
     top: 0
@@ -52,9 +53,12 @@ header .observatory
     height: 0
     overflow: hidden
     transition:all 0.5s ease-out
-  
-.menu.active
-    height: 192px
+    &.active
+        height: 192px
+    & a 
+        color #000
+        text-decoration none
+        -webkit-tap-highlight-color: transparent;
   
 .menu li
     height: 48px
@@ -78,6 +82,11 @@ header .observatory
     justify-content: space-evenly
     align-items: center
     margin-bottom: 16px
+    & a 
+        color #fff
+        text-decoration none
+        -webkit-tap-highlight-color: transparent;
+
   
   
 .title-box .nav li
@@ -140,7 +149,7 @@ header .observatory
   
 
   
-  @media screen and (max-width:800px) 
+@media screen and (max-width:800px) 
     header .burger
         display:flex
 
@@ -152,5 +161,4 @@ header .observatory
   
     .title-box .nav
         display: none
-  
   

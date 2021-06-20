@@ -55,6 +55,11 @@ header .observatory {
 .menu.active {
   height: 192px;
 }
+.menu a {
+  color: #000;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
 .menu li {
   height: 48px;
   display: flex;
@@ -75,6 +80,11 @@ header .observatory {
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 16px;
+}
+.title-box .nav a {
+  color: #fff;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 .title-box .nav li {
   font-size: 26px;
