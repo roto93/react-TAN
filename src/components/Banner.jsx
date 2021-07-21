@@ -1,65 +1,48 @@
 import React, { useState } from 'react'
-import '../css/Banner.css'
 import * as SVG from '../images/SVG'
-import { Link } from 'react-router-dom';
 
-export default function Banner() {
-    const [showNav, setShowNav] = useState(false);
+function Banner() {
 
-    return (
-        <div className="banner">
-            <header>
-                <div className="observatory">
-                    <SVG.SvgObservatory />
-                </div>
-                <div className="burger"
-                    onClick={() => { setShowNav(!showNav) }}>
-                    <SVG.SvgMenu />
-                </div>
-            </header>
-            <div className={showNav ? "menu active" : "menu"}>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                    </li>
-                    <li>
-                        <Link to="/about">About</Link>
-                    </li>
-                    <li>
-                        <Link to="/links">Links</Link>
-                    </li>
-                    <li>
-                        <Link to="/Archive">Archive</Link>
-                    </li>
-                </ul>
-            </div>
-            <div className="title-box">
-                <ul className="nav">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About</Link></li>
-                    <div className="observatory">
-                        <SVG.SvgObservatory />
-                    </div>
-                    <li><Link to="/links">Links</Link></li>
-                    <li><Link to="/Archive">Archive</Link></li>
-                </ul>
-                <div className="txt">
+  const [showMenu, setShowMenu] = useState(false);
 
-                    <div>
-                        <h1>T</h1><h2>aiwan</h2>
-                    </div>
-                    <div>
-                        <h1>A</h1><h2>stronomy</h2>
-                    </div>
-                    <div>
-                        <h1>N</h1><h2>etwork</h2>
-                    </div>
-                </div>
-                <div className="arrow">
-                    <SVG.SvgArrow />
-                </div>
-            </div>
-            <div className="gradient"></div>
+  const toggleMenu = () => {
+    setShowMenu(prev => !prev)
+    console.log('toggle menu')
+  }
+
+
+
+
+
+
+  return (
+    <div className={'banner'}>
+      <div className="container">
+        <div className="banner__content">
+
+          {/* topNav */}
+          <ul className="banner__topNav">
+            <li className="banner__topNav__logo"><SVG.SvgObservatory /></li>
+            <ul className={`banner__topNav__list ${showMenu && 'active'}`}>
+              <li className="banner__topNav__item">Home</li>
+              <li className="banner__topNav__item">About</li>
+              <li className="banner__topNav__item">Link</li>
+              <li className="banner__topNav__item">Archive</li>
+            </ul>
+            <li onClick={toggleMenu} className="banner__topNav__menu"><SVG.SvgMenu /></li>
+          </ul>
+
+          {/* TAN 標題 */}
+          <div className="banner__title">
+            <h1 className="banner__title__h1">Taiwan</h1>
+            <h1 className="banner__title__h1">Astronomy</h1>
+            <h1 className="banner__title__h1">Network</h1>
+          </div>
+          <div className="banner__arrow"><SVG.SvgArrow /></div>
         </div>
-    )
+      </div>
+    </div>
+  )
 }
+
+export default Banner

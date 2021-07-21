@@ -1,69 +1,95 @@
-html {
-  background-color: #222F43;
-}
-
-.App {
-  position: relative;
-  width: 100%;
-  max-width: 1440px;
-  margin: auto;
-  height: 100%;
+* {
   color: #fff;
-  overflow: hidden;
-  user-select: none;
+  box-sizing: border-box;
 }
-
-.App:before {
-  content: '';
-  width: 5%;
-  max-width: 60px;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  z-index: 2;
-  background: linear-gradient(90deg, #222F43, transparent);
+html {
+  background-color: #222f43;
 }
-
-.App:after {
-  content: '';
-  width: 5%;
-  max-width: 60px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  background: linear-gradient(270deg, #222F43, transparent);
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-article {
+.banner {
+  color: #ffdede;
+  height: 100vh;
+  background: url("../images/NightSkyBackground.jpeg") no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   position: relative;
-  width: 100%;
-  /* height: 2000px; */
-  padding-bottom: 200px;
 }
-
-article::before {
-  content: '';
+.banner__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+.banner__topNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   position: absolute;
   top: 0;
-  z-index: -1;
   width: 100%;
-  height: 200px;
-  background: linear-gradient(180deg, #222F43, transparent);
+  height: 64px;
+  background-color: rgba(0,0,0,0.4);
 }
-
-article:after {
-  content: '';
+.banner__topNav__list {
+  display: inline-block;
   position: absolute;
-  top: 0;
-  z-index: -2;
-  width: 100%;
-  height: 100%;
-  background: url(../images/OrionBackground.jpg);
-  /* full size: 1445*2661 */
-  background-size: 1445px 2661px;
-  background-position: top center;
-  /* background-repeat: no-repeat; */
-  opacity: 0.1;
+  transform: translate(101%, 62.5%);
+  transition: transform 0.3s ease-in-out;
+}
+.banner__topNav__list.active {
+  transform: translate(0%, 62.5%);
+}
+.banner__topNav__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 60px;
+  background-color: rgba(221,221,221,0.533);
+}
+.banner__topNav__logo {
+  position: absolute;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+}
+.banner__topNav__menu {
+  position: absolute;
+  right: 20px;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+}
+.banner__title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  padding: 1.25em 1em;
+  border-top: 2px solid rgba(255,255,255,0.533);
+  border-bottom: 2px solid rgba(255,255,255,0.533);
+  font-size: 40px;
+  line-height: 1.4;
+  font-family: 'Numans';
+}
+.banner__arrow {
+  position: absolute;
+  bottom: 50px;
+  font-size: 40px;
+  transform: translateY(0);
 }
