@@ -3,6 +3,7 @@
     box-sizing: border-box
 
 text-primary = #FFDEDE
+text-secondary = #D8E0FF
 
 display-flex(direction, main, cross)
     display flex
@@ -17,48 +18,65 @@ html
 
 
 .container
+    // border 1px solid #fff
     width: 100%
     max-width: 1200px
     margin:0 auto
+    height 100%
+    position relative
+    overflow hidden
 
 
 .banner
-    color: text-primary
     height: 100vh
+    min-height: 500px
     background: url('../images/NightSkyBackground.jpeg')  no-repeat
     background-size: cover
     background-position: center bottom
     display-flex row center center
     position relative
+    & .container
+        display-flex row center center
+
+    // 橋接banner跟main的漸層
+    &:after
+        content: ''
+        position absolute
+        bottom 0
+        background: linear-gradient(0deg, #1B2533,transparent)
+        width 100%
+        height 100px
+        // border 1px solid #fff
 
 .banner__content
     display-flex column center center
     width 80%
     margin 0 auto
 
-
-
 .banner__topNav
     display-flex row flex-end center
-    position absolute
+    position fixed
     top 0
     width 100%
     height 64px
     background-color #00000066
+    z-index 100
 
 
 .banner__topNav__list
     display inline-block
     position absolute
-    transform translate(101%,62.5%)
+    top 0
+    transform translate(101%,64px)
     transition transform 0.3s ease-in-out
+    font-family 'Noto Sans'
     &.active
-        transform translate(0%,62.5%)
+        transform translate(0%,64px)
 
 .banner__topNav__item
     display-flex column center center
-    width 100px
-    height 60px
+    width 120px
+    height 40px
     background-color #dddddd88
 
 .banner__topNav__logo 
@@ -72,9 +90,10 @@ html
 .banner__topNav__menu
     position absolute
     right 20px
-    width 24px
-    height 24px
+    width 32px
+    height 32px
     font-size 24px
+    display-flex row center center
 
 
 
@@ -82,17 +101,86 @@ html
     display-flex row center center
     flex-wrap: wrap
     width 80%
+    min-width 250px
     padding 1.25em 1em
-    border-top: 2px solid #ffffff88
-    border-bottom: 2px solid #ffffff88
+    border-top: 5px solid #ffffff88
+    // border-bottom: 5px solid #ffffff88
+    border-radius: 50%
     font-size 40px
     line-height 1.4
     font-family 'Numans'
+    position relative
 
-
+.banner__title__h1
+    &.astronomy
+        margin 0 0.75em
 
 .banner__arrow
+    display-flex column center center
     position absolute
-    bottom 50px
-    font-size 40px
-    transform translateY(0)
+    bottom 0px
+    font-size 48px
+    transform translateY(80px)
+    animation jumping 1.5s ease-in-out  infinite 
+
+@keyframes jumping {
+    0% {
+        transform translateY(60px)    
+    }
+    50% {
+        transform translateY(80px)
+    }
+    100% {
+        transform translateY(60px)    
+    }
+}
+
+// main
+.main
+    // border 1px solid gold
+    height 1000px
+    background-image url('../images/OrionBackground.png')
+    background-size cover
+    background-position center 
+    background-attachment: fixed
+
+
+
+
+
+// News
+.news
+    // border 1px solid #fff
+    text-align: center
+    padding 2em 0
+    border 1px solid #fff
+
+.news__content
+    // border 1px solid white
+    width 86%
+    margin 0 auto
+
+.news__title
+    font-size 24px
+    font-family Arial
+    font-weight bold
+    letter-spacing 4px
+    margin 0 auto
+
+.news__hr
+    width 10%
+    border 2px solid #ffffff95
+    margin 1.25em auto
+
+.news__list
+    font-size 14px
+    font-family 'Noto Sans'
+    line-height 1.3
+
+.news__item
+    margin-top 1.25em
+    &:nth-child(odd)
+        color text-primary
+    &:nth-child(even)
+        color text-secondary
+    
