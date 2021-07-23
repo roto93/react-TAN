@@ -3,6 +3,7 @@ import './css/App.css';
 import React from 'react'
 import Banner from './components/Banner'
 import News from './components/News.jsx'
+import Cards from './components/Cards'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <Banner />
       <main className="main">
         <News />
-        {/* <Cards/> */}
+        <Cards />
       </main>
     </div >
   );
