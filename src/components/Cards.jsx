@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import useWindowSize from '../hooks/useWindowSize'
 import VanillaTilt from 'vanilla-tilt'
 
 // reverse:           false,  // reverse the tilt direction
@@ -15,18 +16,20 @@ import VanillaTilt from 'vanilla-tilt'
 // "glare-prerender": false   // false = VanillaTilt creates the glare elements for you, otherwise
 // you need to add .js-tilt-glare>.js-tilt-glare-inner by yourself
 
-const options = {
-    perspective: 3000,
-    scale: 1.02,
-    max: 5
-}
 
 const Cards = () => {
+    const { width, height } = useWindowSize()
+    const options = {
+        perspective: 3000,
+        scale: width > 600 ? 1.02 : 1,
+        max: 5
+    }
+    console.log(options)
     const Card = ({ year }) => {
         const cardRef = useRef(null)
         useEffect(() => {
             VanillaTilt.init(cardRef.current, options)
-        }, [])
+        }, [options])
         return (
             <div className="cards__card" ref={cardRef} >
                 <h2 className="cards__h2">{year}</h2>
