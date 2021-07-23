@@ -52,6 +52,7 @@ html
     display-flex column center center
     width 86%
     margin 0 auto
+    user-select none
 
 .banner__topNav
     display-flex row flex-end center
@@ -62,14 +63,13 @@ html
     background-color #00000090
     z-index 100
 
-
 .banner__topNav__list
     display inline-block
     position absolute
     top 0
     height: 100vh
     width 20%
-    max-width: 200px
+    min-width: 200px
     background-color #C5C5C5
     transform translate(101%,64px)
     transition transform 0.2s ease-in-out
@@ -79,7 +79,7 @@ html
 
 .banner__topNav__item
     display-flex column center center
-    height 40px
+    height 60px
     background-color #C5C5C588
 
 .banner__topNav__logo 
@@ -88,7 +88,6 @@ html
     width 32px
     height 32px
     font-size 32px
-
 
 .banner__topNav__menu
     position absolute
@@ -99,22 +98,45 @@ html
     display-flex row center center
 
 .banner__nav
-    border 1px solid black
-    height 200px
+    // border 1px solid black
+    display none
+    width 110%
+    position absolute
+    top 0
+    transform translateY(-140%)
+
+.banner__nav__item
+    cursor pointer
+    display-flex row center center
+    font-size: 1.5rem
+    font-family 'Noto Sans'
+    width 110px
+    &:hover
+        font-weight: bold
+    &:active,
+    &:focus
+        font-weight: bold
+        opacity 0.5
+
+.banner__nav__logo
+    font-size: 72px
+    width 72px
+    height 72px
 
 .banner__title
     display-flex row center center
     flex-wrap: wrap
     width 80%
     min-width 250px
-    padding 1.25em 1em
+    padding 1.25em 0.5em
     border-top: 5px solid #ffffff88
-    // border-bottom: 5px solid #ffffff88
+    border-bottom: 5px solid #ffffff00
     border-radius: 50%
-    font-size 40px
+    font-size 2.5rem
     line-height 1.4
     font-family 'Numans'
     position relative
+    transition none 0.3s ease-in
 
 .banner__title__h1
     &.astronomy
@@ -124,7 +146,7 @@ html
     display-flex column center center
     position absolute
     bottom 0px
-    font-size 48px
+    font-size 3rem
     transform translateY(80px)
     animation jumping 1.5s ease-in-out  infinite 
 
@@ -154,17 +176,19 @@ html
     // border 1px solid #fff
     text-align: center
     padding 2em 0
+    background linear-gradient(0deg,transparent ,#1B2533)
 
 .news__content
     // border 1px solid white
     width 86%
     margin 0 auto
+    font-size 0.875rem
 
 .news__title
-    font-size 24px
+    font-size 1.5rem
     font-family Arial
     font-weight bold
-    letter-spacing 4px
+    letter-spacing 0.3em
     margin 0 auto
 
 .news__hr
@@ -173,7 +197,6 @@ html
     margin 1.25em auto
 
 .news__list
-    font-size 14px
     font-family 'Noto Sans'
     line-height 1.3
 
@@ -202,6 +225,7 @@ html
     display-flex column flex-start center
     width 270px
     height 360px
+    margin 0 1.5em
     padding 2em 2em
     border-radius 32px
     background linear-gradient(135deg,#ffffff30,#ffffff05)
@@ -211,13 +235,12 @@ html
     // backdrop-filter: blur(5px)
     transform-style: preserve-3d
     // transform: perspective(1000px)
+    margin-bottom: 2em
 
-    &+.cards__card
-        margin-top: 2em
 
 
 .cards__h2
-    font-size 40px
+    font-size 2.5rem
     font-weight 500
     font-family 'Rajdhani'
     letter-spacing: 10px
@@ -227,7 +250,7 @@ html
 
 .cards__card__list
     text-align center
-    font-size: 20px
+    font-size: 1.25rem
     line-height 1.3
     font-family Arial
     color #C5C5C5
@@ -245,22 +268,21 @@ html
 
 .footer
     background-color #222F43cc
-    height 300px
 
 .footer__content
     width 86%
     margin 0 auto
-    font-size 1em
-    font-family "Noto Sans"
     padding 3em 0
+    font-family "Noto Sans"
 
 .footer__title
-    font-size 1.25em
+    font-size 1.25rem
     margin-bottom 1em
     font-family 'Numans'
 
 
 .footer__item
+    font-size 1rem
     &+&
         margin-top 1em
 
@@ -268,12 +290,58 @@ html
 .footer__author
     text-align: center
     font-size 0.85em
-    margin-top 2em
+    line-height 1.5
+    margin-top 1em
     color #C5C5C5
 
 
 
 
 @media (min-width:600px)
+
+    // banner
     .banner__topNav
         display none
+
+    .banner__nav
+        display-flex row space-between stretch
+
+    .banner__title
+        padding 1em 0
+        border-radius: 0
+        border-top: 3px solid #ffffff88
+        border-bottom: 3px solid #ffffff88
+        font-size 2.75rem
+
+    .banner__arrow
+        bottom -100px
+        font-size 3.5rem
+
+
+    // news
+    .news__title
+        font-size 2rem
+
+    .news__list
+        font-size 1.125rem
+
+    
+    // Cards
+    .cards__content
+        display-flex row center center
+        flex-wrap: wrap
+
+
+    // Footer
+    .footer__title
+        font-size 1.75rem
+        
+    .footer__item
+        font-size 1.25rem
+        
+@media(min-width:920px)
+    .banner__nav__item
+        font-size 1.875rem
+    
+    .banner__title
+        font-size 2.75rem

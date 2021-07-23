@@ -28,7 +28,7 @@ const Banner = () => {
             <ul className={`banner__topNav__list ${showMenu && 'active'}`}>
               <li className="banner__topNav__item">Home</li>
               <li className="banner__topNav__item">About</li>
-              <li className="banner__topNav__item">Link</li>
+              <li className="banner__topNav__item">Links</li>
               <li className="banner__topNav__item">Archive</li>
             </ul>
 
@@ -37,13 +37,19 @@ const Banner = () => {
             </li>
           </ul>
 
-          {/* nav */}
-          <ul className="banner__nav">
-            <li className="banner__nav__item"></li>
-          </ul>
 
           {/* TAN 標題 */}
           <div className="banner__title">
+
+            {/* nav */}
+            <ul className="banner__nav">
+              <li className="banner__nav__item">Home</li>
+              <li className="banner__nav__item">About</li>
+              <li className="banner__nav__logo"><SVG.SvgObservatory /></li>
+              <li className="banner__nav__item">Links</li>
+              <li className="banner__nav__item">Archive</li>
+            </ul>
+
             <h1 className="banner__title__h1">Taiwan</h1>
             <h1 className="banner__title__h1 astronomy">Astronomy</h1>
             <h1 className="banner__title__h1">Network</h1>

@@ -13,7 +13,6 @@ const News = () => {
         <div className="news">
             <div className="container">
                 <div className="news__content">
-
                     <h2 className="news__title">Latest Issues</h2>
                     <div className="news__hr" />
                     <ul className="news__list">
