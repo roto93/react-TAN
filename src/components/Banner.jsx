@@ -37,6 +37,11 @@ const Banner = () => {
             </li>
           </ul>
 
+          {/* nav */}
+          <ul className="banner__nav">
+            <li className="banner__nav__item"></li>
+          </ul>
+
           {/* TAN 標題 */}
           <div className="banner__title">
             <h1 className="banner__title__h1">Taiwan</h1>

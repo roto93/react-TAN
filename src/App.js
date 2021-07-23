@@ -4,6 +4,7 @@ import React from 'react'
 import Banner from './components/Banner'
 import News from './components/News.jsx'
 import Cards from './components/Cards'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <main className="main">
         <News />
         <Cards />
+        <Footer />
       </main>
     </div >
   );

@@ -17,7 +17,7 @@ import VanillaTilt from 'vanilla-tilt'
 
 const options = {
     perspective: 3000,
-    scale: 1.01,
+    scale: 1.02,
     max: 5
 }
 
