@@ -5,6 +5,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import Banner from './components/Banner'
 import Home from './components/Home'
@@ -14,17 +15,16 @@ import Letter from './components/Letter'
 function App() {
 
   return (
-    <Router>
+    <Router >
       <div className="App">
         <Banner />
         <main className="main">
-          <Switch>
-            <Route exact path={"/"}>
+          <Switch >
+            <Route exact path={'/'}>
+              <Redirect from={'/'} to={'/home'} />
+            </Route>
+            <Route path={"/home"}>
               <Home />
-              {/* <Switch>
-                <News />
-                <Cards />
-              </Switch> */}
             </Route>
 
             <Route path={"/about"}>

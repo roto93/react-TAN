@@ -3,6 +3,7 @@ import useWindowSize from '../hooks/useWindowSize'
 import VanillaTilt from 'vanilla-tilt'
 import { StyledLink } from './Styled'
 import styled from 'styled-components'
+import { useRouteMatch } from 'react-router-dom'
 
 // reverse:           false,  // reverse the tilt direction
 // max:               35,     // max tilt rotation (degrees)
@@ -21,15 +22,16 @@ import styled from 'styled-components'
 
 const StyledLinkForCard = styled(StyledLink)`
     &:hover,&:active {
+        font-weight: normal;
         color: #d4a373;
     }
 `
 
 const CardLink = ({ year, category }) => {
-
+    const { url } = useRouteMatch()
     return (
         <li className="cards__card__item">
-            <StyledLinkForCard to={`/${year}/${category}`}>
+            <StyledLinkForCard to={`${url}/${year}/${category}`}>
                 {category}
             </StyledLinkForCard>
         </li>

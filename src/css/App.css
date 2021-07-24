@@ -254,22 +254,25 @@ html {
   box-shadow: 2px 2px 10px rgba(0,0,0,0.314);
   transform-style: none;
 }
+.cards__card.hide {
+  transform-style: preserve-3d;
+}
 .cards__card.hide .cards__h2 {
-  transform: translateZ(30px) translateY(0);
+  transform: translateY(0);
 }
 .cards__card.hide .cards__card__list {
-  transform: translateZ(30px) translateY(122px);
+  transform: translateY(122px);
   opacity: 0;
 }
 .cards__card.hide:hover .cards__h2,
 .cards__card.hide:active .cards__h2,
 .cards__card.hide:focus .cards__h2 {
-  transform: translateZ(30px) translateY(-122px);
+  transform: translateY(-122px);
 }
 .cards__card.hide:hover .cards__card__list,
 .cards__card.hide:active .cards__card__list,
 .cards__card.hide:focus .cards__card__list {
-  transform: translateZ(30px) translateY(29px);
+  transform: translateY(29px);
   opacity: 1;
 }
 .cards__h2 {
@@ -280,7 +283,7 @@ html {
   text-indent: 10px;
   margin-bottom: 0.5em;
   position: absolute;
-  transform: translateZ(30px) translateY(-122px);
+  transform: translateY(-122px);
   transition: transform 0.3s ease-in-out;
 }
 .cards__card__list {
@@ -289,7 +292,7 @@ html {
   line-height: 1.3;
   font-family: Arial;
   color: #c5c5c5;
-  transform: translateZ(20px) translateY(29px);
+  transform: translateY(29px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 .cards__card__item {
@@ -305,6 +308,36 @@ html {
 }
 .cards__card__item+.cards__card__item {
   margin-top: 16px;
+}
+.issues {
+  padding: 5em 0;
+  background: linear-gradient(0deg, transparent 20%, #1b2533);
+}
+.issues__content {
+  border: 1px solid #fff;
+  width: 86%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.issues__year {
+  margin: 0 auto;
+  font-size: 2rem;
+  font-family: 'Rajdhani';
+}
+.issues__nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.issues__nav__item {
+  font-size: 1rem;
+  font-family: 'Noto Sans';
+  width: 150px;
 }
 .letter {
   padding: 5em 0;
