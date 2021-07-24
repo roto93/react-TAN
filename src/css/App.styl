@@ -110,6 +110,7 @@ html
     display-flex row center center
     font-size: 1.5rem
     font-family 'Noto Sans'
+    text-decoration none
     width 110px
     &:hover
         font-weight: bold
@@ -198,11 +199,13 @@ html
     margin 1.25em auto
 
 .news__list
+    display-flex column flex-start center
     font-family 'Noto Sans'
     line-height 1.3
 
 .news__item
     cursor pointer
+    display: inline-block
     &:nth-child(odd)
         color text-primary
     &:nth-child(even)
@@ -297,9 +300,13 @@ html
     margin-bottom 1em
     font-family 'Numans'
 
+.footer__list
+    display-flex column flex-start flex-start
+
 
 .footer__item
     cursor pointer
+    display inline-block
     font-size 1rem
     &:active
     &:focus
@@ -340,11 +347,12 @@ html
 
 
     // news
+    .news__content
+        font-size 1.25rem
+
     .news__title
         font-size 2rem
 
-    .news__list
-        font-size 1.125rem
 
     
     // Cards
