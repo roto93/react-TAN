@@ -7,8 +7,7 @@ import {
   Route,
 } from "react-router-dom";
 import Banner from './components/Banner'
-import News from './components/News.jsx'
-import Cards from './components/Cards'
+import Home from './components/Home'
 import Footer from './components/Footer'
 import Letter from './components/Letter'
 
@@ -21,9 +20,13 @@ function App() {
         <main className="main">
           <Switch>
             <Route exact path={"/"}>
-              <News />
-              <Cards />
+              <Home />
+              {/* <Switch>
+                <News />
+                <Cards />
+              </Switch> */}
             </Route>
+
             <Route path={"/about"}>
               <Letter />
             </Route>

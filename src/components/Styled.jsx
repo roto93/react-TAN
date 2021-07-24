@@ -11,9 +11,9 @@ export const StyledLink = styled(Link)`
     &:hover{
         font-weight: bold;
     }
-    &:active,
-    &:focus{
-        font-weight: bold
-        opacity 0.5
+    &:active {
+        font-weight: bold;
+        opacity: 0.5;
     }
 `
+

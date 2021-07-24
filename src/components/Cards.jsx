@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import VanillaTilt from 'vanilla-tilt'
+import { StyledLink } from './Styled'
+import styled from 'styled-components'
 
 // reverse:           false,  // reverse the tilt direction
 // max:               35,     // max tilt rotation (degrees)
@@ -17,6 +19,23 @@ import VanillaTilt from 'vanilla-tilt'
 // you need to add .js-tilt-glare>.js-tilt-glare-inner by yourself
 
 
+const StyledLinkForCard = styled(StyledLink)`
+    &:hover,&:active {
+        color: #d4a373;
+    }
+`
+
+const CardLink = ({ year, category }) => {
+
+    return (
+        <li className="cards__card__item">
+            <StyledLinkForCard to={`/${year}/${category}`}>
+                {category}
+            </StyledLinkForCard>
+        </li>
+    )
+}
+
 const Cards = () => {
     const { width: winX } = useWindowSize()
     const isMobile = winX < 600
@@ -26,7 +45,6 @@ const Cards = () => {
         max: isMobile ? 0 : 5
     }
 
-    console.log(winX)
     const Card = ({ year }) => {
         const cardRef = useRef(null)
         useEffect(() => {
@@ -36,12 +54,12 @@ const Cards = () => {
             <div className={`cards__card ${isMobile ? '' : 'hide'}`} ref={cardRef} >
                 <h2 className="cards__h2">{year}</h2>
                 <ul className="cards__card__list">
-                    <li className="cards__card__item">Announcement</li>
-                    <li className="cards__card__item">Conferences</li>
-                    <li className="cards__card__item">Seminar</li>
-                    <li className="cards__card__item">Opportunities</li>
-                    <li className="cards__card__item">Observations</li>
-                    <li className="cards__card__item">Miscellaneous</li>
+                    <CardLink year={year} category={"Announcement"} />
+                    <CardLink year={year} category={"Conferences"} />
+                    <CardLink year={year} category={"Seminar"} />
+                    <CardLink year={year} category={"Opportunities"} />
+                    <CardLink year={year} category={"Observations"} />
+                    <CardLink year={year} category={"Miscellaneous"} />
                 </ul>
             </div>
         )

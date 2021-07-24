@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { StyledLink } from './Styled';
 import * as SVG from '../images/SVG'
@@ -9,7 +9,6 @@ const Banner = () => {
 
   const toggleMenu = () => {
     setShowMenu(prev => !prev)
-    console.log('toggle menu')
   }
 
   const closeMenu = () => {
@@ -17,9 +16,6 @@ const Banner = () => {
   }
 
   const getNavClass = (pathName) => `banner__nav__item ${path === pathName ? 'active' : ''}`
-
-
-
 
   return (
     <div className={'banner'}>
