@@ -18,20 +18,22 @@ import VanillaTilt from 'vanilla-tilt'
 
 
 const Cards = () => {
-    const { width, height } = useWindowSize()
+    const { width: winX } = useWindowSize()
+    const isMobile = winX < 600
     const options = {
         perspective: 3000,
-        scale: width > 600 ? 1.02 : 1,
-        max: 5
+        scale: isMobile ? 1 : 1.02,
+        max: isMobile ? 0 : 5
     }
-    console.log(options)
+
+    console.log(winX)
     const Card = ({ year }) => {
         const cardRef = useRef(null)
         useEffect(() => {
             VanillaTilt.init(cardRef.current, options)
-        }, [options])
+        }, [])
         return (
-            <div className="cards__card" ref={cardRef} >
+            <div className={`cards__card ${isMobile ? '' : 'hide'}`} ref={cardRef} >
                 <h2 className="cards__h2">{year}</h2>
                 <ul className="cards__card__list">
                     <li className="cards__card__item">Announcement</li>

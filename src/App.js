@@ -5,15 +5,14 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Banner from './components/Banner'
 import News from './components/News.jsx'
 import Cards from './components/Cards'
 import Footer from './components/Footer'
+import Letter from './components/Letter'
 
 function App() {
-
 
   return (
     <Router>
@@ -24,12 +23,18 @@ function App() {
             <Route exact path={"/"}>
               <News />
               <Cards />
-              <Footer />
             </Route>
-            <Route path={"/about"}></Route>
-            <Route path={"/links"}></Route>
-            <Route path={"/archive"}></Route>
+            <Route path={"/about"}>
+              <Letter />
+            </Route>
+            <Route path={"/links"}>
+
+            </Route>
+            <Route path={"/archive"}>
+
+            </Route>
           </Switch>
+          <Footer />
         </main>
       </div >
     </Router>
