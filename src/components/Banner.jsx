@@ -15,7 +15,12 @@ const Banner = () => {
     setShowMenu(false)
   }
 
-  const getNavClass = (pathName) => `banner__nav__item ${path === pathName ? 'active' : ''}`
+  const getNavClass = (pathName) => {
+    let shouldActive
+    if (pathName === '/home') shouldActive = path.substr(0, 5) === pathName
+    else shouldActive = path === pathName
+    return `banner__nav__item ${shouldActive ? 'active' : ''}`
+  }
 
   return (
     <div className={'banner'}>
