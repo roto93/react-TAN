@@ -14,7 +14,7 @@ const Home = () => {
                 <News />
                 <Cards />
             </Route>
-            <Route path={`/home/:selectedYear/:category`}>
+            <Route path={`/home/:selectedYear/:categoryToShow`}>
                 <Issues />
             </Route>
         </Switch>

@@ -71,11 +71,11 @@ html
     width 20%
     min-width: 200px
     background-color #C5C5C5
-    transform translate(101%,64px)
+    transform translate(101%,0px)
     transition transform 0.2s ease-in-out
     font-family 'Noto Sans'
     &.active
-        transform translate(0%,64px)
+        transform translate(0%,0px)
 
 .banner__topNav__item
     display-flex column center center
@@ -90,6 +90,7 @@ html
     font-size 32px
 
 .banner__topNav__menu
+    cursor pointer
     position absolute
     right 20px
     width 32px
@@ -314,24 +315,78 @@ html
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .issues__content
-    border 1px solid white
+    // border 1px solid white
     width 86%
     margin 0 auto
     display-flex column flex-start center
 
 .issues__year
-    margin 0 auto
-    font-size 2rem
+    user-select none
+    margin 0 auto 0.25em auto
+    font-size 2.5rem
     font-family 'Rajdhani'
 
 .issues__nav
+    // border 1px solid red
+    user-select none
     display-flex row center center
     flex-wrap: wrap
 
 .issues__nav__item
+    // border 1px solid orange
+    user-select none
+    display-flex row center center
+    padding 0.5em 0
     font-size 1rem
     font-family 'Noto Sans'
-    width 150px
+    width 140px
+
+// issues table
+
+.issues__table
+    border 1px solid #457b9d
+    border-collapse: collapse
+    border-radius 8px
+    overflow hidden
+    width 100%  
+    margin 2em 0
+    font-size 1.125rem
+    font-family sans-serif
+
+.issues__thead
+    display none
+    // border 1px solid white
+    width 100%
+    padding 0.5em
+    background-color #457b9d80
+
+.issues__th__date
+    width 60px
+
+.issues__tbody
+    width 100%
+    // border 1px solid gold
+
+.issues__eachDay
+    // border 1px solid orange
+    &+&
+        margin-top 0.5em
+    &:nth-child(even)
+        background-color #ffffff20
+
+.issues__td__date
+    // background-color #ffffff88
+    padding 0.5em
+
+.issues__td__issueList
+    padding:0.2em 0
+
+.issues__td__issueItem
+    padding 0.25em 0.5em 0.25em 0.5em
+    // list-style: disc
+    font-size 1rem
+
+
 
 
 // // // //
@@ -341,19 +396,19 @@ html
 // letter
 
 .letter
-    padding 5em 0
+    padding 1em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .letter__content
     width 86%
 
-    font-size 1.25rem
+    font-size 0.75rem
     font-family 'Noto Sans'
     line-height 2
     
     margin 0 auto
-    padding 2em 2em
-    border-radius 16px
+    padding 2em 1.25em
+    border-radius 8px
     background linear-gradient(135deg,#ffffff25,#ffffff10)
     border-top: 1px solid #ffffff60
     border-left 1px solid #ffffff60
@@ -441,6 +496,26 @@ html
 
     .cards__card
         transform-style: preserve-3d
+
+
+    // issue table
+    .issues__thead
+        display-flex row flex-start stretch
+
+    .issues__eachDay
+        display-flex row flex-start stretch
+        margin 0
+
+    .issues__td__date
+        width 60px
+
+    // letter
+    .letter
+        padding 5em 0
+
+    .letter__content
+        font-size 1.25rem
+        line-height 2
 
     // Footer
     .footer__title

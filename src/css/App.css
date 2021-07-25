@@ -68,12 +68,12 @@ html {
   width: 20%;
   min-width: 200px;
   background-color: #c5c5c5;
-  transform: translate(101%, 64px);
+  transform: translate(101%, 0px);
   transition: transform 0.2s ease-in-out;
   font-family: 'Noto Sans';
 }
 .banner__topNav__list.active {
-  transform: translate(0%, 64px);
+  transform: translate(0%, 0px);
 }
 .banner__topNav__item {
   display: flex;
@@ -91,6 +91,7 @@ html {
   font-size: 32px;
 }
 .banner__topNav__menu {
+  cursor: pointer;
   position: absolute;
   right: 20px;
   width: 32px;
@@ -314,7 +315,6 @@ html {
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .issues__content {
-  border: 1px solid #fff;
   width: 86%;
   margin: 0 auto;
   display: flex;
@@ -323,11 +323,13 @@ html {
   align-items: center;
 }
 .issues__year {
-  margin: 0 auto;
-  font-size: 2rem;
+  user-select: none;
+  margin: 0 auto 0.25em auto;
+  font-size: 2.5rem;
   font-family: 'Rajdhani';
 }
 .issues__nav {
+  user-select: none;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -335,22 +337,66 @@ html {
   flex-wrap: wrap;
 }
 .issues__nav__item {
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0;
   font-size: 1rem;
   font-family: 'Noto Sans';
-  width: 150px;
+  width: 140px;
+}
+.issues__table {
+  border: 1px solid #457b9d;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  margin: 2em 0;
+  font-size: 1.125rem;
+  font-family: sans-serif;
+}
+.issues__thead {
+  display: none;
+  width: 100%;
+  padding: 0.5em;
+  background-color: rgba(69,123,157,0.502);
+}
+.issues__th__date {
+  width: 60px;
+}
+.issues__tbody {
+  width: 100%;
+}
+.issues__eachDay+.issues__eachDay {
+  margin-top: 0.5em;
+}
+.issues__eachDay:nth-child(even) {
+  background-color: rgba(255,255,255,0.125);
+}
+.issues__td__date {
+  padding: 0.5em;
+}
+.issues__td__issueList {
+  padding: 0.2em 0;
+}
+.issues__td__issueItem {
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  font-size: 1rem;
 }
 .letter {
-  padding: 5em 0;
+  padding: 1em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .letter__content {
   width: 86%;
-  font-size: 1.25rem;
+  font-size: 0.75rem;
   font-family: 'Noto Sans';
   line-height: 2;
   margin: 0 auto;
-  padding: 2em 2em;
-  border-radius: 16px;
+  padding: 2em 1.25em;
+  border-radius: 8px;
   background: linear-gradient(135deg, rgba(255,255,255,0.145), rgba(255,255,255,0.063));
   border-top: 1px solid rgba(255,255,255,0.376);
   border-left: 1px solid rgba(255,255,255,0.376);
@@ -437,6 +483,29 @@ html {
   }
   .cards__card {
     transform-style: preserve-3d;
+  }
+  .issues__thead {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .issues__eachDay {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    margin: 0;
+  }
+  .issues__td__date {
+    width: 60px;
+  }
+  .letter {
+    padding: 5em 0;
+  }
+  .letter__content {
+    font-size: 1.25rem;
+    line-height: 2;
   }
   .footer__title {
     font-size: 1.75rem;

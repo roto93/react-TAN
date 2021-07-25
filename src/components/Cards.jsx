@@ -54,7 +54,11 @@ const Cards = () => {
         }, [])
         return (
             <div className={`cards__card ${isMobile ? '' : 'hide'}`} ref={cardRef} >
-                <h2 className="cards__h2">{year}</h2>
+                <h2 className="cards__h2">
+                    <StyledLinkForCard to={`/home/${year}/All`}>
+                        {year}
+                    </StyledLinkForCard>
+                </h2>
                 <ul className="cards__card__list">
                     <CardLink year={year} category={"Announcement"} />
                     <CardLink year={year} category={"Conferences"} />

@@ -27,18 +27,18 @@ const Banner = () => {
             <li className="banner__topNav__logo">
               <SVG.SvgObservatory />
             </li>
+            <li onClick={toggleMenu} className="banner__topNav__menu">
+              <SVG.SvgMenu />
+            </li>
 
             <ul className={`banner__topNav__list ${showMenu && 'active'}`}>
-              <li className={`banner__topNav__item`}><StyledLink to={"/"}>Home</StyledLink></li>
+              <li className={`banner__topNav__item`}><StyledLink to={"/home"}>Home</StyledLink></li>
               <li className={`banner__topNav__item`}><StyledLink to={"/about"}>About</StyledLink></li>
               <li className={`banner__topNav__item`}><StyledLink to={"/links"}>Links</StyledLink></li>
               <li className={`banner__topNav__item`}><StyledLink to={"/archive"}>Archive</StyledLink></li>
 
             </ul>
 
-            <li onClick={toggleMenu} className="banner__topNav__menu">
-              <SVG.SvgMenu />
-            </li>
           </ul>
 
 
@@ -48,7 +48,7 @@ const Banner = () => {
             {/* nav */}
             <ul className="banner__nav">
 
-              <li className={getNavClass('/')}>
+              <li className={getNavClass('/home')}>
                 <StyledLink to={"/"}>Home</StyledLink>
                 <div className="banner__star"><SVG.Star /></div>
               </li>
