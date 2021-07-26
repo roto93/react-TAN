@@ -66,7 +66,7 @@ html {
   top: 0;
   height: 100vh;
   width: 20%;
-  min-width: 200px;
+  min-width: 150px;
   background-color: #c5c5c5;
   transform: translate(101%, 0px);
   transition: transform 0.2s ease-in-out;
@@ -83,12 +83,28 @@ html {
   height: 60px;
   background-color: rgba(197,197,197,0.533);
 }
+.banner__topNav__item:hover {
+  background-color: #add8e6;
+}
+.banner__topNav__item:active {
+  background-color: #add8e6;
+  opacity: 0.5;
+}
 .banner__topNav__logo {
   position: absolute;
   left: 20px;
   width: 32px;
   height: 32px;
   font-size: 32px;
+}
+.banner__topNav__title {
+  font-size: 1.5em;
+  font-family: 'Noto Sans';
+  text-transform: capitalize;
+  color: #ddd;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .banner__topNav__menu {
   cursor: pointer;
@@ -114,10 +130,18 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   font-size: 1.5rem;
   font-family: 'Noto Sans';
   text-decoration: none;
   width: 110px;
+}
+.banner__nav__item:hover {
+  font-weight: bold;
+}
+.banner__nav__item:active {
+  font-weight: bold;
+  opacity: 0.5;
 }
 .banner__nav__item .banner__star {
   position: absolute;
@@ -286,6 +310,15 @@ html {
   position: absolute;
   transform: translateY(-122px);
   transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+.cards__h2:hover {
+  color: #d4a373;
+}
+.cards__h2:active,
+.cards__h2:focus {
+  color: #d4a373;
+  opacity: 0.5;
 }
 .cards__card__list {
   text-align: center;
@@ -394,12 +427,12 @@ html {
   max-width: 700px;
   margin: 0 auto;
   padding: 2em;
-  overflow: scroll;
   font-size: 0.75em;
   font-family: 'Merriweather';
   line-height: 1.5;
   background: linear-gradient(135deg, rgba(255,255,255,0.145), rgba(255,255,255,0.063));
   box-shadow: 0px 0px 8px rgba(0,0,0,0.502) inset, 0px 0px 8px rgba(0,0,0,0.502) inset;
+  word-wrap: break-word;
 }
 .letter {
   padding: 1em 0;

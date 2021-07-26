@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import VanillaTilt from 'vanilla-tilt'
-import { StyledLink } from './Styled'
-import styled from 'styled-components'
-import { useRouteMatch } from 'react-router-dom'
+import { useRouteMatch, useHistory } from 'react-router-dom'
 
 // reverse:           false,  // reverse the tilt direction
 // max:               35,     // max tilt rotation (degrees)
@@ -20,27 +18,28 @@ import { useRouteMatch } from 'react-router-dom'
 // you need to add .js-tilt-glare>.js-tilt-glare-inner by yourself
 
 
-const StyledLinkForCard = styled(StyledLink)`
-    &:hover,&:active {
-        font-weight: normal;
-        color: #d4a373;
-    }
-`
+const navigateTo = (history, destination) => {
+    history.push(destination)
+}
 
 const CardLink = ({ year, category }) => {
     const { url } = useRouteMatch()
+    const history = useHistory()
     return (
-        <li className="cards__card__item">
-            <StyledLinkForCard to={`${url}/${year}/${category}`}>
-                {category}
-            </StyledLinkForCard>
+        <li
+            onClick={() => { navigateTo(history, `${url}/${year}/${category}`) }}
+            className="cards__card__item">
+            {category}
         </li>
     )
 }
 
+
 const Cards = () => {
     const { width: winX } = useWindowSize()
     const isMobile = winX < 600
+    const { url } = useRouteMatch()
+    const history = useHistory()
     const options = {
         perspective: 3000,
         scale: isMobile ? 1 : 1.02,
@@ -54,10 +53,8 @@ const Cards = () => {
         }, [])
         return (
             <div className={`cards__card ${isMobile ? '' : 'hide'}`} ref={cardRef} >
-                <h2 className="cards__h2">
-                    <StyledLinkForCard to={`/home/${year}/All`}>
-                        {year}
-                    </StyledLinkForCard>
+                <h2 onClick={() => { navigateTo(history, `${url}/${year}/All`) }} className="cards__h2">
+                    {year}
                 </h2>
                 <ul className="cards__card__list">
                     <CardLink year={year} category={"Announcement"} />

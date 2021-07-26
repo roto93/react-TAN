@@ -6,7 +6,6 @@ const Detail = () => {
         const res = await fetch('/MOCK/test_issue.txt')
         const text = await res.text()
         const line = text.split('\r\n')
-        console.log(line)
         setContent(line)
     }
 

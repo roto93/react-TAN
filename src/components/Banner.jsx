@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
-import { StyledLink } from './Styled';
+import { useHistory, useLocation } from 'react-router-dom';
 import * as SVG from '../images/SVG'
 
 const Banner = () => {
   const path = useLocation().pathname
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
@@ -22,6 +22,12 @@ const Banner = () => {
     return `banner__nav__item ${shouldActive ? 'active' : ''}`
   }
 
+  const navigateTo = (destination) => {
+    if (path === destination) return
+    history.push(destination)
+    closeMenu()
+  }
+
   return (
     <div className={'banner'}>
       <div className="container">
@@ -32,16 +38,16 @@ const Banner = () => {
             <li className="banner__topNav__logo">
               <SVG.SvgObservatory />
             </li>
+            <h1 className="banner__topNav__title" >{path.split('/')[1]}</h1>
             <li onClick={toggleMenu} className="banner__topNav__menu">
               <SVG.SvgMenu />
             </li>
 
             <ul className={`banner__topNav__list ${showMenu && 'active'}`}>
-              <li className={`banner__topNav__item`}><StyledLink to={"/home"}>Home</StyledLink></li>
-              <li className={`banner__topNav__item`}><StyledLink to={"/about"}>About</StyledLink></li>
-              <li className={`banner__topNav__item`}><StyledLink to={"/links"}>Links</StyledLink></li>
-              <li className={`banner__topNav__item`}><StyledLink to={"/archive"}>Archive</StyledLink></li>
-
+              <li onClick={() => { navigateTo('/home') }} className={`banner__topNav__item`}>Home</li>
+              <li onClick={() => { navigateTo('/about') }} className={`banner__topNav__item`}>About</li>
+              <li onClick={() => { navigateTo('/links') }} className={`banner__topNav__item`}>Links</li>
+              <li onClick={() => { navigateTo('/archive') }} className={`banner__topNav__item`}>Archive</li>
             </ul>
 
           </ul>
@@ -53,24 +59,24 @@ const Banner = () => {
             {/* nav */}
             <ul className="banner__nav">
 
-              <li className={getNavClass('/home')}>
-                <StyledLink to={"/"}>Home</StyledLink>
+              <li onClick={() => { navigateTo('/home') }} className={getNavClass('/home')}>
+                Home
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
-              <li className={getNavClass('/about')}>
-                <StyledLink to={"/about"}>About</StyledLink>
+              <li onClick={() => { navigateTo('/about') }} className={getNavClass('/about')}>
+                About
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
               <li className="banner__nav__logo"><SVG.SvgObservatory /></li>
-              <li className={getNavClass('/links')}>
-                <StyledLink to={"/links"}>Links</StyledLink>
+              <li onClick={() => { navigateTo('/links') }} className={getNavClass('/links')}>
+                Links
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
-              <li className={getNavClass('/archive')}>
-                <StyledLink to={"/archive"}>Archive</StyledLink>
+              <li onClick={() => { navigateTo('/archive') }} className={getNavClass('/archive')}>
+                Archive
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
