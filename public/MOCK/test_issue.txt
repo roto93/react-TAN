@@ -1,0 +1,57 @@
+==============================================================================
+
+SUBJECT: NCU-Delta Young Astronomer Lectureship online talk series
+DATE: 2021-06-07 08:37
+FROM: Yen-Chen Pan <ycpan@gm.astro.ncu.edu.tw>
+
+Dear Prof. Kuan,
+
+The third talk of the NCU-Delta online talk series will be held on 8PM
+(TAIWAN LOCAL TIME, GMT+8), JUNE 16, 2021. The talk will be given by
+Prof. Nissim Kanekar from NCRA-TIFA. The details can be found as
+follows:
+https://www.astro.ncu.edu.tw/ncu_delta/online_2021.php
+
+_Title: _
+_Atomic Gas in Star-forming Galaxies at High Redshifts_
+_ _
+
+_Abstract:_
+_Neutral atomic hydrogen (HI) is the primary fuel for star formation,
+and an important_
+_component of galaxies. Understanding the evolution of the cold neutral
+gas in galaxies is _
+_critical in understanding galaxy evolution. Unfortunately, little is
+known about the HI _
+_content of galaxies at even moderate redshifts, z>~0.3, due to the
+weakness of the HI 21cm _
+_line, the main tracer of the atomic component. For large galaxy
+samples, ``stacking'' of _
+_the redshifted HI 21cm emission allows us to achieve a far better HI
+mass sensitivity _
+_for the population than would be possible for individual objects. In
+this talk, I will _
+_describe our recent results from such HI 21cm stacking experiments,
+using upgraded Giant _
+_Metrewave Radio Telescope HI 21cm spectroscopy of the DEEP2 Survey
+fields to probe the _
+_atomic gas mass and gas properties of star-forming galaxies out to
+z~1.5. _
+
+The meeting will be held via Zoom. To join the Zoom meeting, please use
+the following link:
+
+-----------------------
+Join Zoom Meeting
+https://zoomtw.zoom.us/j/5419957689?pwd=WlB0eDIrcE0wb284Qm13Mm94MG1mUT09
+
+
+Password: delta
+-----------------------
+
+Could you please help circulate this to TAN? Much appreciated!
+
+Thanks,
+Yen-Chen
+
+==============================================================================

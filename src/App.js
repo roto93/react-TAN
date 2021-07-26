@@ -11,6 +11,7 @@ import Banner from './components/Banner'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Letter from './components/Letter'
+import Detail from './components/Detail';
 
 function App() {
 
@@ -31,7 +32,7 @@ function App() {
               <Letter />
             </Route>
             <Route path={"/links"}>
-
+              <Detail />
             </Route>
             <Route path={"/archive"}>
 
