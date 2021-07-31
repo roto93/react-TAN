@@ -82,8 +82,30 @@ const EachDay = ({ data, categoryToShow }) => {
     )
 }
 
-// 這種結構適合NoSQL
 const issueData = [
+    {
+        "content": "This issue is from TAN.\nPlease make it resolved!!!!!!",
+        "date": 0,
+        "id": 3,
+        "month": "Jul",
+        "title": "POST from TAN",
+        "type": "Conferences",
+        "year": 2021
+    },
+    {
+        "content": "This issue is from TAN.\nPlease make it resolved!!!!!!",
+        "date": 30,
+        "id": 4,
+        "month": "Jul",
+        "title": "POST from TAN",
+        "type": "Conferences",
+        "year": 2021
+    }
+]
+
+
+// 這種結構適合NoSQL
+const issueData_ = [
     {
         date: '1/27',
         issues: [

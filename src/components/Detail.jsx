@@ -6,7 +6,7 @@ const Detail = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
     const getText = async () => {
-        const res = await fetch('http://127.0.0.1:5000/archive/id/4')
+        const res = await fetch('http://127.0.0.1:5000/archive')
         const data = await res.json()
         setTime(`${data.issueyear}-${data.month}-${data.date}`)
         setTitle(data.title)

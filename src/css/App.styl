@@ -464,41 +464,64 @@ html
 
 // upload
 .upload
-    padding 1em 0
+    padding 2em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .upload__content
     border 1px solid #fff
     width 86%
-    max-width: 400px
+    max-width: 1000px
     margin 0 auto
-    padding 3em 0
+    padding 1em 0
     font-family "Noto Sans"
 
     *
         color black
     
-    form
-        display-flex column flex-start stretch
 
     label
-        margin 0.5em 1em
+        max-width: 400px
+        margin 1em 1em 0.5em 1em
         color white
-
-    input
-        margin 0.5em 1em
-        padding 0.75em .5em 
     
-    textarea
-        margin 0.5em 1em
-        padding 0.75em .5em 
-        resize: none
-        
-    
-    select
-        margin 0.5em 1em
-        padding 0.75em .5em 
+.upload__form
+    // border 1px solid #fff
+    display-flex column flex-start stretch
 
+.upload__form__first
+    border 1px solid gold
+    min-width: 250px
+    display-flex column flex-start stretch
+    button
+        display none
+
+.upload__form__second
+    border 1px solid gold
+    display-flex column flex-start stretch
+    flex-grow: 1
+
+.upload__form__select
+    margin 0.5em 1em
+    padding 0.75em .5em 
+
+.upload__form__date
+    margin 0.5em 1em
+    padding 0.75em .5em 
+
+.upload__form__title
+    margin 0.5em 1em
+    padding 0.75em .5em 
+
+
+.upload__form__textarea
+    max-width: 800px
+    margin 0.5em 1em
+    padding 0.75em .5em 
+    resize: none
+
+.upload__form__button 
+    margin 2em 1em 0em 1em
+    padding 0.75em .5em 
 
 
 // footer
@@ -598,6 +621,7 @@ html
         font-size 1.25rem
         line-height 2
 
+
     // Footer
     .footer__title
         font-size 1.75rem
@@ -611,3 +635,18 @@ html
     
     .banner__title
         font-size 2.75rem
+
+    // upload
+    .upload__form
+        display-flex row flex-start stretch
+
+    .upload__form__first
+        button
+            display inline-block
+
+    .upload__form__second
+        button
+            display none
+
+    .upload__form__textarea
+        flex-grow 1
