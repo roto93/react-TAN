@@ -12,6 +12,7 @@ import Home from './components/Home'
 import Footer from './components/Footer'
 import Letter from './components/Letter'
 import Detail from './components/Detail';
+import Upload from './components/Upload';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
             <Route exact path={'/'}>
               <Redirect from={'/'} to={'/home'} />
             </Route>
+
             <Route path={"/home"}>
               <Home />
             </Route>
@@ -31,12 +33,15 @@ function App() {
             <Route path={"/about"}>
               <Letter />
             </Route>
+
             <Route path={"/links"}>
               <Detail />
             </Route>
-            <Route path={"/archive"}>
 
+            <Route path={"/archive"}>
+              <Upload />
             </Route>
+
           </Switch>
           <Footer />
         </main>

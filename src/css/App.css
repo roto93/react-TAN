@@ -456,6 +456,44 @@ html {
   color: #ddd;
   text-align: justify;
 }
+.upload {
+  padding: 1em 0;
+  background: linear-gradient(0deg, transparent 20%, #1b2533);
+}
+.upload__content {
+  border: 1px solid #fff;
+  width: 86%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 3em 0;
+  font-family: "Noto Sans";
+}
+.upload__content * {
+  color: #000;
+}
+.upload__content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.upload__content label {
+  margin: 0.5em 1em;
+  color: #fff;
+}
+.upload__content input {
+  margin: 0.5em 1em;
+  padding: 0.75em 0.5em;
+}
+.upload__content textarea {
+  margin: 0.5em 1em;
+  padding: 0.75em 0.5em;
+  resize: none;
+}
+.upload__content select {
+  margin: 0.5em 1em;
+  padding: 0.75em 0.5em;
+}
 .footer {
   background-color: rgba(34,47,67,0.8);
 }

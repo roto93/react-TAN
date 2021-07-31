@@ -82,6 +82,7 @@ const EachDay = ({ data, categoryToShow }) => {
     )
 }
 
+// 這種結構適合NoSQL
 const issueData = [
     {
         date: '1/27',
