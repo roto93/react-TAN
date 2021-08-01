@@ -5,6 +5,7 @@ const Upload = () => {
   const [time, setTime] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [textareaHeight, setTextareaHeight] = useState(undefined);
 
   const formValidate = () => {
     if (type === '') return
@@ -52,51 +53,61 @@ const Upload = () => {
             onSubmit={handleSubmit}
           >
             <div className="upload__form__first">
+              <div className="upload__form__first__input">
 
-              <label>type</label>
-              <select
-                className="upload__form__select"
-                value={type}
-                required
-                onChange={changeType}
-                style={{ color: !type ? 'grey' : 'black' }}
-              >
-                <option value='' hidden >- - Select an issue type - -</option>
-                <option value="Announcement">Announcement</option>
-                <option value="Conferences">Conferences</option>
-                <option value="Seminar">Seminar</option>
-                <option value="Opportunities">Opportunities</option>
-                <option value="Observations">Observations</option>
-                <option value="Miscellaneous">Miscellaneous</option>
-              </select>
+                <label>Type</label>
+                <select
+                  className="upload__form__select"
+                  value={type}
+                  required
+                  onChange={changeType}
+                  style={{ color: !type ? 'grey' : 'black' }}
+                >
+                  <option value='' hidden >- - Select an issue type - -</option>
+                  <option value="Announcement">Announcement</option>
+                  <option value="Conferences">Conferences</option>
+                  <option value="Seminar">Seminar</option>
+                  <option value="Opportunities">Opportunities</option>
+                  <option value="Observations">Observations</option>
+                  <option value="Miscellaneous">Miscellaneous</option>
+                </select>
 
-              <label >date</label>
-              <input
-                className="upload__form__date"
-                required
-                type="date"
-                onChange={e => setTime(e.target.value)}
-              />
+                <label >Date</label>
+                <input
+                  className="upload__form__date"
+                  required
+                  type="date"
+                  onChange={e => setTime(e.target.value)}
+                />
 
 
-              <label>title</label>
-              <input
-                className="upload__form__title"
-                required
-                type="text"
-                value={title}
-                onChange={changeTitle}
-              />
+                <label>Title</label>
+                <input
+                  className="upload__form__title"
+                  required
+                  type="text"
+                  value={title}
+                  onChange={changeTitle}
+                />
+              </div>
 
               <button
                 className="upload__form__button"
                 type="submit">Submit</button>
 
+
             </div>
             <div className="upload__form__second">
 
-              <label>content</label>
+              <label>Content</label>
               <textarea
+                onKeyUp={(e) => {
+                  let height = e.target.scrollHeight
+                  console.log(height)
+                  if (height < 650)
+                    setTextareaHeight(height)
+                }}
+                style={{ height: textareaHeight }}
                 className="upload__form__textarea"
                 cols="30" rows="10"
                 value={content}

@@ -484,7 +484,13 @@ html {
 }
 .upload__form__first {
   border: 1px solid #ffd700;
-  min-width: 250px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.upload__form__first .upload__form__first__input {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -520,7 +526,7 @@ html {
   resize: none;
 }
 .upload__form__button {
-  margin: 2em 1em 0em 1em;
+  margin: 2em 1em 0.5em 1em;
   padding: 0.75em 0.5em;
 }
 .footer {

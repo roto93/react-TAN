@@ -490,8 +490,11 @@ html
 
 .upload__form__first
     border 1px solid gold
-    min-width: 250px
-    display-flex column flex-start stretch
+    min-width: 300px
+    display-flex column space-between stretch
+    .upload__form__first__input
+        display-flex column flex-start stretch
+
     button
         display none
 
@@ -520,7 +523,7 @@ html
     resize: none
 
 .upload__form__button 
-    margin 2em 1em 0em 1em
+    margin 2em 1em 0.5em 1em
     padding 0.75em .5em 
 
 
@@ -644,6 +647,7 @@ html
         button
             display inline-block
 
+            
     .upload__form__second
         button
             display none
