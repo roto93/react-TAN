@@ -30,7 +30,7 @@ const EachDay = ({ data, categoryToShow }) => {
     if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
     return (
         <div className="issues__eachDay">
-            <div className="issues__td__date">{data.date}</div>
+            <div className="issues__td__date">{`${Number(data.date.slice(0, 2))}/${data.date.slice(2, 4)}`}</div>
             <ul className="issues__td__issueList">
                 {data.issuesArray.map(issue => {
                     console.log('issue.type')
@@ -76,7 +76,6 @@ const Issues = () => {
                 let bDate = Number(b.date)
                 console.log(aDate, bDate)
                 return aDate < bDate ? -1 : 1
-
             })
 
             setIssueData(dateArray)
@@ -86,8 +85,6 @@ const Issues = () => {
             console.log(e)
         }
     }
-
-    // console.log(Number('0801'))
 
     useEffect(() => {
         fetchThisYearIssues()
@@ -113,7 +110,7 @@ const Issues = () => {
                         <div className="issues__thead">
                             {/* <div className="issues__tr"> */}
                             <div className="issues__th__date">Date</div>
-                            <div className="issues__th">Issue</div>
+                            <div className="issues__th__issue">Issue</div>
                             {/* </div> */}
                         </div>
                         <div className="issues__tbody">

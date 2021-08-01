@@ -386,18 +386,21 @@ html {
   border-radius: 8px;
   overflow: hidden;
   width: 100%;
-  margin: 2em 0;
+  margin: 2em 0 0 0;
   font-size: 1.125rem;
   font-family: sans-serif;
 }
 .issues__thead {
   display: none;
   width: 100%;
-  padding: 0.5em;
   background-color: rgba(69,123,157,0.502);
 }
 .issues__th__date {
-  width: 80px;
+  padding: 0.5em;
+  width: 70px;
+}
+.issues__th__issue {
+  padding: 0.5em;
 }
 .issues__tbody {
   width: 100%;
@@ -617,7 +620,7 @@ html {
     margin: 0;
   }
   .issues__td__date {
-    width: 80px;
+    width: 70px;
   }
   .letter {
     padding: 5em 0;
