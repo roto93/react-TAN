@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from './Styled'
-import { convertMonthToNum } from '../lib/lib'
 
 const StyledLinkForCategories = styled(StyledLink)`
     &:active {
@@ -27,6 +26,26 @@ const CategoryLink = ({ year, category }) => {
     )
 }
 
+const EachDay = ({ data, categoryToShow }) => {
+    if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
+    return (
+        <div className="issues__eachDay">
+            <div className="issues__td__date">{data.date}</div>
+            <ul className="issues__td__issueList">
+                {data.issuesArray.map(issue => {
+                    console.log('issue.type')
+                    if (categoryToShow !== 'All' & issue.type !== categoryToShow) return null
+                    return (
+                        <li key={issue.title} className="issues__td__issueItem">
+                            {issue.title}
+                        </li>
+                    )
+                })}
+            </ul>
+        </div>
+    )
+}
+
 const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
     const [issueData, setIssueData] = useState([]);
@@ -39,7 +58,7 @@ const Issues = () => {
 
             // 整理出一個 array，以日期分類所有 issue
             const dateArray = []
-            newData.map(item => {
+            newData.forEach(item => {
                 const dateExists = !dateArray.some(i => item.date === i?.date)
                 const yearExists = !dateArray.some(i => item.year === i?.year)
                 let newIssue = { type: item.type, year: item.year, date: item.date, title: item.title }
@@ -51,6 +70,15 @@ const Issues = () => {
                 }
             })
 
+            // 依照日期排序
+            dateArray.sort((a, b) => {
+                let aDate = Number(a.date)
+                let bDate = Number(b.date)
+                console.log(aDate, bDate)
+                return aDate < bDate ? -1 : 1
+
+            })
+
             setIssueData(dateArray)
             console.log(newData)
             console.log(dateArray)
@@ -59,10 +87,11 @@ const Issues = () => {
         }
     }
 
+    // console.log(Number('0801'))
+
     useEffect(() => {
         fetchThisYearIssues()
     }, [])
-
 
 
     return (
@@ -101,26 +130,6 @@ const Issues = () => {
 }
 
 export default Issues
-
-const EachDay = ({ data, categoryToShow }) => {
-    if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
-    return (
-        <div className="issues__eachDay">
-            <div className="issues__td__date">{data.date}</div>
-            <ul className="issues__td__issueList">
-                {data.issuesArray.map(issue => {
-                    console.log('issue.type')
-                    if (categoryToShow !== 'All' & issue.type !== categoryToShow) return null
-                    return (
-                        <li key={issue.title} className="issues__td__issueItem">
-                            {issue.title}
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
-    )
-}
 
 const _issueData = [
     {

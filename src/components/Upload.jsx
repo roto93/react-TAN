@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { convertMonthToNum } from '../lib/lib';
 
 const Upload = () => {
   const [type, setType] = useState('');
@@ -87,6 +86,7 @@ const Upload = () => {
                   type="text"
                   value={title}
                   onChange={changeTitle}
+                  onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
                 />
               </div>
 

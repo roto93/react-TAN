@@ -397,13 +397,13 @@ html {
   background-color: rgba(69,123,157,0.502);
 }
 .issues__th__date {
-  width: 60px;
+  width: 80px;
 }
 .issues__tbody {
   width: 100%;
 }
-.issues__eachDay+.issues__eachDay {
-  margin-top: 0.5em;
+.issues__eachDay {
+  padding: 0.5em 0;
 }
 .issues__eachDay:nth-child(even) {
   background-color: rgba(255,255,255,0.125);
@@ -411,12 +411,9 @@ html {
 .issues__td__date {
   padding: 0.5em;
 }
-.issues__td__issueList {
-  padding: 0.2em 0;
-}
 .issues__td__issueItem {
-  padding: 0.25em 0.5em 0.25em 0.5em;
-  font-size: 1rem;
+  padding: 0.5em;
+  font-size: 1.125rem;
 }
 .detail {
   padding: 1em 0;
@@ -620,7 +617,7 @@ html {
     margin: 0;
   }
   .issues__td__date {
-    width: 60px;
+    width: 80px;
   }
   .letter {
     padding: 5em 0;
