@@ -100,10 +100,12 @@ const Upload = () => {
 
               <label>Content</label>
               <textarea
-                onKeyUp={(e) => {
+                onKeyDown={(e) => {
                   let height = e.target.scrollHeight
-                  if (height < 650)
-                    setTextareaHeight(height)
+                  if (height < 650) {
+                    console.log(height)
+                    setTextareaHeight(`${height}px`)
+                  }
                 }}
                 style={{ height: textareaHeight }}
                 className="upload__form__textarea"

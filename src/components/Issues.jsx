@@ -34,12 +34,28 @@ const Issues = () => {
         try {
             const res = await fetch(`http://127.0.0.1:5000/archive/${selectedYear}`)
             const data = await res.json()
-            // setIssueData(data.issues)
-            console.log(data)
+
+            let newData = [...data.issues]
+
+            // 整理出一個 array，以日期分類所有 issue
+            const dateArray = []
+            newData.map(item => {
+                const dateExists = !dateArray.some(i => item.date === i?.date)
+                const yearExists = !dateArray.some(i => item.year === i?.year)
+                let newIssue = { type: item.type, year: item.year, date: item.date, title: item.title }
+                if (yearExists & dateExists) {
+                    dateArray.push({ date: item.date, issuesArray: [{ ...newIssue }] })
+                } else {
+                    let index = dateArray.findIndex(i => i.date === item.date)
+                    dateArray[index].issuesArray.push({ ...newIssue })
+                }
+            })
+
+            setIssueData(dateArray)
+            console.log(newData)
+            console.log(dateArray)
         } catch (e) {
             console.log(e)
-        } finally {
-
         }
     }
 
@@ -73,11 +89,8 @@ const Issues = () => {
                         </div>
                         <div className="issues__tbody">
                             {issueData.map(data => <EachDay
-                                key={data.date + data.title}
-                                month={data.month}
-                                date={data.date}
-                                title={data.title}
-                                category={data.type}
+                                key={data.date}
+                                data={data}
                                 categoryToShow={categoryToShow} />)}
                         </div>
                     </div>
@@ -89,20 +102,21 @@ const Issues = () => {
 
 export default Issues
 
-const EachDay = ({ month, date, title, type, categoryToShow }) => {
-    if (categoryToShow !== 'All' & type !== categoryToShow) return null
+const EachDay = ({ data, categoryToShow }) => {
+    if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
     return (
         <div className="issues__eachDay">
-            <div className="issues__td__date">{`${convertMonthToNum(month)}/${date}`}</div>
+            <div className="issues__td__date">{data.date}</div>
             <ul className="issues__td__issueList">
-                {/* {data.issues.map(issue => {
-                    if (categoryToShow !== 'All' & issue.category !== categoryToShow) return null
+                {data.issuesArray.map(issue => {
+                    console.log('issue.type')
+                    if (categoryToShow !== 'All' & issue.type !== categoryToShow) return null
                     return (
                         <li key={issue.title} className="issues__td__issueItem">
                             {issue.title}
                         </li>
                     )
-                })} */}
+                })}
             </ul>
         </div>
     )
@@ -110,25 +124,25 @@ const EachDay = ({ month, date, title, type, categoryToShow }) => {
 
 const _issueData = [
     {
-        "content": "This issue is from TAN.\nPlease make it resolved!!!!!!",
-        "date": 0,
-        "id": 3,
-        "month": "Jul",
-        "title": "POST from TAN",
-        "type": "Conferences",
-        "year": 2021
-    },
-    {
-        "content": "This issue is from TAN.\nPlease make it resolved!!!!!!",
-        "date": 30,
-        "id": 4,
-        "month": "Jul",
-        "title": "POST from TAN",
-        "type": "Conferences",
-        "year": 2021
+        date: "0801",
+        issuesArray: [
+            {
+                "date": '0801',
+                "id": 3,
+                "title": "POST from TAN 1",
+                "type": "Conferences",
+                "year": 2021
+            },
+            {
+                "date": "0801",
+                "id": 4,
+                "title": "POST from TAN 2",
+                "type": "Conferences",
+                "year": 2021
+            }
+        ]
     }
 ]
-
 
 // 這種結構適合NoSQL
 const issueData_ = [
