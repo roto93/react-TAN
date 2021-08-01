@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from './Styled'
+import { convertMonthToNum } from '../lib/lib'
 
 const StyledLinkForCategories = styled(StyledLink)`
     &:active {
@@ -28,6 +29,25 @@ const CategoryLink = ({ year, category }) => {
 
 const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
+    const [issueData, setIssueData] = useState([]);
+    const fetchThisYearIssues = async () => {
+        try {
+            const res = await fetch(`http://127.0.0.1:5000/archive/${selectedYear}`)
+            const data = await res.json()
+            // setIssueData(data.issues)
+            console.log(data)
+        } catch (e) {
+            console.log(e)
+        } finally {
+
+        }
+    }
+
+    useEffect(() => {
+        fetchThisYearIssues()
+    }, [])
+
+
 
     return (
         <div className="issues">
@@ -52,7 +72,13 @@ const Issues = () => {
                             {/* </div> */}
                         </div>
                         <div className="issues__tbody">
-                            {issueData.map(data => <EachDay key={data.date} data={data} categoryToShow={categoryToShow} />)}
+                            {issueData.map(data => <EachDay
+                                key={data.date + data.title}
+                                month={data.month}
+                                date={data.date}
+                                title={data.title}
+                                category={data.type}
+                                categoryToShow={categoryToShow} />)}
                         </div>
                     </div>
                 </div>
@@ -63,26 +89,26 @@ const Issues = () => {
 
 export default Issues
 
-const EachDay = ({ data, categoryToShow }) => {
-    if (categoryToShow !== 'All' & !data.issues.some(issue => issue.category === categoryToShow)) return null
+const EachDay = ({ month, date, title, type, categoryToShow }) => {
+    if (categoryToShow !== 'All' & type !== categoryToShow) return null
     return (
         <div className="issues__eachDay">
-            <div className="issues__td__date">{data.date}</div>
+            <div className="issues__td__date">{`${convertMonthToNum(month)}/${date}`}</div>
             <ul className="issues__td__issueList">
-                {data.issues.map(issue => {
+                {/* {data.issues.map(issue => {
                     if (categoryToShow !== 'All' & issue.category !== categoryToShow) return null
                     return (
                         <li key={issue.title} className="issues__td__issueItem">
                             {issue.title}
                         </li>
                     )
-                })}
+                })} */}
             </ul>
         </div>
     )
 }
 
-const issueData = [
+const _issueData = [
     {
         "content": "This issue is from TAN.\nPlease make it resolved!!!!!!",
         "date": 0,

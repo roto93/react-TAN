@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { convertMonthToNum } from '../lib/lib';
 
 const Upload = () => {
   const [type, setType] = useState('');
@@ -22,8 +23,7 @@ const Upload = () => {
     const requestBody = {
       type: type,
       year: Number(time.slice(0, 4)),
-      month: convertMonth(Number(time.slice(5, 7))),
-      date: Number(time.slice(8, 10)),
+      date: time.slice(5, 7) + time.slice(8, 10),
       title: title,
       content: content,
     }
@@ -34,10 +34,9 @@ const Upload = () => {
       body: JSON.stringify(requestBody)
     })
     const jsonRes = await res.json()
-    console.log(requestBody)
     console.log(jsonRes)
 
-    console.log('submit')
+    console.log(requestBody)
   }
 
   const changeType = (e) => setType(e.target.value)
@@ -103,7 +102,6 @@ const Upload = () => {
               <textarea
                 onKeyUp={(e) => {
                   let height = e.target.scrollHeight
-                  console.log(height)
                   if (height < 650)
                     setTextareaHeight(height)
                 }}
@@ -125,21 +123,3 @@ const Upload = () => {
 }
 
 export default Upload
-
-
-const convertMonth = (num) => {
-  switch (num) {
-    case 1: return 'Jan'
-    case 2: return 'Feb'
-    case 3: return 'Mar'
-    case 4: return 'Apr'
-    case 5: return 'May'
-    case 6: return 'Jun'
-    case 7: return 'Jul'
-    case 8: return 'Aug'
-    case 9: return 'Sep'
-    case 10: return 'Oct'
-    case 11: return 'Nov'
-    case 12: return 'Dec'
-  }
-}

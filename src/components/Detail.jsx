@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
+import { useParams } from 'react-router-dom';
 
 const Detail = () => {
+    const { year, category } = useParams()
     const [time, setTime] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
     const getText = async () => {
         const res = await fetch('http://127.0.0.1:5000/archive')
         const data = await res.json()
-        setTime(`${data.issueyear}-${data.month}-${data.date}`)
-        setTitle(data.title)
-        const lines = data.issue.content.split('\n')
+        // setTime(`${data.issueyear}-${data.month}-${data.date}`)
+        // setTitle(data.title)
+        // const lines = data.issue.content.split('\n')
 
-        setContent(lines)
+        // setContent(lines)
 
     }
 

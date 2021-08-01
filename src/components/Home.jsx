@@ -15,7 +15,7 @@ const Home = () => {
                 <Cards />
             </Route>
             <Route path={`/home/:selectedYear/:categoryToShow`}>
-                {/* <Issues /> */}
+                <Issues />
             </Route>
         </Switch>
     )
