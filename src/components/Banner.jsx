@@ -16,9 +16,8 @@ const Banner = () => {
   }
 
   const getNavClass = (pathName) => {
-    let shouldActive
-    if (pathName === '/home') shouldActive = path.substr(0, 5) === pathName
-    else shouldActive = path === pathName
+    let shouldActive = path.split('/')[1] === pathName
+
     return `banner__nav__item ${shouldActive ? 'active' : ''}`
   }
 
@@ -59,23 +58,23 @@ const Banner = () => {
             {/* nav */}
             <ul className="banner__nav">
 
-              <li onClick={() => { navigateTo('/home') }} className={getNavClass('/home')}>
+              <li onClick={() => { navigateTo('/home') }} className={getNavClass('home')}>
                 Home
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
-              <li onClick={() => { navigateTo('/about') }} className={getNavClass('/about')}>
+              <li onClick={() => { navigateTo('/about') }} className={getNavClass('about')}>
                 About
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
               <li className="banner__nav__logo"><SVG.SvgObservatory /></li>
-              <li onClick={() => { navigateTo('/links') }} className={getNavClass('/links')}>
+              <li onClick={() => { navigateTo('/links') }} className={getNavClass('links')}>
                 Links
                 <div className="banner__star"><SVG.Star /></div>
               </li>
 
-              <li onClick={() => { navigateTo('/archive') }} className={getNavClass('/archive')}>
+              <li onClick={() => { navigateTo('/archive') }} className={getNavClass('archive')}>
                 Archive
                 <div className="banner__star"><SVG.Star /></div>
               </li>

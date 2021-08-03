@@ -8,7 +8,6 @@ import {
   Redirect,
 } from "react-router-dom";
 import Banner from './components/Banner'
-import Home from './components/Home'
 import News from './components/News';
 import Cards from './components/Cards';
 import Footer from './components/Footer'
