@@ -338,6 +338,7 @@ html
 
 // issues
 .issues
+    min-height: 800px
     padding 5em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
@@ -387,6 +388,7 @@ html
     background-color #457b9d80
 
 .issues__th__date
+    display-flex column flex-start center
     padding 0.5em
     width 70px
 
@@ -402,19 +404,45 @@ html
     // border 1px solid orange
     padding 0.5em 0
 
+    &:nth-child(odd)
+        *
+            color #ccc
+
     &:nth-child(even)
         background-color #ffffff20
+        *
+            color #eee
 
 .issues__td__date
     // background-color #ffffff88
+    display-flex column flex-start center
     padding 0.5em
 
 .issues__td__issueList
     {}
 .issues__td__issueItem
+    cursor pointer
     padding 0.5em
     // list-style: disc
     font-size 1.125rem
+    &:hover
+        color: #d4a373;
+
+
+// archive
+
+.archive
+    padding 2em 0
+    background linear-gradient(0deg,transparent 20%,#1B2533)
+
+.archive__content
+    border 1px solid white
+    width 86%
+    margin 0 auto
+
+.archive__year
+    font-size 1.25rem
+    padding 0.75em
 
 // detail
 

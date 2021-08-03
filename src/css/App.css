@@ -344,6 +344,7 @@ html {
   margin-top: 16px;
 }
 .issues {
+  min-height: 800px;
   padding: 5em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
@@ -396,6 +397,10 @@ html {
   background-color: rgba(69,123,157,0.502);
 }
 .issues__th__date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0.5em;
   width: 70px;
 }
@@ -408,15 +413,42 @@ html {
 .issues__eachDay {
   padding: 0.5em 0;
 }
+.issues__eachDay:nth-child(odd) * {
+  color: #ccc;
+}
 .issues__eachDay:nth-child(even) {
   background-color: rgba(255,255,255,0.125);
 }
+.issues__eachDay:nth-child(even) * {
+  color: #eee;
+}
 .issues__td__date {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   padding: 0.5em;
 }
 .issues__td__issueItem {
+  cursor: pointer;
   padding: 0.5em;
   font-size: 1.125rem;
+}
+.issues__td__issueItem:hover {
+  color: #d4a373;
+}
+.archive {
+  padding: 2em 0;
+  background: linear-gradient(0deg, transparent 20%, #1b2533);
+}
+.archive__content {
+  border: 1px solid #fff;
+  width: 86%;
+  margin: 0 auto;
+}
+.archive__year {
+  font-size: 1.25rem;
+  padding: 0.75em;
 }
 .detail {
   padding: 1em 0;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { StyledLink } from './Styled'
 
@@ -19,7 +19,7 @@ const StyledLinkForCategories = styled(StyledLink)`
 const CategoryLink = ({ year, category }) => {
     return (
         <li className="issues__nav__item">
-            <StyledLinkForCategories to={`/home/${year}/${category}`}>
+            <StyledLinkForCategories to={`/archive/${year}/${category}`}>
                 {category}
             </StyledLinkForCategories>
         </li>
@@ -27,6 +27,8 @@ const CategoryLink = ({ year, category }) => {
 }
 
 const EachDay = ({ data, categoryToShow }) => {
+    const history = useHistory()
+
     if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
     return (
         <div className="issues__eachDay">
@@ -36,7 +38,11 @@ const EachDay = ({ data, categoryToShow }) => {
                     console.log('issue.type')
                     if (categoryToShow !== 'All' & issue.type !== categoryToShow) return null
                     return (
-                        <li key={issue.title} className="issues__td__issueItem">
+                        <li
+                            key={issue.title}
+                            className="issues__td__issueItem"
+                            onClick={() => { history.push(`/archive/${issue.id}`) }}
+                        >
                             {issue.title}
                         </li>
                     )
@@ -61,7 +67,7 @@ const Issues = () => {
             newData.forEach(item => {
                 const dateExists = !dateArray.some(i => item.date === i?.date)
                 const yearExists = !dateArray.some(i => item.year === i?.year)
-                let newIssue = { type: item.type, year: item.year, date: item.date, title: item.title }
+                let newIssue = { id: item.id, type: item.type, year: item.year, date: item.date, title: item.title }
                 if (yearExists & dateExists) {
                     dateArray.push({ date: item.date, issuesArray: [{ ...newIssue }] })
                 } else {
@@ -95,7 +101,7 @@ const Issues = () => {
         <div className="issues">
             <div className="container">
                 <div className="issues__content">
-                    <StyledLinkForCategories to={`/home/${selectedYear}/All`}>
+                    <StyledLinkForCategories to={`/archive/${selectedYear}/All`}>
                         <h2 className="issues__year">{selectedYear}</h2>
                     </StyledLinkForCategories>
                     <ul className="issues__nav">

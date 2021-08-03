@@ -6,13 +6,17 @@ import {
   Switch,
   Route,
   Redirect,
+  useLocation
 } from "react-router-dom";
 import Banner from './components/Banner'
 import Home from './components/Home'
 import Footer from './components/Footer'
 import Letter from './components/Letter'
-import Detail from './components/Detail';
 import Upload from './components/Upload';
+import Archive from './components/Archive';
+import { useEffect } from "react";
+import useWindowSize from './hooks/useWindowSize';
+
 
 function App() {
 
@@ -35,11 +39,11 @@ function App() {
             </Route>
 
             <Route path={"/links"}>
-              <Detail />
+              <Upload />
             </Route>
 
             <Route path={"/archive"}>
-              <Upload />
+              <Archive />
             </Route>
 
           </Switch>
