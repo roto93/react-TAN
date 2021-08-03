@@ -6,22 +6,23 @@ import {
   Switch,
   Route,
   Redirect,
-  useLocation
 } from "react-router-dom";
 import Banner from './components/Banner'
 import Home from './components/Home'
+import News from './components/News';
+import Cards from './components/Cards';
 import Footer from './components/Footer'
 import Letter from './components/Letter'
 import Upload from './components/Upload';
 import Archive from './components/Archive';
-import { useEffect } from "react";
-import useWindowSize from './hooks/useWindowSize';
+import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 
 
 function App() {
 
   return (
     <Router >
+      <ScrollToTopOnMount />
       <div className="App">
         <Banner />
         <main className="main">
@@ -31,7 +32,8 @@ function App() {
             </Route>
 
             <Route path={"/home"}>
-              <Home />
+              <News />
+              <Cards />
             </Route>
 
             <Route path={"/about"}>

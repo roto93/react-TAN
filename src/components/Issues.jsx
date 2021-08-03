@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import { ScrollToTopOnMount } from './ScrollToTopOnMount'
 import { StyledLink } from './Styled'
 
 const StyledLinkForCategories = styled(StyledLink)`
@@ -59,7 +60,7 @@ const Issues = () => {
         try {
             const res = await fetch(`http://127.0.0.1:5000/archive/${selectedYear}`)
             const data = await res.json()
-
+            console.log(data)
             let newData = [...data.issues]
 
             // 整理出一個 array，以日期分類所有 issue
@@ -99,6 +100,7 @@ const Issues = () => {
 
     return (
         <div className="issues">
+            {/* <ScrollToTopOnMount /> */}
             <div className="container">
                 <div className="issues__content">
                     <StyledLinkForCategories to={`/archive/${selectedYear}/All`}>

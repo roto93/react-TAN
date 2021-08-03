@@ -345,7 +345,7 @@ html {
 }
 .issues {
   min-height: 800px;
-  padding: 5em 0;
+  padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .issues__content {
@@ -451,7 +451,8 @@ html {
   padding: 0.75em;
 }
 .detail {
-  padding: 1em 0;
+  min-height: 800px;
+  padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .detail__content {
@@ -467,7 +468,7 @@ html {
   word-wrap: break-word;
 }
 .letter {
-  padding: 1em 0;
+  padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .letter__content {
