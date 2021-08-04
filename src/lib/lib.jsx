@@ -21,12 +21,16 @@ export const issueSort = (data) => {
 
 
     // 依照日期排序
-    dateArray.sort((a, b) => {
+    const sortMethod = (a, b) => {
         let aDate = Number(a.date)
         let bDate = Number(b.date)
         console.log(aDate, bDate)
         return aDate < bDate ? -1 : 1
-    })
+    }
+
+    dateArray.sort(sortMethod)
+
+
 
     return dateArray
 }

@@ -508,7 +508,6 @@ html {
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .upload__content {
-  border: 1px solid #fff;
   width: 86%;
   max-width: 1000px;
   margin: 0 auto;
@@ -530,7 +529,6 @@ html {
   align-items: stretch;
 }
 .upload__form__first {
-  border: 1px solid #ffd700;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -547,7 +545,6 @@ html {
   display: none;
 }
 .upload__form__second {
-  border: 1px solid #ffd700;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

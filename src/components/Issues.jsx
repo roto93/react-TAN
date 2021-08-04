@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
+import { API_URI } from '../lib/ENV'
 import { ScrollToTopOnMount } from './ScrollToTopOnMount'
 import { StyledLink } from './Styled'
 
@@ -58,7 +59,7 @@ const Issues = () => {
     const [issueData, setIssueData] = useState([]);
     const fetchThisYearIssues = async () => {
         try {
-            const res = await fetch(`http://127.0.0.1:5000/archive/${selectedYear}`)
+            const res = await fetch(`${API_URI}/archive/${selectedYear}`)
             const data = await res.json()
             console.log(data)
             let newData = [...data.issues]

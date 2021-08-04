@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { API_URI } from '../lib/ENV';
 
 const Upload = () => {
   const [type, setType] = useState('');
@@ -27,7 +28,7 @@ const Upload = () => {
       content: content,
     }
 
-    const res = await fetch('http://127.0.0.1:5000/archive', {
+    const res = await fetch(`${API_URI}/archive`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody)

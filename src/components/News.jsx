@@ -10,6 +10,7 @@ const News = () => {
     const history = useHistory()
 
     const getIssue = async () => {
+        const t1 = new Date()
         const currentYear = new Date().getFullYear()
         console.log(`${API_URI}/archive/${currentYear}`)
         const res = await fetch(`${API_URI}/archive/${currentYear}`)
@@ -19,6 +20,8 @@ const News = () => {
 
         const lastDayIssues = sorttedData[sorttedData.length - 1].issuesArray
         setIssuesArray(lastDayIssues)
+        const t2 = new Date()
+        console.log(`Use ${t2 - t1}ms to fetch`)
     }
 
     useEffect(() => {
