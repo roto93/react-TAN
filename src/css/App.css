@@ -471,7 +471,7 @@ html {
 }
 .detail__content {
   width: 86%;
-  max-width: 700px;
+  max-width: 900px;
   margin: 1em auto 0 auto;
   padding: 2em;
   font-size: 0.75em;
@@ -668,6 +668,9 @@ html {
   }
   .issues__td__date {
     width: 70px;
+  }
+  .detail__content {
+    font-size: 1em;
   }
   .letter {
     padding: 1em 0;
