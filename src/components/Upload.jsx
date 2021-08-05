@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
 
 const Upload = () => {
@@ -119,6 +120,12 @@ const Upload = () => {
                 type="submit">Submit</button>
             </div>
           </form>
+          <button
+            className="upload__signout__button"
+            onClick={() => { auth.signOut() }}
+          >
+            sign out
+          </button>
         </div>
       </div>
     </div>

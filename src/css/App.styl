@@ -60,7 +60,7 @@ html
     top 0
     width 100%
     height 64px
-    background-color #00000090
+    background-color #000000dd
     z-index 100
 
 .banner__topNav__list
@@ -70,7 +70,7 @@ html
     height: 100vh
     width 20%
     min-width: 150px
-    background-color #C5C5C5
+    background-color #ddd
     transform translate(101%,0px)
     transition transform 0.2s ease-in-out
     font-family 'Noto Sans'
@@ -80,12 +80,12 @@ html
 .banner__topNav__item
     display-flex column center center
     height 60px
-    background-color #C5C5C588
-    &:hover
-        background-color: lightblue
+    color #333
+    font-weight: bold
+    background-color #ddd
     &:active
         background-color: lightblue
-        opacity 0.5
+        opacity 1
 
 .banner__topNav__logo 
     position absolute
@@ -457,11 +457,11 @@ html
     text-align: center
 
 .detail__issue-title
-    font-size 1.375rem
+    font-size 1rem
     line-height 1.3em
     
 .detail__date-title
-    font-size 1rem
+    font-size 0.75rem
     line-height 2em
     color #ccc
 
@@ -473,6 +473,7 @@ html
     font-size 0.75em
     font-family 'Merriweather'
     line-height 1.5
+    color #eee
     background linear-gradient(135deg,#ffffff25,#ffffff10)
     box-shadow: 0px 0px 8px #00000080 inset, 0px 0px 8px #00000080 inset
     word-wrap break-word
@@ -573,6 +574,53 @@ html
     padding 0.75em .5em 
 
 
+// login
+.login
+    padding 2em 0
+    background linear-gradient(0deg,transparent 20%,#1B2533)
+
+.login__content
+    border 1px solid white
+    width 86%
+    margin 0 auto
+    font-family "Noto Sans" ,sans-serif
+
+.login__title
+    text-align: center
+    font-size 1.5rem
+    margin 0.5em
+
+
+.login__form
+    border 1px solid gold
+    display-flex column flex-start flex-start
+    width 100%
+    max-width: 400px
+    margin 0 auto
+
+.login__label
+    font-size 1.25rem
+    margin 0.5em 0
+
+.login__input
+    width 100%
+    font-size 1.25rem
+    color black
+    padding 0.5em
+    margin 0 0 0.75em 0 
+    border-radius: 4px
+    outline none
+    
+.login__button
+    width 100%
+    padding 0.5em
+    color black
+    font-size 1.25rem
+    background-color #fff
+
+.login__error
+    color pink
+
 // footer
 .footer
     background-color #222F43cc
@@ -666,6 +714,12 @@ html
     .detail__content
         font-size 1em
 
+    .detail__issue-title
+        font-size 1.375rem
+
+    .detail__date-title
+        font-size 1rem
+
     // letter
     .letter
         padding 1em 0
@@ -704,3 +758,11 @@ html
 
     .upload__form__textarea
         flex-grow 1
+
+    .archive
+    .detail
+    .issues
+    .letter
+    .login
+    .upload
+        padding 4em 0

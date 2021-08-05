@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import Letter from './components/Letter'
 import Upload from './components/Upload';
 import Archive from './components/Archive';
+import Login from './components/Login';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 
 
@@ -45,6 +46,10 @@ function App() {
 
             <Route path={"/archive"}>
               <Archive />
+            </Route>
+
+            <Route path={'/login'}>
+              <Login />
             </Route>
 
           </Switch>
