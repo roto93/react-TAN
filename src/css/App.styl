@@ -416,15 +416,18 @@ html
 .issues__td__date
     // background-color #ffffff88
     display-flex column flex-start center
-    padding 0.5em
+    padding 0.5em 0 0.25em 0
+    font-size 1.125rem
+
 
 .issues__td__issueList
     {}
 .issues__td__issueItem
     cursor pointer
-    padding 0.5em
+    padding 0.375em
     // list-style: disc
-    font-size 1.125rem
+    font-size 1rem
+    line-height 1.2
     &:hover
         color: #d4a373;
 
@@ -436,13 +439,23 @@ html
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .archive__content
-    border 1px solid white
+    // border 1px solid white
     width 86%
     margin 0 auto
+    display-flex row space-between center
+    flex-wrap: wrap
+
 
 .archive__year
+    border 1px solid #888
+    display-flex row center center
+    width 45%
     font-size 1.25rem
     padding 0.75em
+    margin .5em 0
+    background-color #0E1217
+    border-radius 4px
+
 
 // detail
 
@@ -471,7 +484,7 @@ html
     margin 1em auto 0 auto
     padding 2em
     font-size 0.75em
-    font-family 'Merriweather'
+    font-family 'Open Sans'
     line-height 1.5
     color #eee
     background linear-gradient(135deg,#ffffff25,#ffffff10)
@@ -490,9 +503,9 @@ html
 
 .letter__content
     width 86%
-
+    max-width: 800px
     font-size 0.75rem
-    font-family 'Noto Sans'
+    font-family 'Open Sans'
     line-height 2
     
     margin 1em auto
@@ -513,6 +526,7 @@ html
 .upload
     padding 2em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
+    min-height: 800px
 
 .upload__content
     // border 1px solid #fff
@@ -521,6 +535,7 @@ html
     margin 0 auto
     padding 1em 0
     font-family "Noto Sans"
+    position relative
 
     *
         color black
@@ -573,11 +588,15 @@ html
     margin 2em 1em 0.5em 1em
     padding 0.75em .5em 
 
-
+.upload__signout__button
+    position absolute
+    top 1em
+    right 1em
 // login
 .login
     padding 2em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
+    min-height 800px
 
 .login__content
     // border 1px solid white
@@ -597,7 +616,7 @@ html
     max-width: 400px
     margin 0 auto
     padding 1.5em
-    background-color #161B22
+    background-color #121B22
     border 1px solid #333
     border-radius: 8px
 
@@ -614,12 +633,13 @@ html
     margin 0 0 0.75em 0 
     border-radius: 8px
     border 1px solid #333
-    background-color #000
+    background-color #101010
     &:focus
         outline none
         border 1px solid skyblue
 
 .login__button
+    cursor pointer
     width 100%
     margin 0.5em 0
     padding 0.5em
@@ -628,6 +648,8 @@ html
     background-color #198964
     border 1px solid #59c9a4
     border-radius: 6px
+    &:hover
+        background-color #299974
     &:active
         opacity 0.5
 
@@ -742,7 +764,6 @@ html
     // detail
     .detail__content
         font-size 1em
-        font-family 'Open Sans'
     .detail__issue-title
         font-size 1.375rem
 
@@ -754,7 +775,7 @@ html
         padding 1em 0
 
     .letter__content
-        font-size 1.25rem
+        font-size 1.125rem
         line-height 2
 
 

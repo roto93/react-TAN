@@ -9,13 +9,12 @@ const Archive = () => {
     const { path, url } = useRouteMatch()
     console.log(path, url)
     const history = useHistory()
-
-    const arr = ['2021', '2020', '2019', '2018', '2017', '2016']
-
+    console.log(history)
     const Year = ({ year }) => {
+
         return (
             <div
-                onClick={() => { history.push(`/archive/`) }}
+                onClick={() => { history.push(`/archive/${year}/All`) }}
                 className="archive__year"
             >
                 {year}
@@ -52,3 +51,19 @@ const Archive = () => {
 }
 
 export default Archive
+
+const arr = [
+    '2021',
+    '2020',
+    '2019',
+    '2018',
+    '2017',
+    '2016',
+    '2015',
+    '2014',
+    '2013',
+    '2012',
+    '2011',
+    '2010',
+    '2009'
+]

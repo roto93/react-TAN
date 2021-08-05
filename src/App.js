@@ -12,7 +12,7 @@ import News from './components/News';
 import Cards from './components/Cards';
 import Footer from './components/Footer'
 import Letter from './components/Letter'
-import Upload from './components/Upload';
+import Links from './components/Links';
 import Archive from './components/Archive';
 import Login from './components/Login';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
@@ -41,7 +41,7 @@ function App() {
             </Route>
 
             <Route path={"/links"}>
-              <Upload />
+              <Links />
             </Route>
 
             <Route path={"/archive"}>
