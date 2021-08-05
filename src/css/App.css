@@ -638,9 +638,16 @@ html {
   margin: 1em auto;
   padding: 1.5em 2em 1.5em 1em;
   background-color: rgba(255,0,0,0.2);
+  position: relative;
 }
 .login__error {
   color: #ffc0cb;
+}
+.login__error__cross {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  cursor: pointer;
 }
 .footer {
   background-color: rgba(34,47,67,0.8);
@@ -737,6 +744,7 @@ html {
   }
   .detail__content {
     font-size: 1em;
+    font-family: 'Open Sans';
   }
   .detail__issue-title {
     font-size: 1.375rem;
