@@ -69,6 +69,9 @@ const Login = () => {
             <div className="container">
                 <div className="login__content">
                     <h2 className="login__title">Log in to admin.</h2>
+                    {error && <div className="login__error-box">
+                        <p className="login__error">{error}</p>
+                    </div>}
                     <form onSubmit={handleSubmit} className="login__form">
 
                         <label className="login__label">E-mail</label>
@@ -88,7 +91,6 @@ const Login = () => {
                         />
 
                         <button className="login__button">log in</button>
-                        <p className="login__error">{error}</p>
                     </form>
                 </div>
             </div>

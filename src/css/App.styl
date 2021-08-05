@@ -580,7 +580,7 @@ html
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .login__content
-    border 1px solid white
+    // border 1px solid white
     width 86%
     margin 0 auto
     font-family "Noto Sans" ,sans-serif
@@ -592,32 +592,52 @@ html
 
 
 .login__form
-    border 1px solid gold
     display-flex column flex-start flex-start
     width 100%
     max-width: 400px
     margin 0 auto
+    padding 1.5em
+    background-color #161B22
+    border 1px solid #333
+    border-radius: 8px
+
 
 .login__label
-    font-size 1.25rem
-    margin 0.5em 0
+    font-size 1rem
+    margin 0.75em 0
 
 .login__input
     width 100%
-    font-size 1.25rem
-    color black
-    padding 0.5em
+    font-size 1.125rem
+    color #ddd
+    padding 0.75em
     margin 0 0 0.75em 0 
-    border-radius: 4px
-    outline none
-    
+    border-radius: 8px
+    border 1px solid #333
+    background-color #000
+    &:focus
+        outline none
+        border 1px solid skyblue
+
 .login__button
     width 100%
+    margin 0.5em 0
     padding 0.5em
-    color black
+    color #fff
     font-size 1.25rem
-    background-color #fff
+    background-color #198964
+    border 1px solid #59c9a4
+    border-radius: 6px
+    &:active
+        opacity 0.5
 
+.login__error-box
+    border 1px solid darkred
+    border-radius: 8px
+    max-width: 400px
+    margin 1em auto
+    padding 1.5em 2em 1.5em 1em
+    background-color rgba(red,0.2)
 .login__error
     color pink
 
