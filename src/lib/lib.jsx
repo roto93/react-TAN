@@ -1,11 +1,8 @@
 export const issueSort = (data) => {
 
-
     let newData = [...data.issues]
 
-
     // 整理出一個 array，以日期分類所有 issue
-
     const dateArray = []
     newData.forEach(item => {
         const dateExists = !dateArray.some(i => item.date === i?.date)
@@ -19,18 +16,14 @@ export const issueSort = (data) => {
         }
     })
 
-
     // 依照日期排序
     const sortMethod = (a, b) => {
         let aDate = Number(a.date)
         let bDate = Number(b.date)
-        console.log(aDate, bDate)
         return aDate < bDate ? -1 : 1
     }
 
     dateArray.sort(sortMethod)
-
-
 
     return dateArray
 }

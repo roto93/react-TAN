@@ -497,6 +497,11 @@ html {
   box-shadow: 0px 0px 8px rgba(0,0,0,0.502) inset, 0px 0px 8px rgba(0,0,0,0.502) inset;
   word-wrap: break-word;
 }
+.update__deleteThis {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+}
 .letter {
   padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);

@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import ReactLoading from 'react-loading'
 import { useParams } from 'react-router-dom';
+import { useAuth } from '../hooks/AuthContext';
 import { API_URI } from '../lib/ENV';
+import DeleteThis from '../images/DeleteThis.jpg'
 
 const Detail = () => {
+    const { currentUser } = useAuth()
     const { id } = useParams()
     const [time, setTime] = useState('');
     const [title, setTitle] = useState('');
@@ -22,6 +25,18 @@ const Detail = () => {
         console.log(`Use ${t2 - t1}ms to fetch`)
     }
 
+    const deleteIssue = async () => {
+        const res = await fetch(`${API_URI}/archive/id/${id}`, {
+            method: "DELETE"
+        })
+
+    }
+
+    const confirmDelete = () => {
+        // open confirm modal
+
+    }
+
     useEffect(() => {
         getText()
     }, [])
@@ -37,6 +52,11 @@ const Detail = () => {
                         : <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
                     }
                 </div>
+                {currentUser
+                    && <div className="update__deleteThis" onClick={confirmDelete}>
+                        <img src={DeleteThis} alt="Detele This" style={{ width: '100px', height: '100px' }} />
+                    </div>
+                }
             </div>
         </div>
     )

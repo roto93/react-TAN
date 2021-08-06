@@ -5,11 +5,10 @@ import { ImCross } from 'react-icons/im'
 import { useAuth } from '../hooks/AuthContext';
 
 const Login = () => {
-    const { currentUser, signin } = useAuth()
+    const { currentUser, signin, signup } = useAuth()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
@@ -27,7 +26,7 @@ const Login = () => {
         if (mode == 'sign in') {
             // 註冊模式
             try {
-                await auth.createUserWithEmailAndPassword(email, password)
+                await signup()
 
                 console.log('Sign up a new user successfully.')
             } catch (err) {
@@ -48,22 +47,10 @@ const Login = () => {
             }
         }
     }
-    // const checkUser = () => {
-    //     auth.onAuthStateChanged((user) => {
-    //         if (user) {
-    //             console.log('Logged in with ' + user.email)
-    //             setIsLoggedIn(true)
-    //         } else {
-    //             console.log('User has signed out.')
-    //             setIsLoggedIn(false)
-    //         }
-    //     });
-    // }
+
 
     useEffect(() => {
         console.log(currentUser)
-        // const unsubscribe = checkUser()
-        // return unsubscribe
     }, [])
 
     if (currentUser) return <Upload />
