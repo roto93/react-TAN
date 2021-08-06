@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { API_URI } from '../lib/ENV';
 import DeleteThis from '../images/DeleteThis.jpg'
+import ConfirmModal from './ConfirmModal';
 
 const Detail = () => {
     const { currentUser } = useAuth()
@@ -11,6 +12,7 @@ const Detail = () => {
     const [time, setTime] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
+    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const getText = async () => {
         const t1 = new Date()
         const res = await fetch(`${API_URI}/archive/id/${id}`)
@@ -34,7 +36,7 @@ const Detail = () => {
 
     const confirmDelete = () => {
         // open confirm modal
-
+        setShowConfirmModal(true)
     }
 
     useEffect(() => {
@@ -57,6 +59,12 @@ const Detail = () => {
                         <img src={DeleteThis} alt="Detele This" style={{ width: '100px', height: '100px' }} />
                     </div>
                 }
+                <ConfirmModal
+                    isVisible={showConfirmModal}
+                    dismiss={() => { setShowConfirmModal(false) }}
+                    confirmAction={deleteIssue}
+                    title={'Are you sure you want to delete this issue?'}
+                />
             </div>
         </div>
     )

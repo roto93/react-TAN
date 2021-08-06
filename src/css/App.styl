@@ -487,7 +487,7 @@ html
     font-size 0.75em
     font-family 'Open Sans'
     line-height 1.5
-    color #eee
+    color #ddd
     background linear-gradient(135deg,#ffffff25,#ffffff10)
     box-shadow: 0px 0px 8px #00000080 inset, 0px 0px 8px #00000080 inset
     word-wrap break-word
@@ -716,6 +716,43 @@ html
     margin-top 1em
     color #C5C5C5
 
+.confirmModal__background
+    position fixed
+    top 0 
+    bottom 0
+    left 0
+    right 0
+    width 100vw
+    height 100vh
+    background-color rgba(#000,.5)
+    display-flex row center center
+
+.confirmModal
+    position fixed
+    top 50%
+    bottom 50%
+    left 50%
+    right 50%
+    transform translate(-50%,-50%)
+    background-color #ffe8d6
+    width 240px
+    height 140px
+    z-index 100
+    display-flex column space-between center
+    
+.confirmModal__message
+    color black
+    margin 1.5em
+    line-height 1.3
+    font-family "Open Sans"
+
+.confirmModal__buttonBox
+    width 100%
+
+.confirmModal__button
+    color black
+    width 50%
+    height 40px
 
 @media (min-width:600px)
 
