@@ -16,47 +16,49 @@ import Links from './components/Links';
 import Archive from './components/Archive';
 import Login from './components/Login';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
-
+import { AuthProvider } from './hooks/AuthContext';
 
 function App() {
 
   return (
-    <Router >
-      <ScrollToTopOnMount />
-      <div className="App">
-        <Banner />
-        <main className="main">
-          <Switch >
-            <Route exact path={'/'}>
-              <Redirect from={'/'} to={'/home'} />
-            </Route>
+    <AuthProvider>
+      <Router >
+        <ScrollToTopOnMount />
+        <div className="App">
+          <Banner />
+          <main className="main">
+            <Switch >
+              <Route exact path={'/'}>
+                <Redirect from={'/'} to={'/home'} />
+              </Route>
 
-            <Route path={"/home"}>
-              <News />
-              <Cards />
-            </Route>
+              <Route path={"/home"}>
+                <News />
+                <Cards />
+              </Route>
 
-            <Route path={"/about"}>
-              <Letter />
-            </Route>
+              <Route path={"/about"}>
+                <Letter />
+              </Route>
 
-            <Route path={"/links"}>
-              <Links />
-            </Route>
+              <Route path={"/links"}>
+                <Links />
+              </Route>
 
-            <Route path={"/archive"}>
-              <Archive />
-            </Route>
+              <Route path={"/archive"}>
+                <Archive />
+              </Route>
 
-            <Route path={'/login'}>
-              <Login />
-            </Route>
+              <Route path={'/login'}>
+                <Login />
+              </Route>
 
-          </Switch>
-          <Footer />
-        </main>
-      </div >
-    </Router>
+            </Switch>
+            <Footer />
+          </main>
+        </div >
+      </Router>
+    </AuthProvider>
   );
 }
 

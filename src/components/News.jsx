@@ -4,7 +4,6 @@ import { API_URI } from '../lib/ENV'
 import { issueSort } from '../lib/lib';
 
 const News = () => {
-
     const [issuesArray, setIssuesArray] = useState([]);
 
     const history = useHistory()

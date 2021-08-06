@@ -452,12 +452,13 @@ html {
   flex-wrap: wrap;
 }
 .archive__year {
+  cursor: pointer;
   border: 1px solid #888;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 45%;
+  width: 48%;
   font-size: 1.25rem;
   padding: 0.75em;
   margin: 0.5em 0;
@@ -786,6 +787,9 @@ html {
     font-size: 1.125rem;
     line-height: 2;
   }
+  .archive__year {
+    width: 31%;
+  }
   .footer__title {
     font-size: 1.75rem;
   }
@@ -814,6 +818,9 @@ html {
   }
   .upload__form__textarea {
     flex-grow: 1;
+  }
+  .archive__year {
+    width: 24%;
   }
   .archive,
   .detail,

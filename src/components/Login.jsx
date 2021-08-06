@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { auth } from '../firebase';
 import Upload from './Upload';
 import { ImCross } from 'react-icons/im'
+import { useAuth } from '../hooks/AuthContext';
 
 const Login = () => {
+    const { currentUser, signin } = useAuth()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
 
     const changeEmail = (e) => {
         setEmail(e.target.value)
@@ -35,9 +36,10 @@ const Login = () => {
         } else {
             // 登入模式
             try {
-                const userCredential = await auth.signInWithEmailAndPassword(email, password)
-                const user = userCredential.user
-                console.log(`Logged in successfully with ${user.email}`)
+                await signin(email, password)
+                // const userCredential = await auth.signInWithEmailAndPassword(email, password)
+                // const user = userCredential.user
+                // console.log(`Logged in successfully with ${user.email}`)
             } catch (err) {
                 setError(err.message)
             } finally {
@@ -46,24 +48,25 @@ const Login = () => {
             }
         }
     }
-    const checkUser = () => {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                console.log('Logged in with ' + user.email)
-                setIsLoggedIn(true)
-            } else {
-                console.log('User has signed out.')
-                setIsLoggedIn(false)
-            }
-        });
-    }
+    // const checkUser = () => {
+    //     auth.onAuthStateChanged((user) => {
+    //         if (user) {
+    //             console.log('Logged in with ' + user.email)
+    //             setIsLoggedIn(true)
+    //         } else {
+    //             console.log('User has signed out.')
+    //             setIsLoggedIn(false)
+    //         }
+    //     });
+    // }
 
     useEffect(() => {
-        const unsubscribe = checkUser()
-        return unsubscribe
+        console.log(currentUser)
+        // const unsubscribe = checkUser()
+        // return unsubscribe
     }, [])
 
-    if (isLoggedIn) return <Upload />
+    if (currentUser) return <Upload />
     else return (
         <div className="login">
             <div className="container">
