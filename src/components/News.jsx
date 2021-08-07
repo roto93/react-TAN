@@ -31,7 +31,7 @@ const News = () => {
     const renderIssues = issue => {
 
         const onIssueClick = () => {
-            history.push(`/archive/${issue.id}`)
+            history.push(`/archive/${issue.id}`, { from: history.location.pathname })
         }
         return (
             <li

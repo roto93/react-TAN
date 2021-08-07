@@ -21,30 +21,19 @@ const Login = () => {
     const mode = 'log in'
     // const mode = 'sign in'
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (mode == 'sign in') {
             // 註冊模式
-            try {
-                await signup()
-
-                console.log('Sign up a new user successfully.')
-            } catch (err) {
-                setError(err.message)
-            }
+            signup().catch(err => setError(err.message))
         } else {
             // 登入模式
-            try {
-                await signin(email, password)
-                // const userCredential = await auth.signInWithEmailAndPassword(email, password)
-                // const user = userCredential.user
-                // console.log(`Logged in successfully with ${user.email}`)
-            } catch (err) {
-                setError(err.message)
-            } finally {
-                setEmail('')
-                setPassword('')
-            }
+            signin(email, password)
+                .catch(err => setError(err.message))
+                .finally(() => {
+                    setEmail('')
+                    setPassword('')
+                })
         }
     }
 
