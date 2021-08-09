@@ -498,7 +498,12 @@ html {
   word-wrap: break-word;
 }
 .update__deleteThis {
-  width: 100px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
   height: 100px;
   margin: 0 auto;
 }
@@ -763,6 +768,7 @@ html {
   width: 100%;
 }
 .confirmModal__button {
+  cursor: pointer;
   color: #000;
   width: 50%;
   height: 40px;

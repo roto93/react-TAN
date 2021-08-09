@@ -26,7 +26,7 @@ const CardLink = ({ year, category }) => {
     const history = useHistory()
     return (
         <li
-            onClick={() => { navigateTo(history, `/archive/${year}/${category}`) }}
+            onClick={() => { navigateTo(history, `/archive/list/${year}/${category}`) }}
             className="cards__card__item">
             {category}
         </li>
@@ -51,7 +51,7 @@ const Cards = () => {
         }, [])
         return (
             <div className={`cards__card ${isMobile ? '' : 'hide'}`} ref={cardRef} >
-                <h2 onClick={() => { navigateTo(history, `/archive/${year}/All`) }} className="cards__h2">
+                <h2 onClick={() => { navigateTo(history, `/archive/list/${year}/All`) }} className="cards__h2">
                     {year}
                 </h2>
                 <ul className="cards__card__list">

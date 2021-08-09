@@ -59,6 +59,10 @@ const Detail = () => {
         setShowConfirmModal(true)
     }
 
+    const onEdit = () => {
+        history.push(``)
+    }
+
     useEffect(() => {
         getText()
     }, [])
@@ -74,9 +78,16 @@ const Detail = () => {
                         : <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
                     }
                 </div>
+                {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser
-                    && <div className="update__deleteThis" onClick={confirmDelete}>
-                        <img src={DeleteThis} alt="Detele This" style={{ width: '100px', height: '100px' }} />
+                    && <div className="update__deleteThis" >
+                        <img
+                            onClick={confirmDelete}
+                            src={DeleteThis}
+                            alt="Detele This"
+                            style={{ width: '100px', height: '100px' }}
+                        />
+                        <button className="update__editThis" onClick={onEdit}>Edit</button>
                     </div>
                 }
                 <ConfirmModal

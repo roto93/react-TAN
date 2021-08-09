@@ -21,7 +21,7 @@ const StyledLinkForCategories = styled(StyledLink)`
 const CategoryLink = ({ year, category }) => {
     return (
         <li className="issues__nav__item">
-            <StyledLinkForCategories to={`/archive/${year}/${category}`}>
+            <StyledLinkForCategories to={`/archive/list/${year}/${category}`}>
                 {category}
             </StyledLinkForCategories>
         </li>
@@ -43,7 +43,7 @@ const EachDay = ({ data, categoryToShow }) => {
                         <li
                             key={issue.title}
                             className="issues__td__issueItem"
-                            onClick={() => { history.push(`/archive/${issue.id}`) }}
+                            onClick={() => { history.push(`/archive/id/${issue.id}`, { from: history.location.pathname }) }}
                         >
                             {issue.title}
                         </li>
@@ -104,7 +104,7 @@ const Issues = () => {
             {/* <ScrollToTopOnMount /> */}
             <div className="container">
                 <div className="issues__content">
-                    <StyledLinkForCategories to={`/archive/${selectedYear}/All`}>
+                    <StyledLinkForCategories to={`/archive/list/${selectedYear}/All`}>
                         <h2 className="issues__year">{selectedYear}</h2>
                     </StyledLinkForCategories>
                     <ul className="issues__nav">

@@ -1,5 +1,6 @@
 export const issueSort = (data) => {
-
+    console.log(data)
+    if (data.issues.length === 0) return []
     let newData = [...data.issues]
 
     // 整理出一個 array，以日期分類所有 issue

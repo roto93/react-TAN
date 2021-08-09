@@ -3,6 +3,7 @@ import { Switch, Route, useRouteMatch } from 'react-router'
 import { useHistory } from 'react-router-dom'
 import Detail from './Detail'
 import Issues from './Issues'
+import Update from './Update'
 import { ScrollToTopOnMount } from '../components/ScrollToTopOnMount'
 
 const Archive = () => {
@@ -14,7 +15,7 @@ const Archive = () => {
 
         return (
             <div
-                onClick={() => { history.push(`/archive/${year}/All`) }}
+                onClick={() => { history.push(`/archive/list/${year}/All`) }}
                 className="archive__year"
             >
                 {year}
@@ -36,15 +37,15 @@ const Archive = () => {
                 </div>
             </Route>
             {/* <Route path={`/home/:selectedYear/:categoryToShow`}> */}
-            <Route path={`${path}/:selectedYear/:categoryToShow`}>
-                {/* <ScrollToTopOnMount /> */}
+            <Route path={`${path}/list/:selectedYear/:categoryToShow`}>
                 <Issues />
             </Route>
 
-            <Route path={`${path}/:id`}>
-                {/* <ScrollToTopOnMount /> */}
-
+            <Route path={`${path}/id/:id`}>
                 <Detail />
+            </Route>
+            <Route path={`${path}/update/:id`}>
+                <Update />
             </Route>
         </Switch>
     )
