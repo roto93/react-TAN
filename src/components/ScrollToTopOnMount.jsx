@@ -11,7 +11,7 @@ import useWindowSize from '../hooks/useWindowSize';
 export function ScrollToTopOnMount() {
     const { height: winY } = useWindowSize()
     const { pathname } = useLocation()
-    console.log(pathname, winY)
+    // console.log(pathname, winY)
     useEffect(() => {
 
         const path = pathname.split('/')[1]

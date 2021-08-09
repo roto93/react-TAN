@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import useWindowSize from '../hooks/useWindowSize'
 import VanillaTilt from 'vanilla-tilt'
-import { useRouteMatch, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 // reverse:           false,  // reverse the tilt direction
 // max:               35,     // max tilt rotation (degrees)
@@ -23,7 +23,6 @@ const navigateTo = (history, destination) => {
 }
 
 const CardLink = ({ year, category }) => {
-    const { url } = useRouteMatch()
     const history = useHistory()
     return (
         <li
@@ -38,7 +37,6 @@ const CardLink = ({ year, category }) => {
 const Cards = () => {
     const { width: winX } = useWindowSize()
     const isMobile = winX < 600
-    const { url } = useRouteMatch()
     const history = useHistory()
     const options = {
         perspective: 3000,

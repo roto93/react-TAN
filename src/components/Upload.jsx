@@ -17,6 +17,8 @@ const Upload = () => {
     return true
   }
 
+  const preventSubmit = (e) => { e.key === 'Enter' && e.preventDefault(); }
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     const isValid = formValidate()
@@ -62,6 +64,7 @@ const Upload = () => {
                   required
                   onChange={changeType}
                   style={{ color: !type ? 'grey' : 'black' }}
+                  onKeyPress={preventSubmit}
                 >
                   <option value='' hidden >- - Select an issue type - -</option>
                   <option value="Announcement">Announcement</option>
@@ -78,6 +81,7 @@ const Upload = () => {
                   required
                   type="date"
                   onChange={e => setTime(e.target.value)}
+                  onKeyPress={preventSubmit}
                 />
 
 
@@ -88,7 +92,7 @@ const Upload = () => {
                   type="text"
                   value={title}
                   onChange={changeTitle}
-                  onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}
+                  onKeyPress={preventSubmit}
                 />
               </div>
 

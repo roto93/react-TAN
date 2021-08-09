@@ -5,7 +5,11 @@ const Links = () => {
         <div className="links">
             <div className="container">
                 <div className="links__content">
-
+                    {linksArray.map(item => (
+                        <div>
+                            {item.abbreviation}
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
@@ -23,6 +27,7 @@ const linksArray = [
     },
     {
         title: 'Department of Earth Sciences, National Taiwan Normal University',
+        abbreviation: 'NTNU ES',
         uri: 'https://www.es.ntnu.edu.tw',
         logoUri: 'https://scontent-tpe1-1.cdninstagram.com/v/t51.2885-19/s320x320/147288269_411458376623703_6392194857077097950_n.jpg?_nc_ht=scontent-tpe1-1.cdninstagram.com&_nc_ohc=8ND5aXLgLhcAX9EwhQh&tn=f_ATaUbQJ-lJNShe&edm=ABfd0MgBAAAA&ccb=7-4&oh=9967ed51d2596de57d501d33f8bd0fee&oe=61148DCA&_nc_sid=7bff83'
     },

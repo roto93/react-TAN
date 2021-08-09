@@ -18,6 +18,7 @@ const Detail = () => {
         const t1 = new Date()
         const res = await fetch(`${API_URI}/archive/id/${id}`)
         const json = (await res.json())
+        console.log(json)
         if (json.status == 'resolved') {
             const issue = json.issue
             setTime(`${issue.year} - ${issue.date.slice(0, 2)} - ${issue.date.slice(2, 4)}`)
