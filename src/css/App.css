@@ -131,7 +131,7 @@ html {
   align-items: center;
   cursor: pointer;
   font-size: 1.5rem;
-  font-family: 'Noto Sans';
+  font-family: 'Inder';
   text-decoration: none;
   width: 110px;
 }
@@ -155,9 +155,9 @@ html {
   transform: translateY(-32px);
 }
 .banner__nav__logo {
-  font-size: 60px;
-  width: 60px;
-  height: 60px;
+  font-size: 56px;
+  width: 56px;
+  height: 56px;
 }
 .banner__title {
   display: flex;
@@ -215,7 +215,7 @@ html {
 }
 .news__title {
   font-size: 1.5rem;
-  font-family: Arial;
+  font-family: "Inder";
   font-weight: bold;
   letter-spacing: 0.3em;
   margin: 0 auto;
@@ -715,12 +715,14 @@ html {
 }
 .footer {
   background-color: rgba(34,47,67,0.8);
-  padding: 3em 0;
+  padding: 3em 0 5em;
 }
 .footer__content {
   width: 86%;
   margin: 0 auto;
-  font-family: "Roboto";
+}
+.footer__titleBox {
+  margin-bottom: 22px;
 }
 .footer__logo {
   width: 36px;
@@ -729,11 +731,9 @@ html {
   margin-bottom: 16px;
   margin-right: 24px;
 }
-.footer__titleBox {
-  margin-bottom: 22px;
-}
 .footer__title {
-  font-size: 1.625rem;
+  font-size: 1.5rem;
+  font-family: "Inder";
 }
 .footer__list {
   display: flex;
@@ -745,6 +745,7 @@ html {
   cursor: pointer;
   display: inline-block;
   font-size: 1.125rem;
+  font-family: "Inder";
 }
 .footer__item:active,
 .footer__item:focus {
@@ -759,6 +760,7 @@ html {
   line-height: 1.5;
   margin-top: 32px;
   color: #c5c5c5;
+  font-family: "Roboto";
 }
 .confirmModal__background {
   position: fixed;

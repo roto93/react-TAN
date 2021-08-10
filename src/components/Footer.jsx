@@ -25,7 +25,7 @@ const Footer = () => {
                             <StyledLink to={'/archive'}>Archive</StyledLink>
                         </li>
                     </ul>
-                    <p className="footer__author">Copyright © 1996-2021 NTNU ES<br />
+                    <p className="footer__author">Copyright © 1996-2021 NTNU ES Radio Group<br />
                         Maintained and designed by Tony Su & Josie Chen</p>
                 </div>
             </div>
