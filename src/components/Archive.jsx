@@ -4,13 +4,13 @@ import { useHistory } from 'react-router-dom'
 import Detail from './Detail'
 import Issues from './Issues'
 import Update from './Update'
-import { ScrollToTopOnMount } from '../components/ScrollToTopOnMount'
+import { useAuth } from '../hooks/AuthContext'
+import PrivateRoute from './PrivateRoute'
 
 const Archive = () => {
     const { path, url } = useRouteMatch()
-    console.log(path, url)
     const history = useHistory()
-    console.log(history)
+    const { currentUser } = useAuth()
     const Year = ({ year }) => {
 
         return (
@@ -44,9 +44,10 @@ const Archive = () => {
             <Route path={`${path}/id/:id`}>
                 <Detail />
             </Route>
-            <Route path={`${path}/update/:id`}>
+
+            <PrivateRoute path={`${path}/update/:id`} isAuth={currentUser}>
                 <Update />
-            </Route>
+            </PrivateRoute>
         </Switch>
     )
 }

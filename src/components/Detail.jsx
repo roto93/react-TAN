@@ -60,7 +60,7 @@ const Detail = () => {
     }
 
     const onEdit = () => {
-        history.push(``)
+        history.push(`/archive/update/${id}`)
     }
 
     useEffect(() => {
@@ -80,14 +80,15 @@ const Detail = () => {
                 </div>
                 {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser
-                    && <div className="update__deleteThis" >
+                    && <div className="detail__admin" >
                         <img
+                            className="detail__deleteThis"
                             onClick={confirmDelete}
                             src={DeleteThis}
                             alt="Detele This"
                             style={{ width: '100px', height: '100px' }}
                         />
-                        <button className="update__editThis" onClick={onEdit}>Edit</button>
+                        <button className="detail__editThis" onClick={onEdit}>Edit</button>
                     </div>
                 }
                 <ConfirmModal

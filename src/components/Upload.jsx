@@ -50,6 +50,7 @@ const Upload = () => {
     <div className="upload">
       <div className="container">
         <div className="upload__content">
+          <h1 className="upload__title">Upload Issue</h1>
           <form
             className="upload__form"
             onSubmit={handleSubmit}

@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
 
 const Upload = () => {
+    const { id } = useParams()
+    const history = useHistory()
     const [type, setType] = useState('');
     const [time, setTime] = useState('');
     const [title, setTitle] = useState('');
@@ -31,16 +34,33 @@ const Upload = () => {
             content: content,
         }
 
-        const res = await fetch(`${API_URI}/archive`, {
-            method: "POST",
+        const res = await fetch(`${API_URI}/archive/id/${id}`, {
+            method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(requestBody)
         })
-        const jsonRes = await res.json()
-        console.log(jsonRes)
+        const json = await res.json()
+        console.log(json)
 
-        console.log(requestBody)
+        console.log('request body: ' + requestBody)
     }
+
+    const fetchIssue = async () => {
+        const res = await fetch(`${API_URI}/archive/id/${id}`)
+        const json = await res.json()
+        const issue = json.issue
+        setType(issue.type)
+        setTime(`${issue.year}-${issue.date.slice(0, 2)}-${issue.date.slice(2, 4)}`)
+        setTitle(issue.title)
+        setContent(issue.content)
+
+        console.log(time)
+
+    }
+
+    useEffect(() => {
+        fetchIssue()
+    }, [])
 
     const changeType = (e) => setType(e.target.value)
     const changeTitle = (e) => setTitle(e.target.value)
@@ -50,6 +70,7 @@ const Upload = () => {
         <div className="upload">
             <div className="container">
                 <div className="upload__content">
+                    <h1 className="upload__title">Update Issue</h1>
                     <form
                         className="upload__form"
                         onSubmit={handleSubmit}
@@ -80,6 +101,7 @@ const Upload = () => {
                                     className="upload__form__date"
                                     required
                                     type="date"
+                                    value={time}
                                     onChange={e => setTime(e.target.value)}
                                     onKeyPress={preventSubmit}
                                 />
@@ -98,7 +120,7 @@ const Upload = () => {
 
                             <button
                                 className="upload__form__button"
-                                type="submit">Submit</button>
+                                type="submit">Update</button>
 
 
                         </div>
@@ -126,7 +148,10 @@ const Upload = () => {
                     </form>
                     <button
                         className="upload__signout__button"
-                        onClick={() => { auth.signOut() }}
+                        onClick={() => {
+                            auth.signOut()
+                            history.replace(`/archive/id/${id}`)
+                        }}
                     >
                         sign out
                     </button>
