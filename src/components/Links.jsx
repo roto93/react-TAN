@@ -5,9 +5,7 @@ const Links = () => {
         <div className="links" >
             <div className="container">
                 <div className="links__content" >
-                    <div>
-
-                    </div>
+                    {linksArray.map(item => <LinkCard key={item.abbreviation} item={item} />)}
                 </div>
             </div>
         </div>
@@ -15,6 +13,20 @@ const Links = () => {
 }
 
 export default Links
+
+const LinkCard = ({ item }) => {
+    const { abbreviation: abbr, chineseTitle: title, uri, logoUri } = item
+
+    return (
+        <div className="links__card">
+            <div className="links__card__logoBox" >
+                <img src={logoUri} alt={abbr} className="links__card__img" />
+            </div>
+            <h2 className="links__card__abbr">{abbr}</h2>
+            <h3 className="links__card__title">{title}</h3>
+        </div>
+    )
+}
 
 const linksArray = [
     {
@@ -29,7 +41,7 @@ const linksArray = [
         chineseTitle: "師大地科系",
         abbreviation: 'NTNU ES',
         uri: 'https://www.es.ntnu.edu.tw',
-        logoUri: 'https://scontent-tpe1-1.cdninstagram.com/v/t51.2885-19/s320x320/147288269_411458376623703_6392194857077097950_n.jpg?_nc_ht=scontent-tpe1-1.cdninstagram.com&_nc_ohc=8ND5aXLgLhcAX9EwhQh&tn=f_ATaUbQJ-lJNShe&edm=ABfd0MgBAAAA&ccb=7-4&oh=9967ed51d2596de57d501d33f8bd0fee&oe=61148DCA&_nc_sid=7bff83'
+        logoUri: 'https://i.imgur.com/9n3EGHu.jpg'
     },
     {
         title: 'The Astronomical Society of the Republic of China(Taiwan)',
