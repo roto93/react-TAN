@@ -118,7 +118,8 @@ html {
 }
 .banner__nav {
   display: none;
-  width: 110%;
+  width: 90%;
+  min-width: 500px;
   position: absolute;
   top: 0;
   transform: translateY(-140%);
@@ -145,18 +146,18 @@ html {
   position: absolute;
   z-index: -1;
   opacity: 0;
-  font-size: 2rem;
+  font-size: 1.75rem;
   transform: translateY(0px);
   transition: all 0.3s ease-in-out;
 }
 .banner__nav__item.active .banner__star {
   opacity: 1;
-  transform: translateY(-40px);
+  transform: translateY(-32px);
 }
 .banner__nav__logo {
-  font-size: 72px;
-  width: 72px;
-  height: 72px;
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
 }
 .banner__title {
   display: flex;
@@ -172,9 +173,11 @@ html {
   border-radius: 50%;
   font-size: 2.5rem;
   line-height: 1.4;
-  font-family: 'Numans';
   position: relative;
   transition: none 0.3s ease-in;
+}
+.banner__title__h1 {
+  font-family: 'Inder';
 }
 .banner__title__h1.astronomy {
   margin: 0 0.75em;
@@ -438,6 +441,10 @@ html {
 .issues__td__issueItem:hover {
   color: #d4a373;
 }
+.links {
+  padding: 2em 0;
+  background: linear-gradient(0deg, transparent 20%, #1b2533);
+}
 .archive {
   padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
@@ -490,7 +497,7 @@ html {
   margin: 1em auto 0 auto;
   padding: 2em;
   font-size: 0.75em;
-  font-family: 'Open Sans';
+  font-family: 'Noto Sans';
   line-height: 1.5;
   color: #ddd;
   background: linear-gradient(135deg, rgba(255,255,255,0.145), rgba(255,255,255,0.063));
@@ -520,7 +527,7 @@ html {
   width: 86%;
   max-width: 800px;
   font-size: 0.75rem;
-  font-family: 'Open Sans';
+  font-family: 'Noto Sans';
   line-height: 2;
   margin: 1em auto;
   padding: 2em 1.25em;
@@ -708,18 +715,25 @@ html {
 }
 .footer {
   background-color: rgba(34,47,67,0.8);
+  padding: 3em 0;
 }
 .footer__content {
-  user-select: none;
   width: 86%;
   margin: 0 auto;
-  padding: 3em 0;
-  font-family: "Noto Sans";
+  font-family: "Roboto";
+}
+.footer__logo {
+  width: 36px;
+  height: 36px;
+  font-size: 36px;
+  margin-bottom: 16px;
+  margin-right: 24px;
+}
+.footer__titleBox {
+  margin-bottom: 22px;
 }
 .footer__title {
-  font-size: 1.25rem;
-  margin-bottom: 1em;
-  font-family: 'Numans';
+  font-size: 1.625rem;
 }
 .footer__list {
   display: flex;
@@ -730,7 +744,7 @@ html {
 .footer__item {
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1.125rem;
 }
 .footer__item:active,
 .footer__item:focus {
@@ -743,7 +757,7 @@ html {
   text-align: center;
   font-size: 0.85em;
   line-height: 1.5;
-  margin-top: 1em;
+  margin-top: 32px;
   color: #c5c5c5;
 }
 .confirmModal__background {
@@ -780,7 +794,7 @@ html {
   color: #000;
   margin: 1.5em;
   line-height: 1.3;
-  font-family: "Open Sans";
+  font-family: "Noto Sans";
 }
 .confirmModal__buttonBox {
   width: 100%;
@@ -863,16 +877,38 @@ html {
   .archive__year {
     width: 31%;
   }
+  .footer__titleBox {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+  .footer__logo {
+    margin-bottom: 0;
+    width: 44px;
+    height: 44px;
+    font-size: 44px;
+  }
   .footer__title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+  }
+  .footer__list {
+    position: absolute;
+    right: 10%;
+    top: 0;
   }
   .footer__item {
     font-size: 1.25rem;
   }
+  .footer__author {
+    text-align: left;
+    margin-top: 32px;
+    color: #c5c5c5;
+  }
 }
 @media (min-width: 920px) {
   .banner__nav__item {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
   .banner__title {
     font-size: 2.75rem;
@@ -895,10 +931,26 @@ html {
   .archive__year {
     width: 24%;
   }
-  .archive,
-  .detail,
-  .issues,
+  .footer__content {
+    width: 70%;
+  }
+  .footer__logo {
+    margin-bottom: 0;
+    width: 56px;
+    height: 56px;
+    font-size: 56px;
+  }
+  .footer__title {
+    font-size: 2.25rem;
+  }
+  .footer__list {
+    right: 15%;
+  }
   .letter,
+  .issues,
+  .detail,
+  .links,
+  .archive,
   .login,
   .upload {
     padding: 4em 0;

@@ -2,14 +2,12 @@ import React from 'react'
 
 const Links = () => {
     return (
-        <div className="links">
+        <div className="links" >
             <div className="container">
-                <div className="links__content">
-                    {linksArray.map(item => (
-                        <div>
-                            {item.abbreviation}
-                        </div>
-                    ))}
+                <div className="links__content" >
+                    <div>
+
+                    </div>
                 </div>
             </div>
         </div>
