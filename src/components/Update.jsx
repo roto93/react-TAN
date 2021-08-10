@@ -11,6 +11,7 @@ const Upload = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [textareaHeight, setTextareaHeight] = useState(undefined);
+    console.log(id)
 
     const formValidate = () => {
         if (type === '') return
