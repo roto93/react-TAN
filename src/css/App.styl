@@ -273,7 +273,7 @@ html
     height 360px
     margin 0 1.5em 2em 1.5em
     padding 2em 2em
-    border-radius 24px
+    border-radius 16px
     background linear-gradient(135deg,#ffffff30,#ffffff05)
     border-top: 1px solid #ffffff60
     border-left 1px solid #ffffff60
@@ -511,22 +511,41 @@ html
 
 .archive__content
     // border 1px solid white
-    width 86%
+    max-width 86%
     margin 0 auto
-    display-flex row space-between center
+    display-flex row center center
     flex-wrap: wrap
+    
+
+.archive__file
+    cursor pointer
+    display-flex row center center
+    width 46%
+    max-width: 150px
+    font-size 1.25rem
+    // padding 0.75em
+    margin .5em 0.5em
+    border-radius 4px
+    position relative
+    &:hover .archive__fileImg
+        opacity 0.7
+
+.archive__fileImg
+    width 100%
+    opacity 0.2
+    
 
 
 .archive__year
-    cursor pointer
-    border 1px solid #888
-    display-flex row center center
-    width 48%
-    font-size 1.25rem
-    padding 0.75em
-    margin .5em 0
-    background-color #0E1217
-    border-radius 4px
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%,-30%)
+    font-size 1.5em
+    font-family "Rajdhani"
+    letter-spacing: 4px
+    text-indent 4px
+
 
 
 // detail
@@ -930,8 +949,8 @@ html
 
 
     //archive
-    .archive__year
-        width 31%
+    .archive__file
+        width 30%
 
     // Footer
     .footer__titleBox
@@ -983,8 +1002,8 @@ html
         flex-grow 1
 
         //archive
-    .archive__year
-        width 24%
+    .archive__file
+        width 22%
 
     // footer
     .footer__content 

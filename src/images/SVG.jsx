@@ -93,3 +93,52 @@ export function Star() {
         </svg>
     );
 }
+
+
+export const File = () => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="150"
+            height="100"
+            fill="none"
+            viewBox="0 0 150 100"
+        >
+            <path
+                fill="url(#paint0_linear)"
+                d="M69.429 15.385C69.429 6.888 62.54 0 54.044 0H4.231a4.23 4.23 0 00-4.23 4.23v11.155h69.428z"
+            ></path>
+            <path
+                fill="url(#paint1_linear)"
+                fillRule="evenodd"
+                d="M77.074 7.692a7.645 7.645 0 00-7.645 7.645H0V99.43h150V7.692H77.074z"
+                clipRule="evenodd"
+            ></path>
+            <defs>
+                <linearGradient
+                    id="paint0_linear"
+                    x1="69.429"
+                    x2="66.554"
+                    y1="0"
+                    y2="23.232"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stopColor="#fff"></stop>
+                    <stop offset="1" stopColor="#fff" stopOpacity="0.02"></stop>
+                </linearGradient>
+                <linearGradient
+                    id="paint1_linear"
+                    x1="0"
+                    x2="43.013"
+                    y1="7.692"
+                    y2="133.654"
+                    gradientUnits="userSpaceOnUse"
+                >
+                    <stop stopColor="#fff"></stop>
+                    <stop offset="1" stopColor="#fff" stopOpacity="0.02"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+    );
+}
+

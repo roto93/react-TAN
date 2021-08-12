@@ -6,7 +6,7 @@ import Issues from './Issues'
 import Update from './Update'
 import { useAuth } from '../hooks/AuthContext'
 import PrivateRoute from './PrivateRoute'
-
+import file from '../images/file.png'
 const Archive = () => {
     const { path, url } = useRouteMatch()
     const history = useHistory()
@@ -16,9 +16,10 @@ const Archive = () => {
         return (
             <div
                 onClick={() => { history.push(`/archive/list/${year}/All`) }}
-                className="archive__year"
+                className="archive__file"
             >
-                {year}
+                <img src={file} className="archive__fileImg" />
+                <h2 className="archive__year">{year}</h2>
             </div>
         )
     }
@@ -67,5 +68,18 @@ const arr = [
     '2012',
     '2011',
     '2010',
-    '2009'
+    '2009',
+    '2008',
+    '2007',
+    '2006',
+    '2005',
+    '2004',
+    '2003',
+    '2002',
+    '2001',
+    '2000',
+    '1999',
+    '1998',
+    '1997',
+    '1996',
 ]
