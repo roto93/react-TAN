@@ -456,6 +456,7 @@ html {
   user-select: none;
 }
 .links__card {
+  cursor: pointer;
   width: 270px;
   height: 305px;
   border-radius: 16px;
@@ -513,10 +514,12 @@ html {
   font-size: 1rem;
 }
 .archive {
+  min-height: 800px;
   padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
 }
 .archive__content {
+  user-select: none;
   max-width: 86%;
   margin: 0 auto;
   display: flex;
@@ -560,6 +563,16 @@ html {
   justify-content: flex-start;
   align-items: center;
   margin-right: 12px;
+  cursor: pointer;
+}
+.archive__sort * {
+  color: #ddd;
+}
+.archive__sort:hover * {
+  color: #fff;
+}
+.archive__sort:active {
+  opacity: 0.5;
 }
 .archive__sort__logo {
   display: flex;
@@ -583,6 +596,7 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
   flex-wrap: wrap;
 }
 .archive__file {
@@ -591,10 +605,10 @@ html {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 46%;
+  width: 45%;
   max-width: 150px;
   font-size: 1.25rem;
-  margin: 0.5em 0.5em;
+  margin: 0.5em 0.6em 0.5em 0;
   border-radius: 4px;
   position: relative;
 }

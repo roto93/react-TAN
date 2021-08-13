@@ -24,22 +24,22 @@ const LinkCard = ({ item }) => {
     )
 
     return (
-        <div className="links__card">
-            <a href={uri} style={{ textDecoration: 'none' }}>
+        <a target="_blank" href={uri} style={{ textDecoration: 'none' }}>
+            <div className="links__card">
                 <div className="links__card__logoBox" >
                     <img src={logoUri} alt={abbr} className="links__card__img" />
                 </div>
                 <h2 className="links__card__abbr">{abbr}</h2>
                 <h3 className="links__card__title">{title}</h3>
-            </a>
-        </div>
+            </div>
+        </a>
     )
 }
 
 const linksArray = [
     {
         title: 'Academia Sinica Institute of Astronomy and Astrophysics',
-        chineseTitle: "中研院-天文及天文物理研究所",
+        chineseTitle: "中研院 - 天文及天文物理研究所",
         abbreviation: 'ASIAA',
         uri: 'https://www.asiaa.sinica.edu.tw',
         logoUri: 'https://www.asiaa.sinica.edu.tw/_img/_logo/logo_asiaa.png'
@@ -60,25 +60,12 @@ const linksArray = [
     },
     {
         title: 'Center of Astronomy and Gravitation',
-        chineseTitle: "師大-天文與重力中心",
+        chineseTitle: "師大 - 天文與重力中心",
         abbreviation: 'CAG',
-        uri: 'http://iweb.ntnu.edu.tw/cag/',
+        uri: 'https://www.cag.ntnu.edu.tw',
         logoUri: 'https://i.imgur.com/bhoZXGF.png'
     },
-    {
-        title: '',
-        chineseTitle: '',
-        abbreviation: '',
-        uri: '',
-        logoUri: ''
-    },
-    {
-        title: '',
-        chineseTitle: '',
-        abbreviation: '',
-        uri: '',
-        logoUri: ''
-    },
+
 
 
 ]

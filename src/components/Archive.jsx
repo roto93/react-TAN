@@ -12,6 +12,8 @@ import * as SVG from '../images/SVG'
 
 const Archive = () => {
     const [yearArray, setYearArray] = useState([]);
+    const [searchText, setSearchText] = useState('');
+    const [shouldReverseYears, setShouldReverseYears] = useState(false);
     const { path, url } = useRouteMatch()
     const history = useHistory()
     const { currentUser } = useAuth()
@@ -27,6 +29,44 @@ const Archive = () => {
             </div>
         )
     }
+
+
+    const reverseYears = () => {
+        setShouldReverseYears(!shouldReverseYears)
+        console.log('reverse')
+        console.log(shouldReverseYears)
+    }
+
+
+    const ARROW_STYLE = {
+        transform: `scaleY( ${shouldReverseYears ? -1 : 1}) `
+    }
+
+    const onSearchYear = (inputYear) => {
+        let newArr = [...arr]
+
+        newArr = shouldReverseYears ? newArr.sort(() => -1) : newArr
+
+        if (searchText === '') return newArr
+        const digit = inputYear.length
+        const result = newArr.filter(item => {
+            return item.slice(0, digit) === inputYear
+        })
+
+        return result
+    }
+
+    const onInputChange = (e) => {
+        e.preventDefault()
+        setSearchText(e.target.value)
+    }
+
+
+    useEffect(() => {
+
+        let newArray = onSearchYear(searchText)
+        setYearArray([...newArray])
+    }, [searchText, shouldReverseYears])
 
     useEffect(() => {
         setYearArray(arr)
@@ -44,15 +84,19 @@ const Archive = () => {
                                     type="text"
                                     className="archive__search"
                                     placeholder="Search year..."
+                                    value={searchText}
+                                    onChange={onInputChange}
                                 />
-                                <div className="archive__sort">
+                                <div className="archive__sort"
+                                    onClick={reverseYears}
+                                >
                                     <div className="archive__sort__logo"><SVG.Sort /></div>
                                     <div className="archive__sort__text">Years</div>
-                                    <div className="archive__sort__arrowLogo"><SVG.ArrowDown /></div>
+                                    <div className="archive__sort__arrowLogo" style={ARROW_STYLE}><SVG.ArrowDown /></div>
                                 </div>
                             </div>
                             <div className="archive__fileBox">
-                                {arr.map(year => (
+                                {yearArray.map(year => (
                                     <Year key={year} year={year} />
                                 ))}
                             </div>

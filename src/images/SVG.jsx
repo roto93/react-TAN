@@ -153,7 +153,7 @@ export function Search() {
             viewBox="0 0 16 16"
         >
             <path
-                fill="#fff"
+                fill="currentColor"
                 d="M10.333 9.333h-.526l-.187-.18a4.314 4.314 0 001.047-2.82 4.333 4.333 0 10-4.334 4.334c1.074 0 2.06-.394 2.82-1.047l.18.187v.526l3.334 3.327.993-.993-3.327-3.334zm-4 0c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"
             ></path>
         </svg>
@@ -171,7 +171,7 @@ export function Sort() {
             viewBox="0 0 16 16"
         >
             <path
-                fill="#fff"
+                fill="currentColor"
                 d="M2 12h4v-1.333H2V12zm0-8v1.333h12V4H2zm0 4.667h8V7.333H2v1.334z"
             ></path>
         </svg>
@@ -188,7 +188,7 @@ export function ArrowDown() {
             viewBox="0 0 14 14"
         >
             <path
-                fill="#fff"
+                fill="currentColor"
                 d="M11.667 7l-.823-.823-3.26 3.255V2.333H6.417v7.1L3.162 6.171 2.333 7 7 11.667 11.667 7z"
             ></path>
         </svg>

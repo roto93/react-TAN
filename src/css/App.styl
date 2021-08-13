@@ -452,6 +452,7 @@ html
     user-select none
 
 .links__card
+    cursor pointer
     width 270px
     height 305px
     border-radius: 16px
@@ -506,11 +507,13 @@ html
 // archive
 
 .archive
+    min-height: 800px
     padding 2em 0
     background linear-gradient(0deg,transparent 20%,#1B2533)
 
 .archive__content
     // border 1px solid white
+    user-select none
     max-width 86%
     margin 0 auto
     display-flex column flex-start center
@@ -544,6 +547,13 @@ html
 .archive__sort
     display-flex row flex-start center
     margin-right: 12px
+    cursor pointer
+    *
+        color #ddd
+    &:hover *
+        color  #fff
+    &:active
+        opacity: 0.5
     
 
 .archive__sort__logo
@@ -559,16 +569,17 @@ html
 
 .archive__fileBox
     display-flex row center center
+    width 100%
     flex-wrap: wrap
 
 .archive__file
     cursor pointer
     display-flex row center center
-    width 46%
+    width 45%
     max-width: 150px
     font-size 1.25rem
     // padding 0.75em
-    margin .5em 0.5em
+    margin .5em 0.6em 0.5em 0
     border-radius 4px
     position relative
     &:hover .archive__fileImg
