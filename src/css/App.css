@@ -520,6 +520,66 @@ html {
   max-width: 86%;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.archive__header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  font-family: "Roboto";
+  font-size: 0.875rem;
+  margin-bottom: 2em;
+}
+.archive__search_logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform: translate(27px);
+  font-size: 1rem;
+}
+.archive__search {
+  width: 160px;
+  height: 30px;
+  background-color: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 15px;
+  margin-right: 24px;
+  padding: 7px 28px 7px 36px;
+  color: #fff;
+  outline: none;
+}
+.archive__sort {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-right: 12px;
+}
+.archive__sort__logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.archive__sort__text {
+  margin: 0 4px 0 8px;
+}
+.archive__sort__arrowLogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.archive__fileBox {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;

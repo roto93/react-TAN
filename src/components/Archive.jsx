@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Switch, Route, useRouteMatch } from 'react-router'
 import { useHistory } from 'react-router-dom'
 import Detail from './Detail'
@@ -7,7 +7,11 @@ import Update from './Update'
 import { useAuth } from '../hooks/AuthContext'
 import PrivateRoute from './PrivateRoute'
 import file from '../images/file.png'
+import * as SVG from '../images/SVG'
+
+
 const Archive = () => {
+    const [yearArray, setYearArray] = useState([]);
     const { path, url } = useRouteMatch()
     const history = useHistory()
     const { currentUser } = useAuth()
@@ -24,15 +28,34 @@ const Archive = () => {
         )
     }
 
+    useEffect(() => {
+        setYearArray(arr)
+    }, [])
+
     return (
         <Switch>
             <Route exact path={`${path}`}>
                 <div className="archive">
                     <div className="container">
                         <div className="archive__content">
-                            {arr.map(year => (
-                                <Year key={year} year={year} />
-                            ))}
+                            <div className="archive__header">
+                                <div className="archive__search_logo"><SVG.Search /></div>
+                                <input
+                                    type="text"
+                                    className="archive__search"
+                                    placeholder="Search year..."
+                                />
+                                <div className="archive__sort">
+                                    <div className="archive__sort__logo"><SVG.Sort /></div>
+                                    <div className="archive__sort__text">Years</div>
+                                    <div className="archive__sort__arrowLogo"><SVG.ArrowDown /></div>
+                                </div>
+                            </div>
+                            <div className="archive__fileBox">
+                                {arr.map(year => (
+                                    <Year key={year} year={year} />
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>
