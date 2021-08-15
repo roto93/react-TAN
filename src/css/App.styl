@@ -17,6 +17,11 @@ trbl(top, right, bottom, left)
     bottom bottom
     left left
 
+svg-size(size)
+    width size
+    height size
+    font-size size
+
 html
     background-color: #222F43;
 
@@ -59,63 +64,63 @@ html
     margin 0 auto
     user-select none
 
-.banner__topNav
-    display-flex row flex-end center
-    position fixed
-    top 0
-    width 100%
-    height 64px
-    background-color #000000dd
-    z-index 100
+// .banner__topNav
+//     display-flex row flex-end center
+//     position fixed
+//     top 0
+//     width 100%
+//     height 64px
+//     background-color #000000dd
+//     z-index 100
 
-.banner__topNav__list
-    display inline-block
-    position absolute
-    top 0
-    height: 100vh
-    width 20%
-    min-width: 150px
-    background-color #ddd
-    transform translate(101%,0px)
-    transition transform 0.2s ease-in-out
-    font-family 'Noto Sans'
-    &.active
-        transform translate(0%,0px)
+// .banner__topNav__list
+//     display inline-block
+//     position absolute
+//     top 0
+//     height: 100vh
+//     width 20%
+//     min-width: 150px
+//     background-color #ddd
+//     transform translate(101%,0px)
+//     transition transform 0.2s ease-in-out
+//     font-family 'Noto Sans'
+//     &.active
+//         transform translate(0%,0px)
 
-.banner__topNav__item
-    display-flex column center center
-    height 60px
-    color #333
-    font-weight: bold
-    background-color #ddd
-    &:active
-        background-color: lightblue
-        opacity 1
+// .banner__topNav__item
+//     display-flex column center center
+//     height 60px
+//     color #333
+//     font-weight: bold
+//     background-color #ddd
+//     &:active
+//         background-color: lightblue
+//         opacity 1
 
-.banner__topNav__logo 
-    position absolute
-    left 20px
-    width 32px
-    height 32px
-    font-size 32px
+// .banner__topNav__logo 
+//     position absolute
+//     left 20px
+//     width 32px
+//     height 32px
+//     font-size 32px
 
-.banner__topNav__title
-    font-size: 1.5em
-    font-family 'Noto Sans'
-    text-transform: capitalize
-    color: #ddd
-    position absolute
-    left 50%
-    transform translateX(-50%)
+// .banner__topNav__title
+//     font-size: 1.5em
+//     font-family 'Noto Sans'
+//     text-transform: capitalize
+//     color: #ddd
+//     position absolute
+//     left 50%
+//     transform translateX(-50%)
 
-.banner__topNav__menu
-    cursor pointer
-    position absolute
-    right 20px
-    width 32px
-    height 32px
-    font-size 24px
-    display-flex row center center
+// .banner__topNav__menu
+//     cursor pointer
+//     position absolute
+//     right 20px
+//     width 32px
+//     height 32px
+//     font-size 24px
+//     display-flex row center center
 
 .banner__nav
     // border 1px solid black
@@ -194,6 +199,56 @@ html
         transform translateY(60px)    
     }
 }
+
+// Nav
+
+.nav
+    background-color #000000dd
+    position fixed
+    trbl 0 unset unset 0
+    width 100%
+    font-family: "Inder"
+
+.nav__content
+    width 80%
+    margin 0 auto
+
+.nav__header
+    min-height: 48px
+    padding 1rem 0 0.5rem 0
+    display-flex row flex-start flex-end
+
+
+.nav__logo
+    svg-size(24px)
+
+.nav__title
+    margin-left: 12px
+    font-size: 1rem
+    small
+        font-size: 0.75rem
+
+.nav__list
+    list-style none
+    display-flex row space-between center
+
+.nav__item 
+    position relative
+    width 72px
+    min-height: 20px
+    padding 0.75em 0 0.5em
+    display-flex row center center
+    
+.nav__highlight
+    content ''
+    position absolute
+    bottom 0
+    width 72px
+    height: 2px
+    background-color: white
+    transform translate(0,0)
+    transition 0.5s transform ease-in-out
+
 
 // main
 .main

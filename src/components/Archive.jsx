@@ -17,11 +17,14 @@ const Archive = () => {
     const { path, url } = useRouteMatch()
     const history = useHistory()
     const { currentUser } = useAuth()
+
     const Year = ({ year }) => {
+
+        const navigateToYear = () => { history.push(`/archive/list/${year}/All`) }
 
         return (
             <div
-                onClick={() => { history.push(`/archive/list/${year}/All`) }}
+                onClick={navigateToYear}
                 className="archive__file"
             >
                 <img src={file} className="archive__fileImg" />
@@ -39,7 +42,7 @@ const Archive = () => {
 
 
     const ARROW_STYLE = {
-        transform: `scaleY( ${shouldReverseYears ? -1 : 1}) `
+        transform: `scaleY( ${shouldReverseYears ? -1 : 1})`
     }
 
     const onSearchYear = (inputYear) => {
@@ -63,7 +66,6 @@ const Archive = () => {
 
 
     useEffect(() => {
-
         let newArray = onSearchYear(searchText)
         setYearArray([...newArray])
     }, [searchText, shouldReverseYears])

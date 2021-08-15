@@ -33,7 +33,7 @@ const Banner = () => {
         <div className="banner__content">
 
           {/* topNav */}
-          <ul onMouseLeave={closeMenu} className="banner__topNav">
+          {/* <ul onMouseLeave={closeMenu} className="banner__topNav">
             <li className="banner__topNav__logo">
               <SVG.SvgObservatory />
             </li>
@@ -49,7 +49,7 @@ const Banner = () => {
               <li onClick={() => { navigateTo('/archive') }} className={`banner__topNav__item`}>Archive</li>
             </ul>
 
-          </ul>
+          </ul> */}
 
 
           {/* TAN 標題 */}

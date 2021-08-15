@@ -1,6 +1,6 @@
 import './css/reset.css'
 import './css/App.css';
-import React from 'react'
+import React, { useEffect } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,18 +15,26 @@ import Letter from './components/Letter'
 import Links from './components/Links';
 import Archive from './components/Archive';
 import Login from './components/Login';
+import Nav from './components/Nav';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 import { AuthProvider } from './hooks/AuthContext';
+import useObserver from './hooks/useObserver';
 
 function App() {
+
+  const [ref, isIntersecting] = useObserver({ threshold: 0.37 })
+
+  useEffect(() => {
+    console.log(isIntersecting)
+  }, [isIntersecting])
 
   return (
     <AuthProvider>
       <Router >
-        <ScrollToTopOnMount />
+        {/* <ScrollToTopOnMount /> */}
         <div className="App">
           <Banner />
-          <main className="main">
+          <main ref={ref} className="main">
             <Switch >
               <Route exact path={'/'}>
                 <Redirect from={'/'} to={'/home'} />
@@ -55,6 +63,8 @@ function App() {
 
             </Switch>
             <Footer />
+            <Nav />
+
           </main>
         </div >
       </Router>
