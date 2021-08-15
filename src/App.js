@@ -31,7 +31,7 @@ function App() {
   return (
     <AuthProvider>
       <Router >
-        {/* <ScrollToTopOnMount /> */}
+        <ScrollToTopOnMount />
         <div className="App">
           <Banner />
           <main ref={ref} className="main">
