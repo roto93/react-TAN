@@ -125,6 +125,7 @@ html {
   animation: jumping 1.5s ease-in-out infinite;
 }
 .nav {
+  user-select: none;
   background-color: rgba(37,38,46,0.8);
   position: fixed;
   top: 0;
@@ -167,6 +168,7 @@ html {
   align-items: center;
 }
 .nav__item {
+  cursor: pointer;
   position: relative;
   width: 72px;
   min-height: 20px;

@@ -3,6 +3,8 @@ import { useHistory, useLocation } from 'react-router'
 import useScroll from '../hooks/useScroll'
 import useWindowSize from '../hooks/useWindowSize'
 import * as SVG from '../images/SVG'
+import useScrollbarSize from 'react-scrollbar-size';
+
 
 const Nav = () => {
     const tabHighlightRef = useRef(null)
@@ -12,7 +14,7 @@ const Nav = () => {
     const history = useHistory()
     const [isScrollDown, setIsScrollDown] = useScroll()
 
-    console.log(isScrollDown)
+    console.log(winX)
 
     useEffect(() => {
 
@@ -29,7 +31,6 @@ const Nav = () => {
         navRef.current.style.transform = `translateY(0px)`
         setTimeout(() => {
             navRef.current.style.transform = `translateY(0px)`
-
             setIsScrollDown(false)
         }, 10);
     }
@@ -44,7 +45,7 @@ const Nav = () => {
                 if (mainPath === 'archive') return 3
                 return 0
             }
-            const step = 72 + (winX * 0.8 - 72 * 4) / 3
+            const step = 72 + ((winX < 1200 ? winX : 1200) * 0.8 - 72 * 4) / 3
             const highlightX = step * getIndex()
             tabHighlightRef.current.style.transform = `translate(${highlightX}px)`
         }
