@@ -13,6 +13,7 @@ const Nav = () => {
     const { pathname } = useLocation()
     const history = useHistory()
     const [isScrollDown, setIsScrollDown] = useScroll()
+    const { width: scrollBarwidth } = useScrollbarSize();
 
     console.log(winX)
 
@@ -45,7 +46,7 @@ const Nav = () => {
                 if (mainPath === 'archive') return 3
                 return 0
             }
-            const step = 72 + ((winX < 1200 ? winX : 1200) * 0.8 - 72 * 4) / 3
+            const step = 72 + (((winX - scrollBarwidth) < 1200 ? winX - scrollBarwidth : 1200) * 0.8 - 72 * 4) / 3
             const highlightX = step * getIndex()
             tabHighlightRef.current.style.transform = `translate(${highlightX}px)`
         }
