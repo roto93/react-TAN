@@ -6,7 +6,7 @@ import * as SVG from '../images/SVG'
 import useScrollbarSize from 'react-scrollbar-size';
 
 
-const Nav = () => {
+const Nav = ({ isMainIntersecting }) => {
     const tabHighlightRef = useRef(null)
     const navRef = useRef(null)
     const { width: winX, height: winY } = useWindowSize()
@@ -18,13 +18,17 @@ const Nav = () => {
     console.log(winX)
 
     useEffect(() => {
-
-        if (isScrollDown) {
-            navRef.current.style.transform = `translateY(-48px)`
-        } else {
-            navRef.current.style.transform = `translateY(0px)`
+        if (winX < 600) {
+            if (isScrollDown) {
+                navRef.current.style.transform = `translateY(-48px)`
+            } else {
+                navRef.current.style.transform = `translateY(0px)`
+            }
+            return
         }
-    }, [isScrollDown])
+        navRef.current.style.transform = isMainIntersecting ? `translateY(0%)` : `translateY(-100%)`
+
+    }, [winX, isScrollDown, isMainIntersecting])
 
     const onNavItemClick = (path) => {
         history.push(`/${path}`)
@@ -59,6 +63,7 @@ const Nav = () => {
     }, [winX, pathname])
 
     const toggleTab = (tabName) => pathname.split('/')[1] === tabName ? 'active' : ''
+
     return (
         <nav ref={navRef} className="nav">
             <div className="container">

@@ -63,7 +63,7 @@ function App() {
 
             </Switch>
             <Footer />
-            <Nav />
+            <Nav isMainIntersecting={isIntersecting} />
 
           </main>
         </div >
