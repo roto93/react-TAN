@@ -464,10 +464,13 @@ html {
   position: relative;
   transition: transform 0.2s ease-in-out;
 }
-.links__card:hover {
+.links__card__a {
+  text-decoration: none;
+}
+.links__card__a:hover {
   transform: scale(1.01);
 }
-.links__card:hover:after {
+.links__card__a:hover:after {
   content: '';
   position: absolute;
   top: 0;
@@ -476,9 +479,6 @@ html {
   left: 0;
   border: 4px solid #fff;
   border-radius: 16px;
-}
-.links__card.hidden {
-  opacity: 0;
 }
 .links__card__logoBox {
   height: 178px;

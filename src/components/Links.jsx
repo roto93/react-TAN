@@ -17,22 +17,16 @@ export default Links
 const LinkCard = ({ item }) => {
     const { abbreviation: abbr, chineseTitle: title, uri, logoUri } = item
 
-    if (!uri) return (
-        <div className="links__card hidden">
-
-        </div>
-    )
-
     return (
-        <a target="_blank" href={uri} style={{ textDecoration: 'none' }}>
-            <div className="links__card">
+        <div className="links__card">
+            <a target="_blank" href={uri} className="links__card__a">
                 <div className="links__card__logoBox" >
                     <img src={logoUri} alt={abbr} className="links__card__img" />
                 </div>
                 <h2 className="links__card__abbr">{abbr}</h2>
                 <h3 className="links__card__title">{title}</h3>
-            </div>
-        </a>
+            </a>
+        </div>
     )
 }
 
