@@ -22,7 +22,7 @@ import useObserver from './hooks/useObserver';
 
 function App() {
 
-  const [ref, isIntersecting] = useObserver({ threshold: 0.37 })
+  const [ref, isIntersecting] = useObserver({ threshold: 0.45 })
 
   useEffect(() => {
     console.log(isIntersecting)
@@ -33,8 +33,8 @@ function App() {
       <Router >
         <ScrollToTopOnMount />
         <div className="App">
-          <Banner />
-          <main ref={ref} className="main">
+          <Banner innerRef={ref} />
+          <main className="main">
             <Switch >
               <Route exact path={'/'}>
                 <Redirect from={'/'} to={'/home'} />
@@ -63,7 +63,7 @@ function App() {
 
             </Switch>
             <Footer />
-            <Nav isMainIntersecting={isIntersecting} />
+            <Nav isBannerIntersecting={isIntersecting} />
 
           </main>
         </div >

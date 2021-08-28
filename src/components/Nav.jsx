@@ -6,7 +6,7 @@ import * as SVG from '../images/SVG'
 import useScrollbarSize from 'react-scrollbar-size';
 
 
-const Nav = ({ isMainIntersecting }) => {
+const Nav = ({ isBannerIntersecting }) => {
     const tabHighlightRef = useRef(null)
     const navRef = useRef(null)
     const { width: winX, height: winY } = useWindowSize()
@@ -14,8 +14,6 @@ const Nav = ({ isMainIntersecting }) => {
     const history = useHistory()
     const [isScrollDown, setIsScrollDown] = useScroll()
     const { width: scrollBarwidth } = useScrollbarSize();
-
-    console.log(winX)
 
     useEffect(() => {
         if (winX < 600) {
@@ -26,9 +24,9 @@ const Nav = ({ isMainIntersecting }) => {
             }
             return
         }
-        navRef.current.style.transform = isMainIntersecting ? `translateY(0%)` : `translateY(-100%)`
+        navRef.current.style.transform = isBannerIntersecting ? `translateY(-100%)` : `translateY(0%)`
 
-    }, [winX, isScrollDown, isMainIntersecting])
+    }, [winX, isScrollDown, isBannerIntersecting])
 
     const onNavItemClick = (path) => {
         history.push(`/${path}`)
@@ -42,6 +40,7 @@ const Nav = ({ isMainIntersecting }) => {
 
     useEffect(() => {
         const moveTabHighlight = () => {
+
             const mainPath = pathname.split('/')[1]
             const getIndex = () => {
                 if (mainPath === 'home') return 0
@@ -50,8 +49,14 @@ const Nav = ({ isMainIntersecting }) => {
                 if (mainPath === 'archive') return 3
                 return 0
             }
-            const step = 72 + (((winX - scrollBarwidth) < 1200 ? winX - scrollBarwidth : 1200) * 0.8 - 72 * 4) / 3
-            const highlightX = step * getIndex()
+            let highlightX
+            if (winX < 600) {
+                const step = 68 + (((winX - scrollBarwidth) < 1200 ? winX - scrollBarwidth : 1200) * 0.8 - 68 * 4) / 3
+                highlightX = step * getIndex()
+            } else {
+                const step = 15 + 84
+                highlightX = step * getIndex()
+            }
             tabHighlightRef.current.style.transform = `translate(${highlightX}px)`
         }
 
@@ -75,10 +80,14 @@ const Nav = ({ isMainIntersecting }) => {
                         </h2>
                     </div>
                     <ul className="nav__list">
-                        <li onClick={() => { onNavItemClick('home') }} className={`nav__item ${toggleTab('home')}`} >Home</li>
-                        <li onClick={() => { onNavItemClick('about') }} className={`nav__item ${toggleTab('about')}`}>About</li>
-                        <li onClick={() => { onNavItemClick('links') }} className={`nav__item ${toggleTab('links')}`}>Links</li>
-                        <li onClick={() => { onNavItemClick('archive') }} className={`nav__item ${toggleTab('archive')}`}>Archive</li>
+                        <li onClick={() => { onNavItemClick('home') }} className={`nav__item ${toggleTab('home')}`}>Home
+                            <div className="nav__star"><SVG.Star /></div></li>
+                        <li onClick={() => { onNavItemClick('about') }} className={`nav__item ${toggleTab('about')}`}>About
+                            <div className="nav__star"><SVG.Star /></div></li>
+                        <li onClick={() => { onNavItemClick('links') }} className={`nav__item ${toggleTab('links')}`}>Links
+                            <div className="nav__star"><SVG.Star /></div></li>
+                        <li onClick={() => { onNavItemClick('archive') }} className={`nav__item ${toggleTab('archive')}`}>Archive
+                            <div className="nav__star"><SVG.Star /></div></li>
                         <li ref={tabHighlightRef} className="nav__highlight"></li>
                     </ul>
                 </div>

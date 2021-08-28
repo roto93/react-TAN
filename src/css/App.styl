@@ -226,6 +226,7 @@ html
 
 .nav__title
     margin-left: 12px
+    margin-right: -12px
     font-size: 1rem
     small
         font-size: 0.75rem
@@ -237,15 +238,18 @@ html
 .nav__item 
     cursor pointer
     position relative
-    width 72px
+    width 68px
     min-height: 20px
     padding 0.75em 0 0.5em
     display-flex row center center
-    
+
+.nav__star
+    display none
+
 .nav__highlight
     position absolute
     bottom 0
-    width 72px
+    width 68px
     height: 2px
     background-color: white
     transform translate(0,0)
@@ -1023,17 +1027,34 @@ html
         svg-size 2.5rem
 
     .nav__title 
+        display none
         font-size 1.125rem
         small
             font-size 1rem
 
 
     .nav__list
-
+        width 381px
 
     .nav__item
         font-size 1rem
+        width 84px
+        position relative
+        &.active .nav__star
+            transform translateY(-24px)
+            opacity 1
 
+
+    .nav__star
+        display inline-block
+        svg-size 1.25rem
+        position absolute
+        opacity 0
+        transform translateY(0)
+        transition opacity 0.3s ease-in-out, transform 0.3s ease-in-out
+        
+    .nav__highlight
+        width 84px
 
     // news
     .news__content

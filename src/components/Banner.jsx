@@ -2,18 +2,9 @@ import React, { useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom';
 import * as SVG from '../images/SVG'
 
-const Banner = () => {
+const Banner = ({ innerRef }) => {
   const path = useLocation().pathname
   const history = useHistory()
-  const [showMenu, setShowMenu] = useState(false);
-
-  const toggleMenu = () => {
-    setShowMenu(prev => !prev)
-  }
-
-  const closeMenu = () => {
-    setShowMenu(false)
-  }
 
   const getNavClass = (pathName) => {
     let shouldActive = path.split('/')[1] === pathName
@@ -24,32 +15,12 @@ const Banner = () => {
   const navigateTo = (destination) => {
     if (path === destination) return
     history.push(destination)
-    closeMenu()
   }
 
   return (
-    <div className={'banner'}>
+    <div ref={innerRef} className={'banner'}>
       <div className="container">
         <div className="banner__content">
-
-          {/* topNav */}
-          {/* <ul onMouseLeave={closeMenu} className="banner__topNav">
-            <li className="banner__topNav__logo">
-              <SVG.SvgObservatory />
-            </li>
-            <h1 className="banner__topNav__title" >{path.split('/')[1]}</h1>
-            <li onClick={toggleMenu} className="banner__topNav__menu">
-              <SVG.SvgMenu />
-            </li>
-
-            <ul className={`banner__topNav__list ${showMenu && 'active'}`}>
-              <li onClick={() => { navigateTo('/home') }} className={`banner__topNav__item`}>Home</li>
-              <li onClick={() => { navigateTo('/about') }} className={`banner__topNav__item`}>About</li>
-              <li onClick={() => { navigateTo('/links') }} className={`banner__topNav__item`}>Links</li>
-              <li onClick={() => { navigateTo('/archive') }} className={`banner__topNav__item`}>Archive</li>
-            </ul>
-
-          </ul> */}
 
 
           {/* TAN 標題 */}
