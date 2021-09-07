@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { API_URI } from '../lib/ENV'
 import { issueSort } from '../lib/lib';
+import { issueArrayTitlesIgnoreBreak } from '../lib/lib';
 
 const News = () => {
     const [issuesArray, setIssuesArray] = useState([]);
@@ -16,7 +17,22 @@ const News = () => {
 
         const sorttedData = issueSort(data)
         if (sorttedData.length === 0) return setIssuesArray([])
-        const lastDayIssues = sorttedData[sorttedData.length - 1].issuesArray || ''
+        let lastDayIssues = sorttedData[sorttedData.length - 1].issuesArray || ''
+
+        //// ignore the \n in titles
+
+        console.log(lastDayIssues[1])
+        //
+
+        lastDayIssues = issueArrayTitlesIgnoreBreak(lastDayIssues)
+
+        // lastDayIssues = lastDayIssues.map(issue => {
+        //     let splittedTitle = issue.title.split('\\n')
+        //     let newTitle = splittedTitle.join(' ')
+        //     return { ...issue, title: newTitle }
+        // })
+
+
         setIssuesArray(lastDayIssues)
         const t2 = new Date()
         console.log(`Use ${t2 - t1}ms to fetch`)

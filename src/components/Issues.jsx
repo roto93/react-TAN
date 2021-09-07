@@ -4,6 +4,8 @@ import styled from 'styled-components'
 import { API_URI } from '../lib/ENV'
 import { ScrollToTopOnMount } from './ScrollToTopOnMount'
 import { StyledLink } from './Styled'
+import ReactLoading from 'react-loading'
+import { issueArrayTitleDoBreak } from '../lib/lib'
 
 const StyledLinkForCategories = styled(StyledLink)`
     &:active {
@@ -57,6 +59,9 @@ const EachDay = ({ data, categoryToShow }) => {
 const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
     const [issueData, setIssueData] = useState([]);
+
+    const [isFetching, setIsFetching] = useState(true);
+
     const fetchThisYearIssues = async () => {
         try {
             const res = await fetch(`${API_URI}/archive/${selectedYear}`)
@@ -86,11 +91,16 @@ const Issues = () => {
                 return aDate < bDate ? -1 : 1
             })
 
-            setIssueData(dateArray)
+            // 依需要將標題換行
+            let newDateArray = dateArray.map(date => ({ ...date, issuesArray: issueArrayTitleDoBreak(date.issuesArray) }))
+
+            setIssueData(newDateArray)
             console.log(newData)
-            console.log(dateArray)
+            console.log(newDateArray)
         } catch (e) {
             console.log(e)
+        } finally {
+            setIsFetching(false)
         }
     }
 
@@ -129,9 +139,12 @@ const Issues = () => {
                                 categoryToShow={categoryToShow} />)}
                         </div>
                     </div>
+                    {isFetching && <div style={{ paddingTop: "50px" }}>
+                        <ReactLoading type="bubbles" width="60px" height="30px" color="white" />
+                    </div>}
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -5,6 +5,7 @@ import { useAuth } from '../hooks/AuthContext';
 import { API_URI } from '../lib/ENV';
 import DeleteThis from '../images/DeleteThis.jpg'
 import ConfirmModal from './ConfirmModal';
+import { titleIgnoreBreak } from '../lib/lib';
 
 const Detail = () => {
     const { currentUser } = useAuth()
@@ -22,7 +23,8 @@ const Detail = () => {
         if (json.status == 'resolved') {
             const issue = json.issue
             setTime(`${issue.year} - ${issue.date.slice(0, 2)} - ${issue.date.slice(2, 4)}`)
-            setTitle(issue.title)
+            let wrappedTitle = titleIgnoreBreak(issue.title)
+            setTitle(wrappedTitle)
             const lines = issue.content.split('\n')
 
             setContent(lines)

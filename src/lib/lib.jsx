@@ -28,3 +28,27 @@ export const issueSort = (data) => {
 
     return dateArray
 }
+
+export const issueArrayTitlesIgnoreBreak = (issues) => {
+    let newIssues = issues.map(issue => {
+        let splittedTitle = issue.title.split('\\n')
+        let newTitle = splittedTitle.join(' ')
+        return { ...issue, title: newTitle }
+    })
+    return newIssues
+}
+
+export const titleIgnoreBreak = (issueTitle) => {
+    let splittedTitle = issueTitle.split('\\n')
+    let newTitle = splittedTitle.join(' ')
+    return newTitle
+}
+
+export const issueArrayTitleDoBreak = (issues) => {
+    let newIssues = issues.map(issue => {
+        let splittedTitle = issue.title.split('\\n')
+        let newTitle = splittedTitle.join('\n\t')
+        return { ...issue, title: newTitle }
+    })
+    return newIssues
+}
