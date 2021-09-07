@@ -94,6 +94,16 @@ const Issues = () => {
             // 依需要將標題換行
             let newDateArray = dateArray.map(date => ({ ...date, issuesArray: issueArrayTitleDoBreak(date.issuesArray) }))
 
+            // 依照id排序
+            const idSortMethod = (a, b) => {
+                let a_id = Number(a.id)
+                let b_id = Number(b.id)
+                return a_id < b_id ? -1 : 1
+            }
+            newDateArray = newDateArray.map(date => {
+                return { ...date, issuesArray: date.issuesArray.sort(idSortMethod) }
+            })
+
             setIssueData(newDateArray)
             console.log(newData)
             console.log(newDateArray)

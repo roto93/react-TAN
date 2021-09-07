@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Upload = () => {
   const [type, setType] = useState('');
@@ -30,16 +31,40 @@ const Upload = () => {
       title: title,
       content: content,
     }
+    try {
+      const res = await fetch(`${API_URI}/archive`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody)
+      })
+      const json = await res.json()
+      console.log(json)
 
-    const res = await fetch(`${API_URI}/archive`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody)
-    })
-    const jsonRes = await res.json()
-    console.log(jsonRes)
+      if (json.status === 'resolved') {
+        toast.success('Update successfully', {
+          position: "bottom-center",
+          autoClose: 2000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        })
+        setType('')
+        setTitle('')
+        setContent('')
+      }
+      if (json.status === 'rejected') toast.error(`Update failed: ${json.message}`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      })
+    } catch (e) { console.log('[Post error]', e) }
 
-    console.log(requestBody)
   }
 
   const changeType = (e) => setType(e.target.value)
@@ -133,6 +158,18 @@ const Upload = () => {
           </button>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={"dark"}
+      />
     </div>
   )
 }

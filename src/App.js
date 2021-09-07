@@ -19,6 +19,7 @@ import Nav from './components/Nav';
 import { ScrollToTopOnMount } from './components/ScrollToTopOnMount';
 import { AuthProvider } from './hooks/AuthContext';
 import useObserver from './hooks/useObserver';
+import 'react-toastify/dist/ReactToastify.min.css'
 
 function App() {
 

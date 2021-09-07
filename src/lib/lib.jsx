@@ -23,8 +23,9 @@ export const issueSort = (data) => {
         let bDate = Number(b.date)
         return aDate < bDate ? -1 : 1
     }
-
     dateArray.sort(sortMethod)
+
+
 
     return dateArray
 }

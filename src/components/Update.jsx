@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
-
+import { ToastContainer, toast } from 'react-toastify';
 const Upload = () => {
     const { id } = useParams()
     const history = useHistory()
@@ -35,15 +35,36 @@ const Upload = () => {
             content: content,
         }
 
-        const res = await fetch(`${API_URI}/archive/id/${id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(requestBody)
-        })
-        const json = await res.json()
-        console.log(json)
+        try {
+            const res = await fetch(`${API_URI}/archive/id/${id}`, {
+                method: "PUT",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(requestBody)
+            })
+            const json = await res.json()
+            console.log(json)
 
-        console.log('request body: ' + requestBody)
+            if (json.status === 'resolved') toast.success('Update successfully', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+
+            if (json.status === 'rejected') toast.error('Update failed', {
+                position: "bottom-center",
+                autoClose: 2000,
+                hideProgressBar: true,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+
+        } catch (e) { console.log('[Post error]', e) }
     }
 
     const fetchIssue = async () => {
@@ -158,6 +179,19 @@ const Upload = () => {
                     </button>
                 </div>
             </div>
+            <ToastContainer
+                bodyStyle={{ color: 'black' }}
+                position="bottom-center"
+                autoClose={2000}
+                hideProgressBar
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme={'dark'}
+            />
         </div>
     )
 }

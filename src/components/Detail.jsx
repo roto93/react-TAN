@@ -74,12 +74,31 @@ const Detail = () => {
             <div className="container">
                 <h2 className="detail__issue-title">{title}</h2>
                 <h3 className="detail__date-title">{time && `update: ${time}`}</h3>
+
+
+                {/* 祖刻薄 */}
+                {title !== 'Not Found' && currentUser
+                    && <div className="detail__admin" >
+                        <img
+                            className="detail__deleteThis"
+                            onClick={confirmDelete}
+                            src={DeleteThis}
+                            alt="Detele This"
+                            style={{ width: '100px', height: '100px' }}
+                        />
+                        <button className="detail__editThis" onClick={onEdit}>Edit</button>
+                    </div>
+                }
+
+
                 <div className="detail__content">
                     {content.length !== 0
                         ? content.map((line, i) => <p key={i}>{line || '　'}</p>)
                         : <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
                     }
                 </div>
+
+
                 {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser
                     && <div className="detail__admin" >
