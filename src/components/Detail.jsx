@@ -15,6 +15,8 @@ const Detail = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+
+
     const getText = async () => {
         const t1 = new Date()
         const res = await fetch(`${API_URI}/archive/id/${id}`)

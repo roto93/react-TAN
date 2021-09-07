@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 import { API_URI } from '../lib/ENV'
-import { ScrollToTopOnMount } from './ScrollToTopOnMount'
 import { StyledLink } from './Styled'
 import ReactLoading from 'react-loading'
 import { issueArrayTitleDoBreak } from '../lib/lib'
+import useWindowSize from '../hooks/useWindowSize'
 
 const StyledLinkForCategories = styled(StyledLink)`
     &:active {
@@ -32,6 +32,7 @@ const CategoryLink = ({ year, category }) => {
 
 const EachDay = ({ data, categoryToShow }) => {
     const history = useHistory()
+    const { width: winX, height: winY } = useWindowSize()
 
     if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
     return (
@@ -45,7 +46,7 @@ const EachDay = ({ data, categoryToShow }) => {
                         <li
                             key={issue.title}
                             className="issues__td__issueItem"
-                            onClick={() => { history.push(`/archive/id/${issue.id}`, { from: history.location.pathname }) }}
+                            onClick={() => { window.scrollTo(0, winY - 100); history.push(`/archive/id/${issue.id}`, { from: history.location.pathname }) }}
                         >
                             {issue.title}
                         </li>
@@ -59,8 +60,8 @@ const EachDay = ({ data, categoryToShow }) => {
 const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
     const [issueData, setIssueData] = useState([]);
-
     const [isFetching, setIsFetching] = useState(true);
+
 
     const fetchThisYearIssues = async () => {
         try {
