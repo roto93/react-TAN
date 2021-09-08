@@ -380,6 +380,9 @@ html {
   font-family: 'Noto Sans';
   width: 140px;
 }
+.issues__nav__item.active a {
+  color: #d4a373;
+}
 .issues__table {
   border: 1px solid #457b9d;
   border-collapse: collapse;

@@ -24,11 +24,17 @@ const Upload = () => {
     e.preventDefault()
     const isValid = formValidate()
     if (!isValid) return
+
+    const checkTitle = (type, inputTitle) => {
+      if (type !== 'Announcement') return inputTitle
+      if (inputTitle.slice(4) === 'TAN ') return inputTitle
+      return `TAN ${inputTitle}`
+    }
     const requestBody = {
       type: type,
       year: Number(time.slice(0, 4)),
       date: time.slice(5, 7) + time.slice(8, 10),
-      title: title,
+      title: checkTitle(type, title),
       content: content,
     }
     try {

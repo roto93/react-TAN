@@ -21,8 +21,11 @@ const StyledLinkForCategories = styled(StyledLink)`
 `
 
 const CategoryLink = ({ year, category }) => {
+    const { categoryToShow } = useParams()
+
+    const isActive = categoryToShow === category
     return (
-        <li className="issues__nav__item">
+        <li className={`issues__nav__item ${isActive ? 'active' : ''}`}>
             <StyledLinkForCategories to={`/archive/list/${year}/${category}`}>
                 {category}
             </StyledLinkForCategories>
@@ -65,9 +68,10 @@ const Issues = () => {
 
     const fetchThisYearIssues = async () => {
         try {
-            const res = await fetch(`${API_URI}/archive/${selectedYear}`)
+            let fetchYear_URI = `${API_URI}/archive/${selectedYear}`
+            const res = await fetch(fetchYear_URI)
             const data = await res.json()
-            console.log(data)
+
             let newData = [...data.issues]
 
             // 整理出一個 array，以日期分類所有 issue
@@ -122,7 +126,6 @@ const Issues = () => {
 
     return (
         <div className="issues">
-            {/* <ScrollToTopOnMount /> */}
             <div className="container">
                 <div className="issues__content">
                     <StyledLinkForCategories to={`/archive/list/${selectedYear}/All`}>
