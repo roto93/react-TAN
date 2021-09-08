@@ -6,6 +6,7 @@ import { StyledLink } from './Styled'
 import ReactLoading from 'react-loading'
 import { issueArrayTitleDoBreak } from '../lib/lib'
 import useWindowSize from '../hooks/useWindowSize'
+import { BackToTop } from '../images/SVG'
 
 const StyledLinkForCategories = styled(StyledLink)`
     &:active {
@@ -64,7 +65,11 @@ const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
     const [issueData, setIssueData] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
+    const { width: winX, height: winY } = useWindowSize()
 
+    const backToTop = () => {
+        window.scrollTo(0, winY - 100)
+    }
 
     const fetchThisYearIssues = async () => {
         try {
@@ -153,6 +158,14 @@ const Issues = () => {
                                 categoryToShow={categoryToShow} />)}
                         </div>
                     </div>
+                    {isFetching || <div className="detail__back-to-top"
+                        onClick={backToTop}
+                    >
+                        <div className="detail__back-to-top__icon">
+                            <BackToTop />
+                        </div>
+                        <p className="detail__back-to-top__text">Back to top</p>
+                    </div>}
                     {isFetching && <div style={{ paddingTop: "50px" }}>
                         <ReactLoading type="bubbles" width="60px" height="30px" color="white" />
                     </div>}
