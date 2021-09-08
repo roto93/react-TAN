@@ -194,3 +194,21 @@ export function ArrowDown() {
         </svg>
     );
 }
+
+export function BackToTop() {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="1em"
+            height="1em"
+            x="0"
+            y="0"
+            enableBackground="new 0 0 337.085 337.086"
+            version="1.1"
+            viewBox="0 0 337.085 337.086"
+            xmlSpace="preserve"
+        >
+            <path className="detail__back-to-top__icon" fill="currentColor" d="M168.54 0C75.619 0 .012 75.609.012 168.543c0 92.93 75.606 168.543 168.528 168.543 92.933 0 168.534-75.613 168.534-168.543C337.074 75.609 261.473 0 168.54 0zm102.865 224.327a12.31 12.31 0 01-17.432 0L168.54 138.9l-85.424 85.427c-4.816 4.815-12.631 4.815-17.447 0-4.819-4.815-4.819-12.622 0-17.438l94.152-94.141c4.822-4.815 12.613-4.815 17.426 0l94.152 94.141c4.822 4.816 4.822 12.623.006 17.438z"></path>
+        </svg>
+    );
+}

@@ -6,6 +6,8 @@ import { API_URI } from '../lib/ENV';
 import DeleteThis from '../images/DeleteThis.jpg'
 import ConfirmModal from './ConfirmModal';
 import { titleIgnoreBreak } from '../lib/lib';
+import { BackToTop } from '../images/SVG'
+import useWindowSize from '../hooks/useWindowSize'
 
 const Detail = () => {
     const { currentUser } = useAuth()
@@ -15,6 +17,7 @@ const Detail = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
+    const { width: winX, height: winY } = useWindowSize()
 
 
     const getText = async () => {
@@ -67,6 +70,10 @@ const Detail = () => {
         history.push(`/archive/update/${id}`)
     }
 
+    const backToTop = () => {
+        window.scrollTo(0, winY - 100)
+    }
+
     useEffect(() => {
         getText()
     }, [])
@@ -96,10 +103,20 @@ const Detail = () => {
                 <div className="detail__content">
                     {content.length !== 0
                         ? content.map((line, i) => <p key={i}>{line || '　'}</p>)
-                        : <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
+                        : <div style={{ alignSelf: 'center' }}>
+                            <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
+                        </div>
                     }
-                </div>
 
+                </div>
+                <div className="detail__back-to-top"
+                    onClick={backToTop}
+                >
+                    <div className="detail__back-to-top__icon">
+                        <BackToTop />
+                    </div>
+                    <p className="detail__back-to-top__text">Back to top</p>
+                </div>
 
                 {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser

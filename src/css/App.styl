@@ -689,6 +689,7 @@ html
     color #ccc
 
 .detail__content
+    display-flex column flex-start flex-start
     width 86%
     max-width 900px
     margin 1em auto 0 auto
@@ -712,6 +713,30 @@ html
 
 .detail__editThis
     cursor pointer
+
+.detail__back-to-top
+    cursor pointer
+    user-select: none
+    display-flex row center center
+    width 86%
+    max-width: 900px
+    margin 40px auto 0
+    &:hover *
+        color #d4a373
+    &:active
+        opacity 0.5
+    
+
+
+
+.detail__back-to-top__icon
+    svg-size 24px
+
+
+.detail__back-to-top__text
+    font-size 16px
+    font-family "Noto Sans"
+    margin-left 16px
 
 // // // //
 // About // 
