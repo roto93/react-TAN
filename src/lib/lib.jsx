@@ -39,12 +39,6 @@ export const issueArrayTitlesIgnoreBreak = (issues) => {
     return newIssues
 }
 
-export const titleIgnoreBreak = (issueTitle) => {
-    let splittedTitle = issueTitle.split('\\n')
-    let newTitle = splittedTitle.join(' ')
-    return newTitle
-}
-
 export const issueArrayTitleDoBreak = (issues) => {
     let newIssues = issues.map(issue => {
         let splittedTitle = issue.title.split('\\n')
@@ -52,4 +46,16 @@ export const issueArrayTitleDoBreak = (issues) => {
         return { ...issue, title: newTitle }
     })
     return newIssues
+}
+
+export const titleIgnoreBreak = (issueTitle) => {
+    let splittedTitle = issueTitle.split('\\n')
+    let newTitle = splittedTitle.join(' ')
+    return newTitle
+}
+
+export const titleDoBreak = (issueTitle) => {
+    let splittedTitle = issueTitle.split('\\n')
+    let newTitle = splittedTitle.join('\n')
+    return newTitle
 }

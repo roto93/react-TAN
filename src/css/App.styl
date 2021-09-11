@@ -682,13 +682,19 @@ html
     text-align: center
 
 .detail__issue-title
-    font-size 1rem
+    font-size 0.75rem
     line-height 1.3em
+    white-space: pre-line
+    color:#ccc
+    &:first-line 
+        font-size 1rem
+        line-height 2
+        color: #fff
     
 .detail__date-title
     font-size 0.75rem
     line-height 2em
-    color #ccc
+    color #fff
 
 .detail__content
     display-flex column flex-start flex-start
@@ -1119,7 +1125,9 @@ html
     .detail__content
         font-size 1em
     .detail__issue-title
-        font-size 1.375rem
+        font-size 1rem
+        &:first-line 
+            font-size 1.375rem
 
     .detail__date-title
         font-size 1rem
