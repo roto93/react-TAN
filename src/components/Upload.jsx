@@ -27,7 +27,8 @@ const Upload = () => {
 
     const checkTitle = (type, inputTitle) => {
       if (type !== 'Announcement') return inputTitle
-      if (inputTitle.slice(4) === 'TAN ') return inputTitle
+      if (inputTitle.slice(0, 4) === 'TAN ') return inputTitle
+      if (inputTitle.slice(0, 14) === 'In this issue ') return `TAN issue ${inputTitle.slice(14)}`
       return `TAN ${inputTitle}`
     }
     const requestBody = {
