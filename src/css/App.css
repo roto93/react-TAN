@@ -633,7 +633,6 @@ html {
   text-indent: 4px;
 }
 .detail {
-  min-height: 800px;
   padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);
   font-family: 'Merriweather';
@@ -659,6 +658,7 @@ html {
   color: #fff;
 }
 .detail__content {
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
