@@ -663,7 +663,7 @@ html {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 86%;
+  width: 90%;
   max-width: 900px;
   margin: 1em auto 0 auto;
   padding: 2em;
@@ -673,7 +673,9 @@ html {
   color: #ddd;
   background: linear-gradient(135deg, rgba(255,255,255,0.145), rgba(255,255,255,0.063));
   box-shadow: 0px 0px 8px rgba(0,0,0,0.502) inset, 0px 0px 8px rgba(0,0,0,0.502) inset;
+  white-space: normal;
   word-wrap: break-word;
+  overflow: scroll;
 }
 .detail__admin {
   display: flex;
@@ -754,9 +756,9 @@ html {
   position: relative;
 }
 .upload__content label {
-  max-width: 400px;
   margin: 1em 1em 0.5em 1em;
   color: #fff;
+  font-family: 'Noto Sans';
 }
 .upload__title {
   font-size: 3rem;
@@ -777,14 +779,97 @@ html {
   justify-content: space-between;
   align-items: stretch;
 }
-.upload__form__first .upload__form__first__input {
+.upload__form__first__input {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
 }
-.upload__form__first button {
+.upload__form__types__input__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-size: 0.875rem;
+}
+.upload__form__button,
+.upload__form__button__mobile,
+.upload__clear-button,
+.upload__type-button {
+  user-select: none;
+  font-size: inherit;
+  font-family: "Noto Sans";
+  font-weight: 500;
+  margin: 0.5em 1em;
+  padding: 0.5em 0.5em;
+  color: #ccc;
+  letter-spacing: 2px;
+  margin-bottom: 0.5em;
+  background-color: rgba(27,37,51,0.188);
+  border: 1px solid #ccc;
+  transition: border 0.2s, color 0.2s;
+}
+.upload__form__button:hover,
+.upload__form__button__mobile:hover,
+.upload__clear-button:hover,
+.upload__type-button:hover,
+.upload__form__button:active,
+.upload__form__button__mobile:active,
+.upload__clear-button:active,
+.upload__type-button:active {
+  color: #fff;
+  border: 1px solid #fff;
+  font-weight: 700;
+  transition: none;
+}
+.upload__form__button:active,
+.upload__form__button__mobile:active,
+.upload__clear-button:active,
+.upload__type-button:active {
+  opacity: 0.5;
+}
+.upload__clear-button {
+  color: #ff6347;
+  border: 1px solid #ff6347;
+}
+.upload__clear-button:hover,
+.upload__clear-button:active {
+  color: #ffa397;
+  border: 1px solid #ffa397;
+}
+.upload__clear-button:active {
+  opacity: 0.5;
+}
+.upload__form__button,
+.upload__form__button__mobile {
+  font-size: 0.875rem;
+  color: #59c9a4;
+  border: 2px solid #198964;
+}
+.upload__form__button:hover,
+.upload__form__button__mobile:hover,
+.upload__form__button:active,
+.upload__form__button__mobile:active {
+  color: #59c9a4;
+  border: 2px solid #59c9a4;
+}
+.upload__form__button:active,
+.upload__form__button__mobile:active {
+  opacity: 0.5;
+}
+.upload__form__button {
   display: none;
+}
+.upload__signout__button {
+  position: absolute;
+  bottom: -0.5em;
+  right: 1em;
+  color: #000;
+  z-index: 100;
+}
+.upload__form__types__input {
+  margin: 1em;
+  padding: 0.5em;
   color: #000;
 }
 .upload__form__second {
@@ -818,18 +903,6 @@ html {
   padding: 0.75em 0.5em;
   resize: none;
   color: #000;
-}
-.upload__form__button {
-  margin: 2em 1em 0.5em 1em;
-  padding: 0.75em 0.5em;
-  color: #000;
-}
-.upload__signout__button {
-  position: absolute;
-  bottom: -0.5em;
-  right: 1em;
-  color: #000;
-  z-index: 100;
 }
 .login {
   padding: 2em 0;

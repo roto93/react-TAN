@@ -698,17 +698,19 @@ html
 .detail__content
     min-height: 60vh
     display-flex column flex-start flex-start
-    width 86%
+    width 90%
     max-width 900px
     margin 1em auto 0 auto
-    padding 2em
+    padding 2em 
     font-size 0.75em
     font-family 'Noto Sans'
     line-height 1.5
     color #ddd
     background linear-gradient(135deg,#ffffff25,#ffffff10)
     box-shadow: 0px 0px 8px #00000080 inset, 0px 0px 8px #00000080 inset
-    word-wrap break-word
+    white-space: normal
+    word-wrap: break-word
+    overflow: scroll
 
 .detail__admin
     display-flex row space-evenly center
@@ -793,9 +795,10 @@ html
     position relative
 
     label
-        max-width: 400px
+        // max-width: 400px
         margin 1em 1em 0.5em 1em
         color white
+        font-family 'Noto Sans'
 
 .upload__title
     font-size 3rem
@@ -811,12 +814,83 @@ html
     // border 1px solid gold
     min-width: 300px
     display-flex column space-between stretch
-    .upload__form__first__input
-        display-flex column flex-start stretch
 
-    button
-        display none
-        color black
+.upload__form__first__input
+    display-flex column flex-start stretch
+
+.upload__form__types__input__container
+    display-flex column flex-start stretch
+    font-size 0.875rem
+
+.upload__form__button
+.upload__form__button__mobile
+.upload__clear-button
+.upload__type-button
+    user-select: none
+    font-size inherit
+    font-family "Noto Sans"
+    font-weight 500
+    margin 0.5em 1em
+    padding 0.5em .5em 
+    color #ccc
+    letter-spacing: 2px
+    margin-bottom: 0.5em
+    background-color #1B253330
+    border 1px solid #ccc
+    transition: border 0.2s,color 0.2s 
+    &:hover
+    &:active
+        color #fff
+        border 1px solid #fff
+        font-weight 700
+        transition: none 
+
+    &:active
+        opacity 0.5
+
+.upload__clear-button
+    color tomato
+    border 1px solid tomato
+    &:hover
+    &:active
+        color #FFa397
+        border 1px solid #FFa397
+    &:active
+        opacity 0.5
+
+.upload__form__button
+.upload__form__button__mobile
+    font-size 0.875rem
+    color #59c9a4
+    border 2px solid #198964    
+    &:hover
+    &:active
+        color #59c9a4
+        border 2px solid #59c9a4
+    &:active
+        opacity 0.5
+
+.upload__form__button__mobile
+    // display none
+    
+.upload__form__button 
+    display none
+    
+
+.upload__signout__button
+    position absolute
+    bottom -0.5em
+    right 1em
+    color black
+    z-index 100
+
+.upload__form__types__input
+    margin 1em
+    padding 0.5em
+    color #000
+
+
+
 
 .upload__form__second
     // border 1px solid gold
@@ -849,18 +923,6 @@ html
     resize: none
     color black
 
-
-.upload__form__button 
-    margin 2em 1em 0.5em 1em
-    padding 0.75em .5em 
-    color:#000
-
-.upload__signout__button
-    position absolute
-    bottom -0.5em
-    right 1em
-    color black
-    z-index 100
 
 
 // login

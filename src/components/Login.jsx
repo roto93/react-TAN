@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { auth } from '../firebase';
 import Upload from './Upload';
+import AutoUpload from './AutoUpload';
 import { ImCross } from 'react-icons/im'
 import { useAuth } from '../hooks/AuthContext';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from "react-router-dom";
 
 const Login = () => {
     const { currentUser, signin, signup } = useAuth()
@@ -42,7 +49,19 @@ const Login = () => {
         console.log(currentUser)
     }, [])
 
-    if (currentUser) return <Upload />
+    if (currentUser) return (
+        <div className="">
+
+            <Route path="/login" exact>
+                <Upload />
+            </Route>
+
+            <Route path="/login/auto">
+                <AutoUpload />
+            </Route>
+        </div>
+        // <Upload />
+    )
     else return (
         <div className="login">
             <div className="container">
