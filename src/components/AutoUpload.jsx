@@ -110,6 +110,7 @@ const Upload = () => {
                                     {['Conferences', 'Seminar', 'Opportunities', 'Observations', 'Miscellaneous']
                                         .map(text => (
                                             <button
+                                                key={text}
                                                 type={'button'}
                                                 className="upload__type-button"
                                                 onClick={() => { onTypeClick(text) }}>
