@@ -164,7 +164,7 @@ const Upload = () => {
                                 onChange={changeContent}
                             />
                             <button
-                                className="upload__form__button"
+                                className="upload__form__button__mobile"
                                 type="submit">Submit</button>
                         </div>
                     </form>
