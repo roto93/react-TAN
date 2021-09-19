@@ -104,7 +104,7 @@ const Detail = () => {
                     {content.length !== 0
                         ? content.map((line, i) => <p key={i}>{line || '　'}</p>)
                         : <div style={{ alignSelf: 'center', margin: '20px' }}>
-                            <ReactLoading type="bubbles" width="30px" height="30px" color="white" />
+                            <ReactLoading type="bubbles" width="50px" height="50px" color="white" />
                         </div>
                     }
 

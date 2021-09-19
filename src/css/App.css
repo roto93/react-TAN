@@ -415,10 +415,13 @@ html {
   width: 100%;
 }
 .issues__eachDay {
-  padding: 0.5em 0;
+  padding: 0.75em 0;
 }
 .issues__eachDay:nth-child(odd) * {
   color: #ccc;
+}
+.issues__eachDay:nth-child(odd) .issues__td__date {
+  color: #ddbea9;
 }
 .issues__eachDay:nth-child(even) {
   background-color: rgba(255,255,255,0.125);
@@ -426,14 +429,20 @@ html {
 .issues__eachDay:nth-child(even) * {
   color: #eee;
 }
+.issues__eachDay:nth-child(even) .issues__td__date {
+  color: #ddbea9;
+}
 .issues__td__date {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: 0.375em 0 0.25em 0;
-  font-size: 1rem;
+  padding: 0.25em 0 0.125em 0;
+  font-size: 1.25rem;
+  font-weight: bold;
+  letter-spacing: 1px;
   line-height: 1.2;
+  font-family: sans-serif;
   flex-shrink: 0;
 }
 .issues__td__issueList {
@@ -441,9 +450,10 @@ html {
 }
 .issues__td__issueItem {
   cursor: pointer;
-  padding: 0.375em 1em;
+  padding: 0.375em 0.5em;
   font-size: 15px;
-  line-height: 1.2;
+  line-height: 1.3;
+  font-family: sans-serif;
   white-space: pre;
 }
 .issues__td__issueItem:hover {
@@ -1194,6 +1204,8 @@ html {
   }
   .issues__td__date {
     width: 70px;
+    padding: 0.375em 0 0.25em 0;
+    font-size: 1rem;
   }
   .issues__td__issueList {
     overflow: auto;

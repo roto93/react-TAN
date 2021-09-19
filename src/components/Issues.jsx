@@ -52,7 +52,7 @@ const EachDay = ({ data, categoryToShow }) => {
                             className="issues__td__issueItem"
                             onClick={() => { window.scrollTo(0, winY - 100); history.push(`/archive/id/${issue.id}`, { from: history.location.pathname }) }}
                         >
-                            {issue.title}
+                            --  {issue.title}
                         </li>
                     )
                 })}
