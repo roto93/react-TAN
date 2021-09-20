@@ -44,7 +44,6 @@ const EachDay = ({ data, categoryToShow }) => {
             <div className="issues__td__date">{`${Number(data.date.slice(0, 2))}/${data.date.slice(2, 4)}`}</div>
             <ul className="issues__td__issueList">
                 {data.issuesArray.map(issue => {
-                    console.log('issue.type')
                     if (categoryToShow !== 'All' & issue.type !== categoryToShow) return null
                     return (
                         <li
@@ -69,6 +68,10 @@ const Issues = () => {
 
     const backToTop = () => {
         window.scrollTo(0, winY - 100)
+    }
+
+    const goToBottom = () => {
+        window.scrollTo(0, document.body.scrollHeight)
     }
 
     const fetchThisYearIssues = async () => {
@@ -144,6 +147,16 @@ const Issues = () => {
                         <CategoryLink year={selectedYear} category={'Observations'} />
                         <CategoryLink year={selectedYear} category={'Miscellaneous'} />
                     </ul>
+
+                    {isFetching || <div className="detail__back-to-top"
+                        onClick={goToBottom}
+                    >
+                        <div className="detail__back-to-top__icon flipped">
+                            <BackToTop />
+                        </div>
+                        <p className="detail__back-to-top__text">Go to bottom</p>
+                    </div>}
+
                     <div className="issues__table">
                         <div className="issues__thead">
                             {/* <div className="issues__tr"> */}

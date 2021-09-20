@@ -421,7 +421,8 @@ html
 .issues__year
     user-select none
     margin 0 auto 0.25em auto
-    font-size 2.5rem
+    font-size 3rem
+    letter-spacing: 4px
     font-family 'Rajdhani'
 
 .issues__nav
@@ -449,7 +450,7 @@ html
     border-radius 8px
     overflow hidden
     width 100%  
-    margin 2em 0 0 0
+    margin 1em 0 0 0
     font-size 1.125rem
     font-family sans-serif
 
@@ -733,7 +734,7 @@ html
     color #ddd
     background linear-gradient(135deg,#ffffff25,#ffffff10)
     box-shadow: 0px 0px 8px #00000080 inset, 0px 0px 8px #00000080 inset
-    white-space: normal
+    white-space: pre-wrap
     word-wrap: break-word
     overflow: scroll
     p
@@ -755,19 +756,20 @@ html
     cursor pointer
     user-select: none
     display-flex row center center
-    width 86%
+    width 180px
     max-width: 900px
-    margin 40px auto 0
+    padding 0.5em 0
+    margin 1.5em auto 0
     &:hover *
         color #d4a373
     &:active
         opacity 0.5
     
 
-
-
 .detail__back-to-top__icon
     svg-size 24px
+    &.flipped
+        transform: scaleY(-1)
 
 
 .detail__back-to-top__text
