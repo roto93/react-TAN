@@ -118,8 +118,6 @@ const Issues = () => {
             })
 
             setIssueData(newDateArray)
-            console.log(newData)
-            console.log(newDateArray)
         } catch (e) {
             console.log(e)
         } finally {
@@ -148,7 +146,7 @@ const Issues = () => {
                         <CategoryLink year={selectedYear} category={'Miscellaneous'} />
                     </ul>
 
-                    {isFetching || <div className="detail__back-to-top"
+                    {isFetching || issueData.length == 0 || <div className="detail__back-to-top"
                         onClick={goToBottom}
                     >
                         <div className="detail__back-to-top__icon flipped">
@@ -171,7 +169,13 @@ const Issues = () => {
                                 categoryToShow={categoryToShow} />)}
                         </div>
                     </div>
-                    {isFetching || <div className="detail__back-to-top"
+
+                    {isFetching || issueData.length === 0
+                        && <p style={{ fontSize: '1.5rem', fontFamily: "Inder", margin: "5em auto", color: "#ddd", whiteSpace: 'pre' }}>
+                            --------   This page is waiting for update.   --------
+                        </p>}
+
+                    {isFetching || issueData.length == 0 || <div className="detail__back-to-top"
                         onClick={backToTop}
                     >
                         <div className="detail__back-to-top__icon">

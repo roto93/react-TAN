@@ -932,6 +932,12 @@ html {
   resize: none;
   color: #000;
 }
+.upload_last_updated {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.25rem;
+}
 .login {
   padding: 2em 0;
   background: linear-gradient(0deg, transparent 20%, #1b2533);

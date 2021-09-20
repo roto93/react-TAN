@@ -7,6 +7,7 @@ const Upload = () => {
     const [typeString, setTypeString] = useState('');
     const [content, setContent] = useState('');
     const [textareaHeight, setTextareaHeight] = useState(undefined);
+    const [lastUpdateTime, setLastUpdateTime] = useState('');
 
     const formValidate = () => {
         if (typeString === '') return
@@ -44,6 +45,8 @@ const Upload = () => {
                     draggable: true,
                     progress: undefined,
                 })
+                console.log(json.updated_issue_time)
+                setLastUpdateTime(json.updated_issue_time)
                 setTypeString('')
                 setContent('')
             }
@@ -157,6 +160,7 @@ const Upload = () => {
                         sign out
                     </button>
                 </div>
+                <p className="upload_last_updated">Last updated issue time: {lastUpdateTime}</p>
             </div>
             <ToastContainer
                 position="bottom-center"
