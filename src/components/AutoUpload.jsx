@@ -50,7 +50,7 @@ const Upload = () => {
                 setTypeString('')
                 setContent('')
             }
-            if (json.status === 'rejected') toast.error(`Update failed: ${json.message}`, {
+            if (json.status === 'rejected') toast.error(`Update failed. ${json.message}`, {
                 position: "bottom-center",
                 autoClose: 5000,
                 hideProgressBar: true,
