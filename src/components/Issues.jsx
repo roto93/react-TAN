@@ -51,7 +51,7 @@ const EachDay = ({ data, categoryToShow }) => {
                             className="issues__td__issueItem"
                             onClick={() => { window.scrollTo(0, winY - 100); history.push(`/archive/id/${issue.id}`, { from: history.location.pathname }) }}
                         >
-                            --  {issue.title}
+                            -  {issue.title}
                         </li>
                     )
                 })}
@@ -146,7 +146,7 @@ const Issues = () => {
                         <CategoryLink year={selectedYear} category={'Miscellaneous'} />
                     </ul>
 
-                    {isFetching || issueData.length == 0 || <div className="detail__back-to-top"
+                    {isFetching || issueData.length === 0 || <div className="detail__back-to-top"
                         onClick={goToBottom}
                     >
                         <div className="detail__back-to-top__icon flipped">
