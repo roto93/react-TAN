@@ -46,7 +46,7 @@ const Archive = () => {
     }
 
     const onSearchYear = (inputYear) => {
-        let newArr = [...arr]
+        let newArr = [...yearArray]
 
         newArr = shouldReverseYears ? newArr.sort(() => -1) : newArr
 
@@ -71,7 +71,7 @@ const Archive = () => {
     }, [searchText, shouldReverseYears])
 
     useEffect(() => {
-        setYearArray(arr)
+        setYearArray(getAllYears())
     }, [])
 
     return (
@@ -124,31 +124,40 @@ const Archive = () => {
 
 export default Archive
 
-const arr = [
-    '2021',
-    '2020',
-    '2019',
-    '2018',
-    '2017',
-    '2016',
-    '2015',
-    '2014',
-    '2013',
-    '2012',
-    '2011',
-    '2010',
-    '2009',
-    '2008',
-    '2007',
-    '2006',
-    '2005',
-    '2004',
-    '2003',
-    '2002',
-    '2001',
-    '2000',
-    '1999',
-    '1998',
-    '1997',
-    '1996',
-]
+const getAllYears = () => {
+    const currentYear = new Date().getFullYear()
+    const arr = []
+    for (let i = currentYear; i > 1995; i--) {
+        arr.push(i.toString())
+    }
+    return arr
+}
+
+// const arr = [
+//     '2021',
+//     '2020',
+//     '2019',
+//     '2018',
+//     '2017',
+//     '2016',
+//     '2015',
+//     '2014',
+//     '2013',
+//     '2012',
+//     '2011',
+//     '2010',
+//     '2009',
+//     '2008',
+//     '2007',
+//     '2006',
+//     '2005',
+//     '2004',
+//     '2003',
+//     '2002',
+//     '2001',
+//     '2000',
+//     '1999',
+//     '1998',
+//     '1997',
+//     '1996',
+// ]

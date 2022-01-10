@@ -79,11 +79,23 @@ const Cards = () => {
 
 export default Cards
 
-const cardsArr = [
-    '2021',
-    '2020',
-    '2019',
-    '2018',
-    '2017',
-    '2016',
-]
+const getCardsArr = () => {
+    const currentYear = new Date().getFullYear()
+    const arr = []
+    for (let i = 0; i < 6; i++) {
+        arr.push((currentYear - i).toString())
+    }
+    return arr
+}
+
+const cardsArr = getCardsArr()
+
+// [
+//     '2022',
+//     '2021',
+//     '2020',
+//     '2019',
+//     '2018',
+//     '2017',
+//     '2016',
+// ]
