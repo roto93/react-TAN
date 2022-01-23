@@ -33,7 +33,7 @@ const Upload = () => {
                 body: JSON.stringify(requestBody)
             })
             const json = await res.json()
-            console.log(json)
+            // console.log(json)
 
             if (json.status === 'resolved') {
                 toast.success('Update successfully', {
@@ -45,7 +45,7 @@ const Upload = () => {
                     draggable: true,
                     progress: undefined,
                 })
-                console.log(json.updated_issue_time)
+                // console.log(json.updated_issue_time)
                 setLastUpdateTime(json.updated_issue_time)
                 setTypeString('')
                 setContent('')
@@ -77,7 +77,7 @@ const Upload = () => {
     }
 
     const onTypeClick = (text) => {
-        console.log(text)
+        // console.log(text)
         setTypeString(prev => prev + Abbreviation[text])
     }
 
@@ -138,7 +138,7 @@ const Upload = () => {
                                 onKeyDown={(e) => {
                                     let height = e.target.scrollHeight
                                     if (height < 650) {
-                                        console.log(height)
+                                        // console.log(height)
                                         setTextareaHeight(`${height}px`)
                                     }
                                 }}

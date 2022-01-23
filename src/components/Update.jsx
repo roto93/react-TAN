@@ -11,7 +11,7 @@ const Upload = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [textareaHeight, setTextareaHeight] = useState(undefined);
-    console.log(id)
+    // console.log(id)
 
     const formValidate = () => {
         if (type === '') return
@@ -42,7 +42,7 @@ const Upload = () => {
                 body: JSON.stringify(requestBody)
             })
             const json = await res.json()
-            console.log(json)
+            // console.log(json)
 
             if (json.status === 'resolved') toast.success('Update successfully', {
                 position: "bottom-center",
@@ -76,7 +76,7 @@ const Upload = () => {
         setTitle(issue.title)
         setContent(issue.content)
 
-        console.log(time)
+        // console.log(time)
 
     }
 
@@ -153,7 +153,7 @@ const Upload = () => {
                                 onKeyDown={(e) => {
                                     let height = e.target.scrollHeight
                                     if (height < 650) {
-                                        console.log(height)
+                                        // console.log(height)
                                         setTextareaHeight(`${height}px`)
                                     }
                                 }}

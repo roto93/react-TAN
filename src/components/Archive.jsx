@@ -36,8 +36,8 @@ const Archive = () => {
 
     const reverseYears = () => {
         setShouldReverseYears(!shouldReverseYears)
-        console.log('reverse')
-        console.log(shouldReverseYears)
+        // console.log('reverse')
+        // console.log(shouldReverseYears)
     }
 
 

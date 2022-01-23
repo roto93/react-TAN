@@ -25,9 +25,9 @@ function App() {
 
   const [ref, isIntersecting] = useObserver({ threshold: 0.45 })
 
-  useEffect(() => {
-    console.log(isIntersecting)
-  }, [isIntersecting])
+  // useEffect(() => {
+  //   console.log(isIntersecting)
+  // }, [isIntersecting])
 
   return (
     <AuthProvider>

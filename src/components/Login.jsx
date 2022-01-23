@@ -45,9 +45,9 @@ const Login = () => {
     }
 
 
-    useEffect(() => {
-        console.log(currentUser)
-    }, [])
+    // useEffect(() => {
+    //     console.log(currentUser)
+    // }, [])
 
     if (currentUser) return (
         <div className="">

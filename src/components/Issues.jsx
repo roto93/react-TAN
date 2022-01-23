@@ -100,7 +100,7 @@ const Issues = () => {
             dateArray.sort((a, b) => {
                 let aDate = Number(a.date)
                 let bDate = Number(b.date)
-                console.log(aDate, bDate)
+                // console.log(aDate, bDate)
                 return aDate < bDate ? -1 : 1
             })
 
@@ -119,7 +119,7 @@ const Issues = () => {
 
             setIssueData(newDateArray)
         } catch (e) {
-            console.log(e)
+            // console.log(e)
         } finally {
             setIsFetching(false)
         }

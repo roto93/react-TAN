@@ -37,10 +37,10 @@ export const AuthProvider = ({ children }) => {
             if (user) {
                 const _username = user.email.split('@')[0]
                 setUsername(_username)
-                console.log(`Logged in as ${_username}`)
+                // console.log(`Logged in as ${_username}`)
             } else {
                 setUsername('')
-                console.log(`User has logged out.`)
+                // console.log(`User has logged out.`)
             }
         })
         return unsubscribe

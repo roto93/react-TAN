@@ -24,7 +24,7 @@ const Detail = () => {
         const t1 = new Date()
         const res = await fetch(`${API_URI}/archive/id/${id}`)
         const json = (await res.json())
-        console.log(json)
+        // console.log(json)
         if (json.status == 'resolved') {
             const issue = json.issue
             setTime(`${issue.year} - ${issue.date.slice(0, 2)} - ${issue.date.slice(2, 4)}`)
@@ -34,7 +34,7 @@ const Detail = () => {
 
             setContent(lines)
             const t2 = new Date()
-            console.log(`Use ${t2 - t1}ms to fetch`)
+            // console.log(`Use ${t2 - t1}ms to fetch`)
         } else {
             setTitle('Not Found')
             setContent([`${json.message}`])
@@ -47,7 +47,7 @@ const Detail = () => {
                 method: "DELETE"
             })
             const json = await res.json()
-            console.log(json.status, ',', json.message)
+            // console.log(json.status, ',', json.message)
             if (json.status === 'resolved') {
                 setTimeout(() => {
                     const prevPath = history.location.state.from

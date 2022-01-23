@@ -1,5 +1,5 @@
 export const issueSort = (data) => {
-    console.log(data)
+    // console.log(data)
     if (data.issues.length === 0) return []
     let newData = [...data.issues]
 

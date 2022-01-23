@@ -37,7 +37,7 @@ const News = () => {
         setIssuesArray(lastDayIssues)
         setIsFetching(false)
         const t2 = new Date()
-        console.log(`Use ${t2 - t1}ms to fetch`)
+        // console.log(`Use ${t2 - t1}ms to fetch`)
     }
 
     useEffect(() => {
