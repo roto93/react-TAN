@@ -46,9 +46,11 @@ const Archive = () => {
     }
 
     const onSearchYear = (inputYear) => {
-        let newArr = [...yearArray]
+        let newArr = [...getAllYears()]
 
-        newArr = shouldReverseYears ? newArr.sort(() => -1) : newArr
+        const isDecreased = Number(newArr[0]) > Number(newArr[1])
+
+        newArr = (shouldReverseYears & isDecreased) ? newArr.sort(() => -1) : newArr
 
         if (searchText === '') return newArr
         const digit = inputYear.length
