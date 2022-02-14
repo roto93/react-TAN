@@ -1,3 +1,9 @@
+flexbox(direction, justifyContent, alignItems)
+    display flex
+    flex-direction: direction
+    justify-content: justifyContent
+    align-items: alignItems
+
 *
     color:#fff
     box-sizing: border-box
@@ -743,14 +749,26 @@ html
 .detail__admin
     display-flex row space-evenly center
     width 100%
+    max-width: 300px
     height 100px
     margin 0 auto
 
-.detail__deleteThis
+.detail__button
+    flexbox(row, center, center)
+    user-select: none
     cursor pointer
-
-.detail__editThis
-    cursor pointer
+    width 88px
+    height 40px
+    color #fff
+    font-size 16px
+    background-color #33333333
+    border 1px solid #fff
+    border-radius: 4px
+    &:active
+        opacity 0.3
+    &.delete
+        color: #EF5350
+        border-color: #EF5350
 
 .detail__back-to-top
     cursor pointer
@@ -1112,10 +1130,12 @@ html
     left 50%
     right 50%
     transform translate(-50%,-50%)
-    background-color #ffe8d6
+    background-color #eeeeeeee
     width 240px
     height 140px
+    border-radius 8px
     z-index 100
+    overflow: hidden
     display-flex column space-between center
     
 .confirmModal__message

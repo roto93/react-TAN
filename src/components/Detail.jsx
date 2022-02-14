@@ -25,7 +25,7 @@ const Detail = () => {
         const res = await fetch(`${API_URI}/archive/id/${id}`)
         const json = (await res.json())
         // console.log(json)
-        if (json.status == 'resolved') {
+        if (json.status === 'resolved') {
             const issue = json.issue
             setTime(`${issue.year} - ${issue.date.slice(0, 2)} - ${issue.date.slice(2, 4)}`)
             let wrappedTitle = titleDoBreak(issue.title)
@@ -88,14 +88,15 @@ const Detail = () => {
                 {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser
                     && <div className="detail__admin" >
-                        <img
+                        {/* <img
                             className="detail__deleteThis"
                             onClick={confirmDelete}
                             src={DeleteThis}
                             alt="Detele This"
                             style={{ width: '100px', height: '100px' }}
-                        />
-                        <button className="detail__editThis" onClick={onEdit}>Edit</button>
+                        /> */}
+                        <div className="detail__button delete" onClick={confirmDelete}>Delete</div>
+                        <div className="detail__button" onClick={onEdit}>Edit</div>
                     </div>
                 }
 
@@ -121,14 +122,15 @@ const Detail = () => {
                 {/* 祖刻薄 */}
                 {title !== 'Not Found' && currentUser
                     && <div className="detail__admin" >
-                        <img
+                        {/* <img
                             className="detail__deleteThis"
                             onClick={confirmDelete}
                             src={DeleteThis}
                             alt="Detele This"
                             style={{ width: '100px', height: '100px' }}
-                        />
-                        <button className="detail__editThis" onClick={onEdit}>Edit</button>
+                        /> */}
+                        <div className="detail__button delete" onClick={confirmDelete}>Delete</div>
+                        <div className="detail__button" onClick={onEdit}>Edit</div>
                     </div>
                 }
                 <ConfirmModal
