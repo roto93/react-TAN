@@ -171,11 +171,14 @@ const Issues = () => {
                     </div>
 
                     {isFetching || issueData.length === 0
-                        && <p style={{ fontSize: '1.5rem', fontFamily: "Inder", margin: "5em auto", color: "#ddd", whiteSpace: 'pre' }}>
-                            --------   This page is waiting for update.   --------
+                        && <p style={{
+                            whiteSpace: 'pre-wrap', fontSize: '1.5rem', lineHeight: 2, opacity: 0.7,
+                            fontFamily: "Inder", margin: "5em auto", color: "#cdd", textAlign: 'center'
+                        }}>
+                            This page is waiting for update.
                         </p>}
 
-                    {isFetching || issueData.length == 0 || <div className="detail__back-to-top"
+                    {isFetching || issueData.length === 0 || <div className="detail__back-to-top"
                         onClick={backToTop}
                     >
                         <div className="detail__back-to-top__icon">
