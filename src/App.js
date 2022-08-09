@@ -1,6 +1,6 @@
 import './css/reset.css'
 import './css/App.css';
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,

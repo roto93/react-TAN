@@ -11,7 +11,6 @@ const News = () => {
     const history = useHistory()
 
     const getIssue = async () => {
-        const t1 = new Date()
         const currentYear = new Date().getFullYear()
         const res = await fetch(`${API_URI}/archive/${currentYear}`)
         const data = await res.json()
@@ -36,8 +35,6 @@ const News = () => {
 
         setIssuesArray(lastDayIssues)
         setIsFetching(false)
-        const t2 = new Date()
-        // console.log(`Use ${t2 - t1}ms to fetch`)
     }
 
     useEffect(() => {
@@ -78,9 +75,9 @@ const News = () => {
 
 export default News
 
-const issues = [
-    'TAN (Issue Apr 19 - 25, 2021)',
-    '[EAVN2021B] Call for Proposals - East Asian VLBI Network (EAVN) 2021B',
-    'NCTS Theoretical and Computational Astrophysics Summer Student Program',
-    '[KVN2021B] Call for Proposals - Korean VLBI Network (KVN) 2021B',
-]
+// const issues = [
+//     'TAN (Issue Apr 19 - 25, 2021)',
+//     '[EAVN2021B] Call for Proposals - East Asian VLBI Network (EAVN) 2021B',
+//     'NCTS Theoretical and Computational Astrophysics Summer Student Program',
+//     '[KVN2021B] Call for Proposals - Korean VLBI Network (KVN) 2021B',
+// ]

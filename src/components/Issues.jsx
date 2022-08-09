@@ -36,7 +36,7 @@ const CategoryLink = ({ year, category }) => {
 
 const EachDay = ({ data, categoryToShow }) => {
     const history = useHistory()
-    const { width: winX, height: winY } = useWindowSize()
+    const { height: winY } = useWindowSize()
 
     if (categoryToShow !== 'All' & !data.issuesArray.some(issue => issue.type === categoryToShow)) return null
     return (
@@ -64,7 +64,7 @@ const Issues = () => {
     const { selectedYear, categoryToShow } = useParams()
     const [issueData, setIssueData] = useState([]);
     const [isFetching, setIsFetching] = useState(true);
-    const { width: winX, height: winY } = useWindowSize()
+    const { height: winY } = useWindowSize()
 
     const backToTop = () => {
         window.scrollTo(0, winY - 100)
@@ -170,7 +170,7 @@ const Issues = () => {
                         </div>
                     </div>
 
-                    {isFetching || issueData.length === 0
+                    {(isFetching || issueData.length === 0)
                         && <p style={{
                             whiteSpace: 'pre-wrap', fontSize: '1.5rem', lineHeight: 2, opacity: 0.7,
                             fontFamily: "Inder", margin: "5em auto", color: "#cdd", textAlign: 'center'
@@ -197,51 +197,51 @@ const Issues = () => {
 
 export default Issues
 
-const _issueData = [
-    {
-        date: "0801",
-        issuesArray: [
-            {
-                "date": '0801',
-                "id": 3,
-                "title": "POST from TAN 1",
-                "type": "Conferences",
-                "year": 2021
-            },
-            {
-                "date": "0801",
-                "id": 4,
-                "title": "POST from TAN 2",
-                "type": "Conferences",
-                "year": 2021
-            }
-        ]
-    }
-]
+// const _issueData = [
+//     {
+//         date: "0801",
+//         issuesArray: [
+//             {
+//                 "date": '0801',
+//                 "id": 3,
+//                 "title": "POST from TAN 1",
+//                 "type": "Conferences",
+//                 "year": 2021
+//             },
+//             {
+//                 "date": "0801",
+//                 "id": 4,
+//                 "title": "POST from TAN 2",
+//                 "type": "Conferences",
+//                 "year": 2021
+//             }
+//         ]
+//     }
+// ]
 
 // 這種結構適合NoSQL
-const issueData_ = [
-    {
-        date: '1/27',
-        issues: [
-            { category: 'Announcement', title: 'Hi, this is going to be a quick walk through.' },
-            { category: 'Opportunities', title: 'This is a job opportunity.' },
-            { category: 'Conferences', title: 'Lorem ipsum dolor sit amettt.' },
-        ]
-    }, {
-        date: '3/2',
-        issues: [
-            { category: 'Announcement', title: 'Hi, this is going to be a very very long walk through.' },
-            { category: 'Opportunities', title: 'This is a second job opportunity.' },
-            { category: 'Conferences', title: 'Lorem ipsum dolor sit amets.' },
-        ]
-    }, {
-        date: '11/17',
-        issues: [
-            { category: 'Announcement', title: 'Hi, this is going to be a very very long walk through.' },
-            { category: 'Opportunities', title: 'This is a second job opportunity.' },
-            { category: 'Conferences', title: 'Lorem ipsum dolor sit amets.' },
-        ]
-    },
+// const issueData_ = [
+//     {
+//         date: '1/27',
+//         issues: [
+//             { category: 'Announcement', title: 'Hi, this is going to be a quick walk through.' },
+//             { category: 'Opportunities', title: 'This is a job opportunity.' },
+//             { category: 'Conferences', title: 'Lorem ipsum dolor sit amettt.' },
+//         ]
+//     }, {
+//         date: '3/2',
+//         issues: [
+//             { category: 'Announcement', title: 'Hi, this is going to be a very very long walk through.' },
+//             { category: 'Opportunities', title: 'This is a second job opportunity.' },
+//             { category: 'Conferences', title: 'Lorem ipsum dolor sit amets.' },
+//         ]
+//     }, {
+//         date: '11/17',
+//         issues: [
+//             { category: 'Announcement', title: 'Hi, this is going to be a very very long walk through.' },
+//             { category: 'Opportunities', title: 'This is a second job opportunity.' },
+//             { category: 'Conferences', title: 'Lorem ipsum dolor sit amets.' },
+//         ]
+//     },
 
-]
+// ]

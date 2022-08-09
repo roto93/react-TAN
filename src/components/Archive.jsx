@@ -14,7 +14,7 @@ const Archive = () => {
     const [yearArray, setYearArray] = useState([]);
     const [searchText, setSearchText] = useState('');
     const [shouldReverseYears, setShouldReverseYears] = useState(false);
-    const { path, url } = useRouteMatch()
+    const { path } = useRouteMatch()
     const history = useHistory()
     const { currentUser } = useAuth()
 
@@ -27,7 +27,7 @@ const Archive = () => {
                 onClick={navigateToYear}
                 className="archive__file"
             >
-                <img src={file} className="archive__fileImg" />
+                <img src={file} alt="year-folder" className="archive__fileImg" />
                 <h2 className="archive__year">{year}</h2>
             </div>
         )

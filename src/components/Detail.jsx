@@ -3,7 +3,6 @@ import ReactLoading from 'react-loading'
 import { useHistory, useParams } from 'react-router-dom';
 import { useAuth } from '../hooks/AuthContext';
 import { API_URI } from '../lib/ENV';
-import DeleteThis from '../images/DeleteThis.jpg'
 import ConfirmModal from './ConfirmModal';
 import { titleDoBreak } from '../lib/lib';
 import { BackToTop } from '../images/SVG'
@@ -17,11 +16,10 @@ const Detail = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState([]);
     const [showConfirmModal, setShowConfirmModal] = useState(false);
-    const { width: winX, height: winY } = useWindowSize()
+    const { height: winY } = useWindowSize()
 
 
     const getText = async () => {
-        const t1 = new Date()
         const res = await fetch(`${API_URI}/archive/id/${id}`)
         const json = (await res.json())
         // console.log(json)
@@ -33,8 +31,6 @@ const Detail = () => {
             const lines = issue.content.split('\n')
 
             setContent(lines)
-            const t2 = new Date()
-            // console.log(`Use ${t2 - t1}ms to fetch`)
         } else {
             setTitle('Not Found')
             setContent([`${json.message}`])

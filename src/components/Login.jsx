@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import { auth } from '../firebase';
+import React, { useState } from 'react'
 import Upload from './Upload';
 import AutoUpload from './AutoUpload';
 import { ImCross } from 'react-icons/im'
 import { useAuth } from '../hooks/AuthContext';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
-} from "react-router-dom";
+import { Route } from "react-router-dom";
 
 const Login = () => {
     const { currentUser, signin, signup } = useAuth()
@@ -30,7 +24,7 @@ const Login = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (mode == 'sign in') {
+        if (mode === 'sign in') {
             // 註冊模式
             signup().catch(err => setError(err.message))
         } else {

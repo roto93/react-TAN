@@ -13,7 +13,7 @@ export function ScrollToTopOnMount() {
     const { pathname } = useLocation()
     useEffect(() => {
 
-        const path = pathname.split('/')[1]
+        // const path = pathname.split('/')[1]
 
         if (pathname.slice(0, 9) === '/archive/') {
             window.scrollTo(0, winY - 50);

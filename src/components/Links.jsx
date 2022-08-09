@@ -19,7 +19,7 @@ const LinkCard = ({ item }) => {
 
     return (
         <div className="links__card">
-            <a target="_blank" href={uri} className="links__card__a">
+            <a target="_blank" href={uri} className="links__card__a" rel="noreferrer noopener">
                 <div className="links__card__logoBox" >
                     <img src={logoUri} alt={abbr} className="links__card__img" />
                 </div>
