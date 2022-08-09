@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Switch, Route, useRouteMatch } from 'react-router'
+import { Switch, Route, useRouteMatch } from 'react-router-dom'
 import { useHistory } from 'react-router-dom'
 import Detail from './Detail'
 import Issues from './Issues'

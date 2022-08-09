@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useHistory, useLocation } from 'react-router'
+import { useHistory, useLocation } from 'react-router-dom'
 import useScroll from '../hooks/useScroll'
 import useWindowSize from '../hooks/useWindowSize'
 import * as SVG from '../images/SVG'

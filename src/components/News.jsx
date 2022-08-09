@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from 'react-router';
+import { useHistory } from 'react-router-dom';
 import { API_URI } from '../lib/ENV'
 import { issueSort } from '../lib/lib';
 import { issueArrayTitlesIgnoreBreak } from '../lib/lib';
