@@ -43,7 +43,7 @@ const linksArray = [
         chineseTitle: "師大地科系",
         abbreviation: 'NTNU ES',
         uri: 'https://www.es.ntnu.edu.tw',
-        logoUri: 'https://i.imgur.com/9n3EGHu.jpg'
+        logoUri: 'https://upload.cc/i1/2022/08/10/As7EXV.jpg'
     },
     {
         title: 'The Astronomical Society of the Republic of China(Taiwan)',
@@ -57,10 +57,7 @@ const linksArray = [
         chineseTitle: "師大 - 天文與重力中心",
         abbreviation: 'CAG',
         uri: 'https://www.cag.ntnu.edu.tw',
-        logoUri: 'https://i.imgur.com/bhoZXGF.png'
+        logoUri: 'https://upload.cc/i1/2022/08/10/XgTfLy.jpg'
     },
-
-
-
 ]
 
