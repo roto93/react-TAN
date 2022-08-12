@@ -32,8 +32,10 @@ const Upload = () => {
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(requestBody)
             })
+            console.log(res)
+            if (res.status === 500) return toast.error(`Update failed. ${res.statusText}`)
             const json = await res.json()
-            // console.log(json)
+            console.log(json)
 
             if (json.status === 'resolved') {
                 toast.success('Update successfully', {
