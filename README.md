@@ -3,6 +3,8 @@
 
 <img src="https://i.imgur.com/kfhxG5X.jpg" width=50%/>
 
+This project is using [Vite](https://vitejs.dev) as the bundler.
+
 [Check this out](http://solis.es.ntnu.edu.tw:5000/home)
 
 [Behance link](https://www.behance.net/gallery/125247667/Web-TAN-Web-Redesign) 
