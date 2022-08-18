@@ -4,6 +4,7 @@
 }
 html {
   background-color: #222f43;
+  scroll-behavior: smooth;
 }
 .container {
   width: 100%;
@@ -757,6 +758,16 @@ html {
   font-size: 16px;
   font-family: "Noto Sans";
   margin-left: 16px;
+}
+.detail__p--wait-for-update {
+  white-space: 'pre-wrap';
+  font-size: 1.5rem;
+  line-height: 2;
+  opacity: 0.7;
+  font-family: "Inder";
+  margin: 5em auto;
+  color: #cdd;
+  text-align: center;
 }
 .letter {
   padding: 2em 0;

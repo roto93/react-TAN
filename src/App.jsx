@@ -22,12 +22,7 @@ import useObserver from './hooks/useObserver';
 import 'react-toastify/dist/ReactToastify.min.css'
 
 function App() {
-
   const [ref, isIntersecting] = useObserver({ threshold: 0.45 })
-
-  // useEffect(() => {
-  //   console.log(isIntersecting)
-  // }, [isIntersecting])
 
   return (
     <AuthProvider>

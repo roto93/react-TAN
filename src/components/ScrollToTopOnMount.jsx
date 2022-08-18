@@ -16,7 +16,7 @@ export function ScrollToTopOnMount() {
         // const path = pathname.split('/')[1]
 
         if (pathname.slice(0, 9) === '/archive/') {
-            window.scrollTo(0, winY - 50);
+            window.scrollTo(0, winY - 50)
         }
 
         // if (path === 'home') {
