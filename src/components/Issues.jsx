@@ -74,8 +74,17 @@ const Issues = () => {
         window.scrollTo(0, document.body.scrollHeight)
     }
 
+    const someDataFetched = () => {
+        return (!isFetching & issueData.length > 0) || null
+    }
+
+    const noDataFetched = () => {
+        return (!isFetching & issueData.length === 0) || null
+    }
+
     const fetchThisYearIssues = async () => {
         try {
+            setIsFetching(true)
             let fetchYear_URI = `${API_URI}/archive/${selectedYear}`
             const res = await fetch(fetchYear_URI)
             const data = await res.json()
@@ -85,14 +94,15 @@ const Issues = () => {
             // 整理出一個 array，以日期分類所有 issue
             const dateArray = []
             newData.forEach(item => {
-                const dateExists = !dateArray.some(i => item.date === i?.date)
-                const yearExists = !dateArray.some(i => item.year === i?.year)
-                let newIssue = { id: item.id, type: item.type, year: item.year, date: item.date, title: item.title }
-                if (yearExists & dateExists) {
-                    dateArray.push({ date: item.date, issuesArray: [{ ...newIssue }] })
+                const dateNotExists = !dateArray.some(i => item.date === i?.date)
+                const yearNotExists = !dateArray.some(i => item.year === i?.year)
+                if (yearNotExists & dateNotExists) {
+                    // dateArray 還沒有這個日期，加上新的日期
+                    dateArray.push({ date: item.date, issuesArray: [{ ...item }] })
                 } else {
+                    // 已有此日期，將 issue 放進該日期
                     let index = dateArray.findIndex(i => i.date === item.date)
-                    dateArray[index].issuesArray.push({ ...newIssue })
+                    dateArray[index].issuesArray.push({ ...item })
                 }
             })
 
@@ -146,21 +156,19 @@ const Issues = () => {
                         <CategoryLink year={selectedYear} category={'Miscellaneous'} />
                     </ul>
 
-                    {isFetching || issueData.length === 0 || <div className="detail__back-to-top"
-                        onClick={goToBottom}
-                    >
-                        <div className="detail__back-to-top__icon flipped">
-                            <BackToTop />
+                    {someDataFetched() &&
+                        <div className="detail__back-to-top" onClick={goToBottom}>
+                            <div className="detail__back-to-top__icon flipped">
+                                <BackToTop />
+                            </div>
+                            <p className="detail__back-to-top__text">Go to bottom</p>
                         </div>
-                        <p className="detail__back-to-top__text">Go to bottom</p>
-                    </div>}
+                    }
 
                     <div className="issues__table">
                         <div className="issues__thead">
-                            {/* <div className="issues__tr"> */}
                             <div className="issues__th__date">Date</div>
                             <div className="issues__th__issue">Issue</div>
-                            {/* </div> */}
                         </div>
                         <div className="issues__tbody">
                             {issueData.map(data => <EachDay
@@ -170,27 +178,27 @@ const Issues = () => {
                         </div>
                     </div>
 
-                    {(isFetching || issueData.length === 0)
-                        && <p style={{
-                            whiteSpace: 'pre-wrap', fontSize: '1.5rem', lineHeight: 2, opacity: 0.7,
-                            fontFamily: "Inder", margin: "5em auto", color: "#cdd", textAlign: 'center'
-                        }}>
-                            This page is waiting for update.
-                        </p>}
 
-                    {isFetching || issueData.length === 0 || <div className="detail__back-to-top"
-                        onClick={backToTop}
-                    >
-                        <div className="detail__back-to-top__icon">
-                            <BackToTop />
+                    {noDataFetched() &&
+                        <p className="detail__p--wait-for-update" >
+                            This page is waiting for update.
+                        </p>
+                    }
+
+                    {someDataFetched() &&
+                        <div className="detail__back-to-top" onClick={backToTop}>
+                            <div className="detail__back-to-top__icon">
+                                <BackToTop />
+                            </div>
+                            <p className="detail__back-to-top__text">Back to top</p>
                         </div>
-                        <p className="detail__back-to-top__text">Back to top</p>
-                    </div>}
+                    }
                     {isFetching && <div style={{ paddingTop: "50px" }}>
                         <ReactLoading type="bubbles" width="60px" height="30px" color="white" />
-                    </div>}
+                    </div>
+                    }
                 </div>
-            </div>
+            </div >
         </div >
     )
 }
