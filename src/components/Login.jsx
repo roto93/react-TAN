@@ -20,11 +20,11 @@ const Login = () => {
     }
 
     const mode = 'log in'
-    // const mode = 'sign in'
+    // const mode = 'sign up'
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (mode === 'sign in') {
+        if (mode === 'sign up') {
             // 註冊模式
             signup().catch(err => setError(err.message))
         } else {

@@ -50,22 +50,19 @@ const Upload = () => {
         } catch (e) { console.log('[Post error]', e) }
     }
 
-    const fetchIssue = async () => {
-        const res = await fetch(`${API_URI}/archive/id/${id}`)
-        const json = await res.json()
-        const issue = json.issue
-        setType(issue.type)
-        setTime(`${issue.year}-${issue.date.slice(0, 2)}-${issue.date.slice(2, 4)}`)
-        setTitle(issue.title)
-        setContent(issue.content)
-
-        // console.log(time)
-
-    }
 
     useEffect(() => {
+        const fetchIssue = async () => {
+            const res = await fetch(`${API_URI}/archive/id/${id}`)
+            const json = await res.json()
+            const issue = json.issue
+            setType(issue.type)
+            setTime(`${issue.year}-${issue.date.slice(0, 2)}-${issue.date.slice(2, 4)}`)
+            setTitle(issue.title)
+            setContent(issue.content)
+        }
         fetchIssue()
-    }, [])
+    }, [id])
 
     const changeType = (e) => setType(e.target.value)
     const changeTitle = (e) => setTitle(e.target.value)

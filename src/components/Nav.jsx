@@ -67,7 +67,6 @@ const Nav = ({ isBannerIntersecting }) => {
 
     }, [winX, pathname])
 
-    const toggleTab = (tabName) => pathname.split('/')[1] === tabName ? 'active' : ''
 
     return (
         <nav ref={navRef} className="nav">
@@ -80,14 +79,10 @@ const Nav = ({ isBannerIntersecting }) => {
                         </h2>
                     </div>
                     <ul className="nav__list">
-                        <li onClick={() => { onNavItemClick('home') }} className={`nav__item ${toggleTab('home')}`}>Home
-                            <div className="nav__star"><SVG.Star /></div></li>
-                        <li onClick={() => { onNavItemClick('about') }} className={`nav__item ${toggleTab('about')}`}>About
-                            <div className="nav__star"><SVG.Star /></div></li>
-                        <li onClick={() => { onNavItemClick('links') }} className={`nav__item ${toggleTab('links')}`}>Links
-                            <div className="nav__star"><SVG.Star /></div></li>
-                        <li onClick={() => { onNavItemClick('archive') }} className={`nav__item ${toggleTab('archive')}`}>Archive
-                            <div className="nav__star"><SVG.Star /></div></li>
+                        <NavButton {...{ onNavItemClick }} title={'Home'} />
+                        <NavButton {...{ onNavItemClick }} title={'About'} />
+                        <NavButton {...{ onNavItemClick }} title={'Links'} />
+                        <NavButton {...{ onNavItemClick }} title={'Archive'} />
                         <li ref={tabHighlightRef} className="nav__highlight"></li>
                     </ul>
                 </div>
@@ -97,3 +92,15 @@ const Nav = ({ isBannerIntersecting }) => {
 }
 
 export default Nav
+
+const NavButton = ({ onNavItemClick, title }) => {
+    const { pathname } = useLocation()
+    const toggleTab = (tabName) => pathname.split('/')[1] === tabName ? 'active' : ''
+
+    return (
+        <li onClick={() => { onNavItemClick(title.toLowerCase()) }} className={`nav__item ${toggleTab(title.toLowerCase())}`}>
+            {title}
+            <div className="nav__star"><SVG.Star /></div>
+        </li>
+    )
+}
