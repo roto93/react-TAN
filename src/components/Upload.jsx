@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { errorToast, successToast } from '../lib/toast';
 
 const Upload = () => {
   const [type, setType] = useState('');
@@ -48,28 +49,12 @@ const Upload = () => {
       // console.log(json)
 
       if (json.status === 'resolved') {
-        toast.success('Update successfully', {
-          position: "bottom-center",
-          autoClose: 2000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        })
+        successToast('Update successfully')
         setType('')
         setTitle('')
         setContent('')
       }
-      if (json.status === 'rejected') toast.error(`Update failed: ${json.message}`, {
-        position: "bottom-center",
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      })
+      if (json.status === 'rejected') errorToast(`Update failed: ${json.message}`)
     } catch (e) { console.log('[Post error]', e) }
 
   }

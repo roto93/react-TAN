@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom';
 import { auth } from '../firebase';
 import { API_URI } from '../lib/ENV';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { errorToast, successToast } from '../lib/toast';
 const Upload = () => {
     const { id } = useParams()
     const history = useHistory()
@@ -44,26 +45,8 @@ const Upload = () => {
             const json = await res.json()
             // console.log(json)
 
-            if (json.status === 'resolved') toast.success('Update successfully', {
-                position: "bottom-center",
-                autoClose: 2000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
-
-            if (json.status === 'rejected') toast.error('Update failed', {
-                position: "bottom-center",
-                autoClose: 2000,
-                hideProgressBar: true,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            })
-
+            if (json.status === 'resolved') successToast('Update successfully')
+            if (json.status === 'rejected') errorToast('Update failed')
         } catch (e) { console.log('[Post error]', e) }
     }
 
