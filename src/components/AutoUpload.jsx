@@ -91,7 +91,6 @@ const Upload = () => {
                                         value={typeString}
                                         onChange={changeTypeString}
                                         contentEditable={false}
-                                        onKeyPress={preventSubmit}
                                     />
                                     <button
                                         type="button"
@@ -109,6 +108,7 @@ const Upload = () => {
                                                 {text}
                                             </button>
                                         ))}
+                                    <input type="submit" hidden />
                                 </div>
 
 
